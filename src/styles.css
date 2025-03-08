@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+body {
+  @apply bg-secondary-500;
+}
+
+@theme {
+  --color-mint-100: oklch(0.97 0.15 145);
+  --color-primary-300: #ffca41;
+  --color-primary-500: #ffbe41;
+  --color-primary-800: #cc9734;
+  --color-secondary-300: #514f4f;
+  --color-secondary-500: #2b2a2a;
+  --color-secondary-800: #1b1818;
+}

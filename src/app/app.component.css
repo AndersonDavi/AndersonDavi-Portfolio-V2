@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+#title {
+  @apply bg-[url("/backgrounds/bg2.png")] bg-contain bg-center border-spacing-y-8 sm:bg-contain bg-no-repeat sm:h-screen h-96 border;
+}
+
+* {
+  @apply p-0 m-0;
+}
+
