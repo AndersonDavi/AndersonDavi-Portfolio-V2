@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "../../../../styles.css";
+
+img {
+  @apply size-14;
+}
+footer {
+  @apply h-40 flex items-center justify-center p-10 border-t border-primary-300/25;
+}

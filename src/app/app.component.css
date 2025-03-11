@@ -11,6 +11,18 @@
 #about {
   @apply bg-secondary-800 min-h-screen relative border border-red-400;
 }
+#curriculum {
+  @apply bg-secondary-500 min-h-screen;
+}
+#skills {
+  @apply bg-secondary-800 min-h-screen;
+}
+#projects {
+  @apply bg-secondary-500 min-h-screen;
+}
+#contact {
+  @apply bg-secondary-800 min-h-screen;
+}
 
 .rasgadura-up {
   @apply absolute inset-x-0 -top-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura1.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
