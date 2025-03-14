@@ -4,9 +4,12 @@ img {
   @apply size-14;
 }
 
-nav{
-  @apply bg-secondary-800/40  fixed z-10 w-[95vw] border-2 border-primary-300/25 mt-2 p-2 mx-auto flex justify-between;
+nav {
+  @apply fixed z-20 w-full p-4 h-10;
 }
-ul{
-  @apply flex items-center justify-center text-white border border-red-200 gap-3 uppercase italic font-bold;
+div {
+  @apply mx-auto flex justify-between border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl;
+}
+ul {
+  @apply flex items-center justify-center text-white border border-red-200/20 gap-3 uppercase italic font-bold;
 }

@@ -9,21 +9,65 @@
 }
 
 #about {
-  @apply bg-secondary-800 min-h-screen relative border border-red-400;
+  @apply bg-secondary-800 min-h-screen relative border border-red-400 pt-[3vw] flex flex-col lg:flex-row items-center justify-center p-5 px-20 lg:px-10 gap-5 italic mx-auto z-10;
 }
 #curriculum {
-  @apply bg-secondary-500 min-h-screen;
+  @apply bg-secondary-500 h-auto min-h-[700px] flex  flex-col md:flex-row  items-end justify-center relative overflow-hidden gap-5 p-5;
+}
+@keyframes scroll {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  @apply flex;
+  animation: scroll 60s linear infinite;
+}
+
+.experience-title-card {
+  @apply bg-secondary-800 border border-primary-300/25 p-2 m-2 rounded-md h-28 w-[100%] max-w-[500px] mx-auto flex items-center justify-center uppercase italic leading-7 font-black text-center text-5xl relative;
+}
+
+.experience-cotent-list {
+  @apply h-auto w-[100%] max-w-[500px] flex flex-col items-center justify-center gap-2;
+}
+.experience-cotent-list-item {
+  @apply bg-secondary-800 border border-primary-300/25  rounded-md h-auto w-[100%] max-w-[500px] flex items-start justify-center flex-col p-3;
 }
 #skills {
-  @apply bg-secondary-800 min-h-screen;
+  @apply bg-secondary-800 h-auto min-h-[700px] flex flex-col lg:flex-row items-start justify-center border-dashed border-t-2 rotate-2 relative -left-5 mt-10 p-10 pb-20;
+  width: calc(100vw + 100px);
+  padding-right: calc(100px + 2.5rem);
 }
+.skills-container {
+  @apply -rotate-2 border border-red-400 flex flex-col justify-center items-start size-full;
+  width: calc(100vw - 100px);
+}
+.skills-category-list {
+  @apply flex flex-row w-full h-auto justify-center gap-6 text-2xl  items-center flex-wrap my-10;
+}
+.skills-category-list li {
+  @apply border-2 border-white p-2 rounded-3xl px-10;
+}
+.skills-icons-list {
+  @apply flex flex-row w-full h-auto justify-center gap-6 items-center flex-wrap;
+}
+.skills-icons-list li {
+  @apply p-2 rounded-3xl  object-contain size-36 flex flex-col items-center gap-3 mb-5 text-xl;
+}
+
 #projects {
-  @apply bg-secondary-500 min-h-screen;
+  @apply bg-secondary-500 min-h-screen flex flex-col lg:flex-row items-center justify-center;
 }
 #contact {
-  @apply bg-secondary-800 min-h-screen;
+  @apply bg-secondary-800 min-h-screen flex flex-col lg:flex-row items-center justify-center;
 }
 
 .rasgadura-up {
   @apply absolute inset-x-0 -top-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura1.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
+}
+
+.rasgadura-down {
+  @apply absolute inset-x-0 -bottom-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura2.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
 }

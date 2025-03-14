@@ -1,11 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap");
 
+* {
+  @apply scroll-smooth scroll-mt-[60px] font-roboto;
+}
 body {
-  @apply bg-secondary-500;
+  @apply bg-secondary-500 text-white;
 }
 
 @theme {
+  --font-roboto: "Roboto", sans-serif;
   --color-mint-100: oklch(0.97 0.15 145);
   --color-primary-300: #ffca41;
   --color-primary-500: #ffbe41;
