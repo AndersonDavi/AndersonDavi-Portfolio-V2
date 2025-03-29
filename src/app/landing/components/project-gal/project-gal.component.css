@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "../../../../styles.css";
+
+:host {
+  display: block;
+}
+.projects-container {
+  @apply flex flex-col lg:flex-row  items-center justify-center gap-5 p-7 lg:p-20;
+}
+.project-selector {
+  @apply flex lg:flex-col p-2 m-2  w-full lg:w-1/3;
+}
+.project-selector li {
+  @apply size-full  border rounded-md h-28 aspect-square;
+}
+.project-selector li img {
+  @apply size-full object-contain;
+}
+.project-info {
+  @apply border-2 border-primary-300/25  rounded-md h-auto w-full gap-2 flex flex-col;
+}
+.img-bg {
+  @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat aspect-video;
+}
+.img-min {
+  @apply size-48 border-amber-800 object-cover
+  absolute transition-all duration-150 shadow-sm;
+}
+
+.img-min-1 {
+  @apply -top-5 -left-5 -rotate-6;
+}
+.img-min-1:hover {
+  @apply -top-6 -left-6 -rotate-7 shadow-xl shadow-primary-500/25 scale-105;
+}
+.img-min-1:hover > img {
+  @apply scale-75;
+}
+.img-min-2 {
+  @apply -bottom-5 -right-5 rotate-6;
+}
+.img-min-2:hover {
+  @apply -bottom-6 -right-6 rotate-7 shadow-xl shadow-primary-500/25 scale-105;
+}
+.colors {
+  @apply size-48 border-amber-800 object-cover
+  absolute -top-5 -right-5 flex transition-all duration-150;
+}
+.colors li:hover {
+  @apply scale-95;
+}
+.colors li {
+  @apply size-14 border-black/50 border transition-all duration-300;
+}
+
+.project-info-tecnologies {
+  @apply flex flex-row w-full h-auto gap-2 items-center flex-wrap mt-2;
+}
+.project-info-tecnologies li {
+  @apply p-2 object-contain h-8 flex items-center gap-2 border border-primary-300/50 w-auto;
+}
+.project-info-tecnologies li img {
+  @apply size-full object-contain;
+}
+.project-info h2 {
+  @apply text-5xl font-black italic;
+}
+.project-info p {
+  @apply text-xl;
+}
+.project-info-btns {
+  @apply flex flex-row w-full h-auto gap-2 items-center  flex-wrap mt-2;
+}
+.btn {
+  @apply p-0 rounded-sm  w-36 text-center text-2xl font-black;
+}
+.btn-primary {
+  @apply bg-primary-500 border border-primary-300/25 text-black;
+}
+.btn-secondary {
+  @apply border border-white text-white;
+}

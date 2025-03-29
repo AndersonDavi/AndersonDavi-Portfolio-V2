@@ -47,3 +47,7 @@ a:hover::after {
 a:hover {
   @apply text-black transition-all duration-300;
 }
+a:active {
+  @apply transition-none duration-75 rotate-3 scale-105;
+}
+

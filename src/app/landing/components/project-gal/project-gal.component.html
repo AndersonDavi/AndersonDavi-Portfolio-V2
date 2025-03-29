@@ -1,0 +1,65 @@
+<div class="projects-container">
+  <ul class="project-selector">
+    @for (project of projectsList; track $index) {
+    <li
+      (click)="selectProject(project)"
+      [ngClass]="{
+        'border-primary-300/80 bg-primary-800/15':
+          project.id === selectedProject!.id,
+        'border-primary-300/25 bg-secondary-800':
+          project.id !== selectedProject!.id
+      }"
+    >
+      <img
+        [src]="'/logos/' + project.logo_img"
+        [alt]="project.title + ' background'"
+      />
+    </li>
+    }
+  </ul>
+  <div class="project-info">
+    <div class="project-info-images">
+      <div class="img-bg" [ngStyle]="{'background-image': 'url(/gal-img/' + selectedProject!.bg_img + ')'}">
+        <img
+          [src]="'/gal-img/' + selectedProject!.alt_imgs[0]"
+          [alt]="selectedProject!.title + ' background'"
+          class="img-min img-min-1"
+        />
+        <img
+          [src]="'/gal-img/' + selectedProject!.alt_imgs[0]"
+          [alt]="selectedProject!.title + ' background'"
+          class="img-min img-min-2"
+        />
+        <ul class="colors">
+          @for (color of selectedProject!.colors; track $index) {
+          <li [ngStyle]="{ 'background-color': color }"></li>
+          }
+        </ul>
+      </div>
+    </div>
+    <ul class="project-info-tecnologies">
+      @for (tecnologie of selectedProject?.tecnologies; track $index) {
+
+      <li>
+        <img
+          [src]="'/skills/' + tecnologie.img"
+          [alt]="tecnologie.title + ' icon'"
+        /><span>{{ tecnologie.title }}</span>
+      </li>
+      }
+    </ul>
+    <div class="project-info-btns">
+      @if (selectedProject!.demo_url) {
+      <a [href]="selectedProject!.demo_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">DEMO</a>
+      } @if (selectedProject!.code_url) {
+      <a [href]="selectedProject!.code_url" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">CODIGO</a>
+      } @if (selectedProject!.mockup_url) {
+      <a [href]="selectedProject!.mockup_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">MOCKUP</a>
+      }
+    </div>
+    <h2 [innerHTML]="formatTitle(selectedProject!.title)"></h2>
+    <p>
+      {{ selectedProject!.description }}
+    </p>
+  </div>
+</div>

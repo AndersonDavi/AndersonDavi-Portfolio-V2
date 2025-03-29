@@ -44,23 +44,9 @@
     <div
       class="marquee flex whitespace-nowrap text-3xl font-bold gap-1 uppercase"
     >
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
-      <p>Curriculum vitae -</p>
+      @for (text of marqueeTexts; track $index) {
+      <p>{{ text }}</p>
+      }
     </div>
   </div>
   <div class="curriculum-list-container">
@@ -87,15 +73,7 @@
         <strong class="text-primary-500 font-black">LIST</strong></span
       >
     </div>
-
-    <app-skills-list class="skills-list-container"/>
-
-    <!-- <ul class="skills-icons-list">
-      <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
-      <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
-      <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
-      <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
-    </ul> -->
+    <app-skills-list class="skills-list-container" />
   </div>
   <span class="rasgadura-down"></span>
 </section>
@@ -107,47 +85,7 @@
       >PORTA<span class="text-primary-500 font-black pl-0">FOLIO</span></span
     >
   </div>
-  <div class="projects-container">
-    <ul class="project-selector">
-      <li>
-        <img src="/logos/ATSLogo.png" alt="" />
-      </li>
-      <li>
-        <img src="/logos/ATSLogo.png" alt="" />
-      </li>
-      <li>
-        <img src="/logos/ATSLogo.png" alt="" />
-      </li>
-    </ul>
-    <div class="project-info">
-      <div class="project-info-images">
-        <div class="img-bg">
-          <img src="/gal-img/ATSIMG.webp" alt="" class="img-min img-min-1" />
-          <img src="/gal-img/ATSIMG.webp" alt="" class="img-min img-min-2" />
-          <ul class="colors">
-            <li class="bg-orange-500"></li>
-            <li class="bg-white"></li>
-            <li class="bg-secondary-500"></li>
-          </ul>
-        </div>
-      </div>
-      <ul class="project-info-tecnologies">
-        <li><img src="/skills/html.webp" alt="" /><span>HTML</span></li>
-        <li><img src="/skills/html.webp" alt="" /><span>HTML</span></li>
-        <li><img src="/skills/html.webp" alt="" /><span>HTML</span></li>
-      </ul>
-      <div class="project-info-btns">
-        <a href="" class="btn btn-primary">DEMO</a>
-        <a href="" class="btn btn-secondary">CODIGO</a>
-        <a href="" class="btn btn-primary">MOCKUP</a>
-      </div>
-      <h2>GIFS<span class="text-primary-500">APP</span></h2>
-      <p>
-        Gestión laboral SAS | Automatizaciòn de procesos con Power Platform,
-        diseño de interfaces, administraciòn de bases de datos SQL SERVER
-      </p>
-    </div>
-  </div>
+  <app-project-gal />
 </section>
 <section id="contact">
   <span class="rasgadura-up border-red-500 border"></span>
