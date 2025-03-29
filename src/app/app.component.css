@@ -34,7 +34,7 @@
 }
 .skills-container {
   @apply -rotate-2 border border-red-400 flex flex-col justify-center items-start size-full;
-  width: calc(100vw - 100px);
+  width: calc(100vw - 50px);
 }
 .skills-list-container {
   @apply size-full  relative min-h-[500px];

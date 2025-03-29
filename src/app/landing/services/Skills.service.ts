@@ -83,6 +83,9 @@ export class SkillsService {
   getSkillsListByType(skillType: string): SkillsItem[] {
     return this.skillsList.filter((item) => item.type === skillType);
   }
+  getSkillsList(): SkillsItem[] {
+    return this.skillsList;
+  }
   getSkillsTypes(): string[] {
     return this.skillsTypes;
   }

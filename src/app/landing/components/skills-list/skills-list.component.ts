@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsListComponent {
-  skillsList: SkillsItem[][] = [];
+  skillsList: SkillsItem[] = [];
   skillsTypes: string[] = [];
   selectedType: string = 'frontend';
 
@@ -19,21 +19,18 @@ export class SkillsListComponent {
 
   ngOnInit(): void {
     this.skillsTypes = this.skillsService.getSkillsTypes();
-    this.skillsTypes.forEach((skillType) => {
-      const skills = this.skillsService.getSkillsListByType(skillType);
-      this.skillsList.push(skills);
-    });
-    console.log(this.skillsList);
+    this.skillsList = this.skillsService.getSkillsList();
   }
 
-  getItemStyle(index: number, type: string): string {
-    const isActive = type === this.selectedType;
-    const position = index - this.skillsTypes.indexOf(this.selectedType);
-    return `--position: ${position}; --active: ${isActive ? 1 : 0}`;
+  getSelectedSkills(): SkillsItem[] {
+    return this.skillsList.filter((skill) => skill.type === this.selectedType);
+  }
+
+  getNonSelectedSkills(): SkillsItem[] {
+    return this.skillsList.filter((skill) => skill.type !== this.selectedType);
   }
 
   selectedTypeChange(type: string) {
     this.selectedType = type;
-    console.log(this.selectedType);
   }
 }

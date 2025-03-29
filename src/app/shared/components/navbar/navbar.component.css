@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "../../../../styles.css";
+
 img {
   @apply size-14;
 }
@@ -7,9 +8,42 @@ img {
 nav {
   @apply fixed z-20 w-full p-4 h-10;
 }
+
 div {
-  @apply mx-auto flex justify-between border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl;
+  @apply mx-auto flex justify-between items-center border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl backdrop-blur-xs;
 }
+
 ul {
-  @apply flex items-center justify-center text-white border border-red-200/20 gap-3 uppercase italic font-bold;
+  @apply flex items-center justify-center text-white gap-3 uppercase italic font-bold  h-12;
+}
+
+li {
+  @apply h-full;
+}
+
+a {
+  @apply relative px-4 h-full transition-all duration-300 flex items-center z-10;
+}
+
+a::before,
+a::after {
+  content: "";
+  @apply absolute left-0 w-full h-0 bg-primary-500 transition-all duration-300 -z-10 backdrop-blur-lg;
+}
+
+a::before {
+  @apply top-0;
+}
+
+a::after {
+  @apply bottom-0;
+}
+
+a:hover::before,
+a:hover::after {
+  @apply h-1/2;
+}
+
+a:hover {
+  @apply text-black transition-all duration-300;
 }

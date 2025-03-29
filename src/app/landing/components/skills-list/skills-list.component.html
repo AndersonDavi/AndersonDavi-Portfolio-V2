@@ -1,25 +1,28 @@
 <ul class="skills-category-list">
   @for (type of skillsTypes; track $index) {
-  <li (click)="selectedTypeChange(type)">{{ type }}</li>
+  <li
+    (click)="selectedTypeChange(type)"
+    [class.selected]="selectedType === type"
+  >
+    {{ type }}
+  </li>
   }
 </ul>
-<div class="skills-list-slider" [style]="'--quantity: ' + skillsList.length">
-  @for (skillGroup of skillsList; track $index) {
-  <ul
-    class="skills-group slider-item border border-green-400"
-    [style]="getItemStyle($index, skillGroup[0].type)"
-    [ngClass]="{
-      'blur opacity-15': selectedType !== skillGroup[0].type
-    }"
-  >
-    @for (skill of skillGroup; track $index) {
-    <li>
+<div class="skills-gallery" >
+  <div class="featured-skills">
+    @for (skill of getSelectedSkills(); track $index) {
+    <div class="skill-item featured">
       <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
-      <span>
-        {{ skill.title }}
-      </span>
-    </li>
+      <span>{{ skill.title }}</span>
+    </div>
     }
-  </ul>
-  }
+  </div>
+  <div class="other-skills">
+    @for (skill of getNonSelectedSkills(); track $index) {
+    <div class="skill-item">
+      <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
+      <span>{{ skill.title }}</span>
+    </div>
+    }
+  </div>
 </div>

@@ -1,36 +1,59 @@
 @import "tailwindcss";
 @import "../../../../styles.css";
+
 .skills-category-list {
-  @apply flex flex-row  h-auto justify-center gap-6 text-2xl  items-center flex-wrap my-10 border-emerald-300 border;
+  @apply flex flex-row h-auto justify-center gap-6 text-2xl items-center flex-wrap my-10;
 }
+
 .skills-category-list li {
-  @apply border-2 border-white p-2 rounded-3xl px-10;
+  @apply border-2  p-2 rounded-3xl px-10 cursor-pointer transition-all duration-300;
 }
-.skills-list-container {
-  @apply w-full overflow-hidden;
-  perspective: 1000px;
-}
-
-.skills-list-slider {
-  @apply flex h-auto relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
+.skills-gallery {
+  @apply container mx-auto px-4 flex flex-col items-center;
+  max-width: 1200px;
+  min-height: 400px;
 }
 
-.slider-item {
-  @apply transition-all duration-500 w-full;
-  position: absolute;
-  transform: translateX(calc(100% * var(--position))) translateZ(calc(-400px * (1 - var(--active)))) rotateY(calc(-45deg * (1 - var(--active))));
-  opacity: calc(0.4 + (0.6 * var(--active)));
+.featured-skills {
+  @apply flex flex-row flex-wrap justify-center gap-2 mb-12 w-full;
+  min-height: 200px;
 }
 
-.skills-group {
-  @apply flex flex-row w-full justify-center gap-6 items-center  border-blue-400 flex-wrap;
-}
-.skills-group li {
-  @apply p-2 rounded-3xl  flex flex-col items-center gap-3 mb-5 text-xl text-center text-nowrap border border-orange-500 overflow-hidden;
+.other-skills {
+  @apply flex flex-row flex-wrap justify-center gap-1 w-full opacity-40;
 }
 
-.skills-group img {
-  @apply size-20 object-contain;
+.skill-item {
+  @apply flex flex-col items-center gap-2 p-4;
 }
+
+.other-skills .skill-item {
+  opacity: 0.4;
+}
+
+.skill-item.featured {
+  @apply basis-40 p-6;
+}
+
+.skill-item:not(.featured) {
+  @apply basis-24 p-2;
+}
+
+.skill-item.featured img {
+  @apply size-24;
+}
+
+.skill-item img {
+  @apply size-12 object-contain;
+}
+
+.skill-item span {
+  @apply text-sm text-center;
+}
+
+.skill-item.featured span {
+  @apply text-lg;
+}
+
+
+

@@ -7,4 +7,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './navbar.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarComponent { }
+export class NavbarComponent {
+  activeLink: string = '';
+
+  setActiveLink(link: string) {
+    this.activeLink = link;
+  }
+}
