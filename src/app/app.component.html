@@ -63,63 +63,18 @@
       <p>Curriculum vitae -</p>
     </div>
   </div>
-
-  <div
-    class="w-full md:w-1/2 flex justify-center items-center flex-col md:max-w-[600px]"
-  >
-    <div class="experience-title-card -rotate-3">
-      <img
-        src="/icon2.png"
-        alt=""
-        class="absolute -top-5 -left-5 size-16 -rotate-6"
-      />
-      <span class=""
-        >Experiencia <br />
-        <strong class="text-primary-500 font-black">laboral</strong></span
-      >
-    </div>
-    <ul class="experience-cotent-list -rotate-3 ml-7">
-      <li class="experience-cotent-list-item">
-        <span class="font-black text-xl">2022 AGO - ACTUALIDAD</span>
-        <p class="font-black text-4xl uppercase text-primary-500">
-          Analista ti
-        </p>
-        <p class="text-md">
-          Gestión laboral SAS | Automatizaciòn de procesos con Power Platform,
-          diseño de interfaces, administraciòn de bases de datos SQL SERVER
-        </p>
-      </li>
-      <li class="experience-cotent-list-item">
-        <span class="font-black text-xl">2022 AGO - ACTUALIDAD</span>
-        <p class="font-black text-4xl uppercase text-primary-500">
-          Analista ti
-        </p>
-        <p class="text-md">
-          Gestión laboral SAS | Automatizaciòn de procesos con Power Platform,
-          diseño de interfaces, administraciòn de bases de datos SQL SERVER
-        </p>
-      </li>
-    </ul>
-  </div>
-  <div
-    class="w-full md:w-1/2 flex justify-center items-center flex-col md:max-w-[600px]"
-  >
-    <div class="experience-title-card rotate-3">
-      <img
-        src="/icon1.png"
-        alt=""
-        class="absolute -top-7 -right-7 size-20 rotate-6"
-      />
-      <span class="text-6xl">Educación</span>
-    </div>
-    <ul class="experience-cotent-list rotate-3 mr-7">
-      <li class="experience-cotent-list-item">
-        <span class="font-black text-xl">2022 AGO - ACTUALIDAD</span>
-        <p class="font-black text-4xl uppercase text-primary-500">
-          TÉCNICO EN ANÁLISIS Y DESARROLLO DE SOFTWARE
-        </p>
-      </li>
-    </ul>
+  <div class="curriculum-list-container">
+    <app-curriculum-list
+      class="size-full"
+      title="Experiencia laboral"
+      titleType="divided"
+    />
+    <app-curriculum-list
+      class="size-full"
+      cardType="education"
+      title="Educación"
+      titleType="solo"
+    />
   </div>
 </section>
 <section id="skills">
@@ -132,17 +87,15 @@
         <strong class="text-primary-500 font-black">LIST</strong></span
       >
     </div>
-    <ul class="skills-category-list">
-      <li>Frontend</li>
-      <li>Backend</li>
-      <li>Tools</li>
-    </ul>
-    <ul class="skills-icons-list">
+
+    <app-skills-list class="skills-list-container"/>
+
+    <!-- <ul class="skills-icons-list">
       <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
       <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
       <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
       <li><img src="/skills/html.webp" alt="" /><span>Angular</span></li>
-    </ul>
+    </ul> -->
   </div>
   <span class="rasgadura-down"></span>
 </section>
@@ -198,15 +151,18 @@
 </section>
 <section id="contact">
   <span class="rasgadura-up border-red-500 border"></span>
-  <div class="rounded-md italic font-black text-center -rotate-3">
+  <div class="rounded-md italic font-black text-center -rotate-3 flex flex-col">
     <span class="m-0 border border-red-300 uppercase text-7xl"
       >¡Contáctame!</span
     >
-    <br />
-    <span class="m-0 border border-red-300 text-3xl"
+    <span class="m-0 border border-red-300 text-3xl mb-10"
       >Hagamos <strong class="text-primary-500">realidad</strong> tus
       ideas</span
     >
+    <div class="flex justify-center gap-4">
+      <img src="github.svg" alt="github icon" class="size-12" />
+      <img src="linkedin.svg" alt="linkedin icon" class="size-12" />
+    </div>
   </div>
   <div class="contact-form-container">
     <form action="">

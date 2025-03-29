@@ -1,0 +1,60 @@
+<div
+  class="w-full flex justify-center items-center flex-col md:max-w-[600px] border border-emerald-200"
+>
+  <div
+    class="experience-title-card"
+    [ngClass]="{
+      '-rotate-3': cardType === 'work-experience',
+      'rotate-3': cardType === 'education',
+    }"
+  >
+    @if (titleType=='divided') {
+    <img
+      src="/icon2.png"
+      alt=""
+      class="absolute -top-5 -left-5 size-16 -rotate-6"
+    />
+    <span class="">
+      {{ dividedTitle[0] }} <br />
+      <strong class="text-primary-500 font-black">
+        {{ dividedTitle[1] }}
+      </strong></span
+    >
+    }@else {
+    <img
+      src="/icon1.png"
+      alt=""
+      class="absolute -top-7 -right-7 size-20 rotate-6"
+    />
+    <span class="text-6xl">{{ title }}</span>
+    }
+  </div>
+  <ul
+    class="experience-cotent-list"
+    [ngClass]="{
+    'ml-7': cardType === 'work-experience',
+    '-rotate-3': cardType === 'work-experience',
+    'rotate-3': cardType === 'education',
+    'mr-7': cardType === 'education',
+  }"
+  >
+    @for (item of curriculumItems; track $index) {
+    <li class="experience-cotent-list-item">
+      <span class="font-black text-xl">
+        {{ item.date_range }}
+      </span>
+      <p class="font-black text-4xl uppercase text-primary-500">
+        {{ item.title }}
+      </p>
+      <p
+        class="text-md"
+        [ngClass]="{
+        'text-xl': cardType === 'education',
+      }"
+      >
+        {{ item.description }}
+      </p>
+    </li>
+    }
+  </ul>
+</div>

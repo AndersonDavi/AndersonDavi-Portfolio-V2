@@ -12,29 +12,21 @@
   @apply bg-secondary-800 min-h-screen relative border border-red-400 pt-[3vw] flex flex-col lg:flex-row items-center justify-center p-5 px-20 lg:px-10 gap-5 italic mx-auto z-10;
 }
 #curriculum {
-  @apply bg-secondary-500 h-auto min-h-[700px] flex  flex-col md:flex-row  items-end justify-center relative overflow-hidden gap-5 p-5;
+  @apply bg-secondary-500 h-auto min-h-[700px] flex  flex-col md:flex-row  items-end justify-center relative overflow-hidden gap-5 pt-50 sm:px-5;
 }
 @keyframes scroll {
   to {
     transform: translateX(-100%);
   }
 }
-
+.curriculum-list-container {
+  @apply flex md:flex-row flex-col w-full border border-purple-700 gap-10 p-10 sm:p-0;
+}
 .marquee {
   @apply flex;
   animation: scroll 60s linear infinite;
 }
 
-.experience-title-card {
-  @apply bg-secondary-800 border border-primary-300/25 p-2 m-2 rounded-md h-28 w-[100%] max-w-[500px] mx-auto flex items-center justify-center uppercase italic leading-7 font-black text-center text-5xl relative;
-}
-
-.experience-cotent-list {
-  @apply h-auto w-[100%] max-w-[500px] flex flex-col items-center justify-center gap-2;
-}
-.experience-cotent-list-item {
-  @apply bg-secondary-800 border border-primary-300/25  rounded-md h-auto w-[100%] max-w-[500px] flex items-start justify-center flex-col p-3;
-}
 #skills {
   @apply bg-secondary-800 h-auto min-h-[700px] flex flex-col lg:flex-row items-start justify-center border-dashed border-t-2 rotate-2 relative -left-5 mt-10 p-10 pb-20;
   width: calc(100vw + 100px);
@@ -44,17 +36,8 @@
   @apply -rotate-2 border border-red-400 flex flex-col justify-center items-start size-full;
   width: calc(100vw - 100px);
 }
-.skills-category-list {
-  @apply flex flex-row w-full h-auto justify-center gap-6 text-2xl  items-center flex-wrap my-10;
-}
-.skills-category-list li {
-  @apply border-2 border-white p-2 rounded-3xl px-10;
-}
-.skills-icons-list {
-  @apply flex flex-row w-full h-auto justify-center gap-6 items-center flex-wrap;
-}
-.skills-icons-list li {
-  @apply p-2 rounded-3xl  object-contain size-36 flex flex-col items-center gap-3 mb-5 text-xl;
+.skills-list-container {
+  @apply size-full  relative min-h-[500px];
 }
 
 #projects {
@@ -129,13 +112,13 @@
   @apply bg-secondary-800 min-h-screen flex flex-col lg:flex-row items-center justify-center relative p-10;
 }
 .contact-form-container {
-  @apply h-100 min-h-[700px] border border-blue-600 flex w-full items-center justify-center ;
+  @apply h-100 min-h-[700px] border border-blue-600 flex w-full items-center justify-center;
 }
 form {
   @apply bg-secondary-500 border border-primary-300/25 p-5 rounded-sm size-full max-w-[500px] max-h-[550px] flex flex-col gap-2 h-full border-dashed;
 }
 form button {
-  @apply  rounded-md w-full font-black text-2xl max-w-80 mx-auto mt-auto;
+  @apply rounded-md w-full font-black text-2xl max-w-80 mx-auto mt-auto;
 }
 input,
 textarea {
