@@ -2,7 +2,7 @@
 @import "../../../../styles.css";
 
 .skills-category-list {
-  @apply flex flex-row h-auto justify-center gap-6 text-2xl items-center flex-wrap my-10;
+  @apply flex flex-row h-auto justify-center gap-6 text-2xl items-center flex-wrap my-10 bg-red-400 w-full;
 }
 
 .skills-category-list li {
@@ -54,6 +54,3 @@
 .skill-item.featured span {
   @apply text-lg;
 }
-
-
-

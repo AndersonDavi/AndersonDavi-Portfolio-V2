@@ -53,5 +53,5 @@ a:active {
 
 a:active::before,
 a:active::after {
-  @apply bg-primary-300 shadow shadow-primary-800/50 transition-none;
+  @apply bg-white shadow shadow-primary-800/50 transition-none text-black -rotate-4;
 }

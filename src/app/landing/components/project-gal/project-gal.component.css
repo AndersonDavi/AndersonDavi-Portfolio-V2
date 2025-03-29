@@ -5,33 +5,42 @@
   display: block;
 }
 .projects-container {
-  @apply flex flex-col lg:flex-row  items-center justify-center gap-5 p-7 lg:p-20;
+  @apply flex flex-col lg:flex-row w-full gap-5 p-7 lg:p-20;
 }
 .project-selector {
-  @apply flex lg:flex-col p-2 m-2  w-full lg:w-80 gap-2;
+  @apply flex lg:flex-col p-2 w-full lg:w-80 gap-2 flex-none z-50;
 }
 .project-selector li {
-  @apply size-full  border rounded-md h-28 aspect-square;
+  @apply size-full  border rounded-md h-28 aspect-square backdrop-blur-xl;
 }
 .project-selector li img {
   @apply size-full object-contain;
 }
 .project-info {
-  @apply border-2 border-primary-300/25  rounded-md h-auto w-full gap-2 flex flex-col ;
+  @apply border-2 border-primary-300/25 rounded-md flex flex-col gap-2 flex-1 min-w-0 mb-10;
+}
+.project-info-images {
+  @apply w-full;
 }
 .img-bg {
-  @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat aspect-video;
+  @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat aspect-video w-full;
 }
 .img-min {
   @apply size-48 border-amber-800 object-cover
-  absolute transition-all duration-150 shadow-sm;
+  absolute transition-shadow duration-150 shadow-sm;
+}
+.img-min:hover {
+  @apply shadow-primary-500/25 scale-105 cursor-pointer;
+}
+.img-min:active {
+  @apply shadow-primary-500/50 scale-100 cursor-pointer;
 }
 
 .img-min-1 {
   @apply -top-5 -left-5 -rotate-6;
 }
 .img-min-1:hover {
-  @apply -top-6 -left-6 -rotate-7 shadow-xl shadow-primary-500/25 scale-105;
+  @apply -top-6 -left-6 -rotate-7 shadow-xl;
 }
 .img-min-1:hover > img {
   @apply scale-75;
@@ -40,14 +49,21 @@
   @apply -bottom-5 -right-5 rotate-6;
 }
 .img-min-2:hover {
-  @apply -bottom-6 -right-6 rotate-7 shadow-xl shadow-primary-500/25 scale-105;
+  @apply -bottom-6 -right-6 rotate-7 shadow-xl;
 }
 .colors {
-  @apply size-48 border-amber-800 object-cover
-  absolute -top-5 -right-5 flex transition-all duration-150;
+  @apply w-auto border-amber-800 object-cover
+  absolute -top-5 -right-5 flex transition-transform duration-75;
 }
 .colors li:hover {
-  @apply scale-95;
+  @apply scale-95 cursor-pointer translate-y-1;
+  border: 1px solid var(--hover-color);
+  box-shadow: 0 0 10px var(--hover-color);
+}
+.colors li:active {
+  @apply scale-90 transition-none;
+  border: 2px solid var(--hover-color);
+  box-shadow: 0 0 20px var(--hover-color);
 }
 .colors li {
   @apply size-14 border-black/50 border transition-all duration-300;
@@ -72,11 +88,96 @@
   @apply flex flex-row w-full h-auto gap-2 items-center  flex-wrap mt-2;
 }
 .btn {
-  @apply p-0 rounded-sm  w-36 text-center text-2xl font-black;
+  @apply p-0 rounded-sm w-36 text-center text-2xl font-black relative z-10;
 }
+
+.btn::before,
+.btn::after {
+  content: "";
+  @apply absolute left-0 w-full h-0 transition-all duration-300 -z-10;
+}
+
+.btn::before {
+  @apply top-0;
+}
+
+.btn::after {
+  @apply bottom-0;
+}
+
+.btn:hover::before,
+.btn:hover::after {
+  @apply h-1/2;
+}
+
 .btn-primary {
-  @apply bg-primary-500 border border-primary-300/25 text-black;
+  @apply border-2 border-primary-300 text-primary-500;
 }
+
+.btn-primary::before,
+.btn-primary::after {
+  @apply bg-primary-500;
+}
+
+.btn-primary:hover {
+  @apply text-black;
+}
+
 .btn-secondary {
-  @apply border border-white text-white;
+  @apply border-2 border-white text-white flex px-1 items-center gap-2;
+}
+
+.btn-secondary::before,
+.btn-secondary::after {
+  @apply bg-white;
+}
+
+.btn-secondary:hover {
+  @apply text-black;
+}
+
+.btn-figma {
+  @apply text-white bg-[#2c2c2c] flex items-center p-[2px];
+  background: linear-gradient(90deg, #f24e1e, #a259ff, #0acf83);
+  background-size: 150% 100%;
+}
+
+.btn-figma:hover {
+  background-position: 100% 0;
+}
+
+.btn:active {
+  @apply transition-none duration-75 rotate-3 scale-95 border-none;
+}
+
+.btn-secondary img {
+  @apply size-6 bg-black rounded-full;
+}
+
+.btn-figma div {
+  @apply text-white bg-[#2c2c2c] flex items-center w-full rounded gap-1;
+  transition: background-color 0.3s ease;
+}
+.btn-figma:hover div {
+  @apply bg-transparent;
+}
+.btn-figma img {
+  @apply size-8;
+  transition: transform 0.3s ease;
+}
+.btn-figma:hover img {
+  transform: scale(1.1);
+}
+img {
+  @apply select-none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.draggable {
+  @apply cursor-grab;
+}
+
+.draggable:active {
+  @apply cursor-grabbing;
 }

@@ -6,7 +6,7 @@
       [ngClass]="{
         'border-primary-300/80 bg-primary-800/15':
           project.id === selectedProject!.id,
-        'border-primary-300/25 bg-secondary-800':
+        'border-primary-300/25 bg-secondary-800/75':
           project.id !== selectedProject!.id
       }"
     >
@@ -19,20 +19,30 @@
   </ul>
   <div class="project-info">
     <div class="project-info-images">
-      <div class="img-bg" [ngStyle]="{'background-image': 'url(/gal-img/' + selectedProject!.bg_img + ')'}">
+      <div
+        class="img-bg"
+        [ngStyle]="{
+          'background-image': 'url(/gal-img/' + selectedProject!.bg_img + ')'
+        }"
+      >
         <img
           [src]="'/gal-img/' + selectedProject!.alt_imgs[0]"
           [alt]="selectedProject!.title + ' background'"
-          class="img-min img-min-1"
+          class="img-min img-min-1 draggable"
         />
         <img
-          [src]="'/gal-img/' + selectedProject!.alt_imgs[0]"
+          [src]="'/gal-img/' + selectedProject!.alt_imgs[1]"
           [alt]="selectedProject!.title + ' background'"
-          class="img-min img-min-2"
+          class="img-min img-min-2 draggable"
         />
         <ul class="colors">
           @for (color of selectedProject!.colors; track $index) {
-          <li [ngStyle]="{ 'background-color': color }"></li>
+          <li
+            [ngStyle]="{
+              'background-color': color,
+              '--hover-color': color
+            }"
+          ></li>
           }
         </ul>
       </div>
@@ -50,11 +60,30 @@
     </ul>
     <div class="project-info-btns">
       @if (selectedProject!.demo_url) {
-      <a [href]="selectedProject!.demo_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">DEMO</a>
+      <a
+        [href]="selectedProject!.demo_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+        >DEMO</a
+      >
       } @if (selectedProject!.code_url) {
-      <a [href]="selectedProject!.code_url" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">CODIGO</a>
+      <a
+        [href]="selectedProject!.code_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-secondary"
+        ><img src="/skills/github.svg" alt="github icon" />CODIGO</a
+      >
       } @if (selectedProject!.mockup_url) {
-      <a [href]="selectedProject!.mockup_url" target="_blank" rel="noopener noreferrer" class="btn btn-primary">MOCKUP</a>
+      <a
+        [href]="selectedProject!.mockup_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-figma"
+      >
+        <div class=""><img src="/skills/figma.webp" alt="figma icon" />MOCKUP</div>
+      </a>
       }
     </div>
     <h2 [innerHTML]="formatTitle(selectedProject!.title)"></h2>
