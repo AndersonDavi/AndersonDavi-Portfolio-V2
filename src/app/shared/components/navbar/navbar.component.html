@@ -1,9 +1,20 @@
 <nav>
-  <div>
-    <img src="/simbolo.svg" alt="" />
-    <ul>
+  <div class="nav-container">
+    <img src="/simbolo.svg" alt="logo" />
+
+    <button class="menu-toggle"
+            (click)="toggleMenu()"
+            [attr.aria-expanded]="isMenuOpen"
+            aria-label="Toggle navigation menu"
+            title="Toggle menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul [class.active]="isMenuOpen">
       <li>
-        <a href="#title" 
+        <a href="#title"
            [class.active]="activeLink === 'title'"
            (click)="setActiveLink('title')">Inicio</a>
       </li>

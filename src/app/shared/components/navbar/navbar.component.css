@@ -1,35 +1,35 @@
 @import "tailwindcss";
 @import "../../../../styles.css";
 
+nav {
+  @apply fixed w-full p-4;
+  z-index: 9999;
+}
+
+.nav-container {
+  @apply mx-auto flex justify-between items-center border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl backdrop-blur-xs h-16;
+}
+
 img {
   @apply size-14;
 }
 
-nav {
-  @apply fixed w-full p-4 h-10;
-  z-index: 9999;
-}
-
-div {
-  @apply mx-auto flex justify-between items-center border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl backdrop-blur-xs;
-}
-
 ul {
-  @apply flex items-center justify-center text-white gap-3 uppercase italic font-bold  h-12;
+  @apply flex text-white gap-3 uppercase italic font-bold h-full py-1;
 }
 
 li {
-  @apply h-full;
+  @apply w-full h-full;
 }
 
 a {
-  @apply relative px-4 h-full transition-all duration-300 flex items-center z-10;
+  @apply relative px-4 h-full transition-all duration-300 flex items-center z-10 whitespace-nowrap;
 }
 
 a::before,
 a::after {
   content: "";
-  @apply absolute left-0 w-full h-0 bg-primary-500 transition-all duration-300 -z-10 backdrop-blur-lg;
+  @apply absolute left-0 w-full h-0 bg-primary-500 transition-all duration-300 -z-10;
 }
 
 a::before {
@@ -48,6 +48,7 @@ a:hover::after {
 a:hover {
   @apply text-black transition-all duration-300;
 }
+
 a:active {
   @apply transition-none duration-75 rotate-3 scale-105;
 }
@@ -55,4 +56,54 @@ a:active {
 a:active::before,
 a:active::after {
   @apply bg-white shadow shadow-primary-800/50 transition-none text-black -rotate-4;
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+  @apply hidden bg-transparent border-none cursor-pointer p-2 relative z-[1001];
+}
+
+.bar {
+  @apply block w-6 h-[3px] my-[5px] mx-0 bg-white transition-all duration-300;
+}
+
+/* Estilos responsive */
+@media (max-width: 950px) {
+  .menu-toggle {
+    @apply block;
+  }
+
+  ul {
+    @apply fixed top-[4rem] right-0 w-full h-0
+           bg-secondary-800/95 backdrop-blur-xs
+           border-2 border-primary-300/25 border-t-0
+           flex-col justify-start items-stretch
+           transition-all duration-100 ease-in-out
+           p-0 gap-2 overflow-hidden opacity-0;
+  }
+
+  ul.active {
+    @apply h-[calc(100vh-6rem)] opacity-100 border-t-2 p-4;
+  }
+
+  li {
+    @apply w-full;
+  }
+
+  a {
+    @apply w-full justify-center py-2;
+  }
+
+  /* Animación del botón hamburguesa */
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    @apply transform rotate-45 translate-y-[8px];
+  }
+
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    @apply opacity-0;
+  }
+
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    @apply transform -rotate-45 -translate-y-[8px];
+  }
 }
