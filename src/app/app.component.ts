@@ -5,6 +5,8 @@ import { CurriculumListComponent } from './landing/components/curriculum-list/cu
 import { SkillsListComponent } from './landing/components/skills-list/skills-list.component';
 import { CommonModule } from '@angular/common';
 import { ProjectGalComponent } from "./landing/components/project-gal/project-gal.component";
+import { ContactFormComponent } from "./landing/components/contact-form/contact-form.component";
+import { HoverStringComponent } from "./shared/components/hoverString/hoverString.component";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,9 @@ import { ProjectGalComponent } from "./landing/components/project-gal/project-ga
     CurriculumListComponent,
     SkillsListComponent,
     CommonModule,
-    ProjectGalComponent
+    ProjectGalComponent,
+    ContactFormComponent,
+    HoverStringComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

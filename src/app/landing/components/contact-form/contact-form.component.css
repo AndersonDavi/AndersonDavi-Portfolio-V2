@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@import "../../../../styles.css";
+@import "../../../shared/styles/buttons.css";
+
+
+form {
+  @apply bg-secondary-500 border border-primary-500/25 p-5 rounded-sm size-full max-w-[500px] max-h-[550px] flex flex-col gap-2 h-full border-dashed;
+}
+form button {
+  @apply rounded-md w-full font-black text-2xl max-w-80 mx-auto mt-auto;
+}
+input,
+textarea {
+  @apply bg-primary-500/20 border border-primary-500/25 p-2 rounded-sm w-full max-h-60 h-10  border-solid  hover:border-primary-500/70 active:border-primary-500 focus:shadow-sm focus:shadow-primary-500/25 outline-none focus:outline-none;
+}
+textarea {
+  @apply h-20  max-h-60 w-full bg-primary-500/20 border-solid border-2 border-primary-500/25 hover:border-primary-500/70 active:border-primary-500 focus:shadow-md focus:shadow-primary-500/25 p-2 outline-none focus:outline-none;
+}

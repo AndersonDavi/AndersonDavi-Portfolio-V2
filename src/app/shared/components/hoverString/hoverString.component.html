@@ -1,0 +1,16 @@
+<div (aria-label)="getCleanText()">
+  @for (character of getCharacters(); track character.char) {
+  <span
+    class="cursor-default relative select-none italic hover:transition-transform duration-75"
+    [ngClass]="{
+      'text-primary-500 hover:text-primary-300': character.isPrimary,
+      'hover:text-primary-500': !character.isPrimary,
+      'hover:text-7xl': growSize === '7xl',
+      'hover:text-8xl': growSize === '8xl',
+      'hover:text-9xl': growSize === '9xl',
+      'hover:text-[9rem]': growSize === '10xl'
+    }"
+    >{{ character.char }}</span
+  >
+  }
+</div>

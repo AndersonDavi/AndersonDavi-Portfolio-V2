@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@import "../../../styles.css";
+
+.btn {
+  @apply p-0 rounded-sm w-36 text-center text-2xl font-black cursor-pointer select-none;
+}
+.btn-primary {
+  @apply border-2  bg-primary-500 text-black relative z-10;
+}
+.btn::before,
+.btn::after {
+  content: "";
+  @apply absolute left-0 w-full h-0 transition-all duration-200 -z-10;
+}
+.btn::before {
+  @apply top-0;
+}
+.btn::after {
+  @apply bottom-0;
+}
+.btn:hover::before,
+.btn:hover::after {
+  @apply h-1/2;
+}
+.btn-primary::before,
+.btn-primary::after {
+  @apply bg-primary-300 shadow-sm shadow-primary-500/25;
+}
+.btn-primary:hover {
+  @apply text-black;
+}
+.btn-primary:active {
+  @apply transition-none duration-600 scale-95;
+}
+.btn:active::before,
+.btn:active::after {
+  @apply bg-white transition-none;
+}
+
+.btn-primary-outline {
+  @apply p-0 rounded-sm w-36 text-center text-2xl font-black relative z-10;
+}
+
+.btn-primary-outline::before,
+.btn-primary-outline::after {
+  content: "";
+  @apply absolute left-0 w-full h-0 transition-all duration-300 -z-10;
+}
+
+.btn-primary-outline::before {
+  @apply top-0;
+}
+
+.btn-primary-outline::after {
+  @apply bottom-0;
+}
+
+.btn-primary-outline:hover::before,
+.btn-primary-outline:hover::after {
+  @apply h-1/2;
+}
+
+.btn-primary-outline {
+  @apply border-2 border-primary-300 text-primary-500;
+}
+
+.btn-primary-outline::before,
+.btn-primary-outline::after {
+  @apply bg-primary-500;
+}
+
+.btn-primary-outline:hover {
+  @apply text-black;
+}
+
+.btn-secondary-outline {
+  @apply border-2 border-white text-white relative z-10 select-none;
+}
+.btn-secondary-outline::before,
+.btn-secondary-outline::after {
+  content: "";
+  @apply absolute left-0 w-full h-0 transition-all duration-200 -z-10;
+}
+.btn-secondary-outline::before {
+  @apply top-0;
+}
+.btn-secondary-outline::after {
+  @apply bottom-0;
+}
+.btn-secondary-outline:hover {
+  @apply text-black;
+}
+.btn-secondary-outline:hover::before,
+.btn-secondary-outline:hover::after {
+  @apply bg-white  h-1/2 rounded-3xl;
+}
+.btn-secondary-outline:hover::before {
+  @apply rounded-b-none;
+}
+.btn-secondary-outline:hover::after {
+  @apply rounded-t-none;
+}
+.btn-secondary-outline:active::before,
+.btn-secondary-outline:active::after {
+  @apply -rotate-2 shadow-sm shadow-white/50 scale-95 transition-none select-none;
+}
+
+.btn-secondary-outline:active,
+.btn-secondary-outline:active {
+  @apply border-none;
+}

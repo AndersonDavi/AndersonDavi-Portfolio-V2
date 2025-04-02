@@ -29,7 +29,7 @@
 
 #skills {
   @apply bg-secondary-800 h-auto min-h-[700px] flex flex-col lg:flex-row items-start justify-center border-dashed border-t-2 rotate-2 relative -left-5 mt-10 p-10 pb-20;
-  width: calc(100vw + 100px);
+  width: calc(100vw + 125px);
   padding-right: calc(100px + 2.5rem);
 }
 .skills-container {
@@ -54,28 +54,52 @@
   @apply border border-white text-white;
 }
 #contact {
-  @apply bg-secondary-800 min-h-screen flex flex-col lg:flex-row items-center justify-center relative p-10;
+  @apply bg-secondary-800 min-h-screen relative;
 }
 .contact-form-container {
-  @apply h-100 min-h-[700px] border border-blue-600 flex w-full items-center justify-center;
+  @apply h-100 min-h-[700px] border border-blue-600  w-full;
 }
-form {
-  @apply bg-secondary-500 border border-primary-300/25 p-5 rounded-sm size-full max-w-[500px] max-h-[550px] flex flex-col gap-2 h-full border-dashed;
-}
-form button {
-  @apply rounded-md w-full font-black text-2xl max-w-80 mx-auto mt-auto;
-}
-input,
-textarea {
-  @apply bg-primary-500/20 border border-primary-300/25 p-2 rounded-sm w-full max-h-60;
-}
-textarea {
-  @apply h-full;
-}
+
 .rasgadura-up {
   @apply absolute inset-x-0 -top-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura1.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
 }
 
 .rasgadura-down {
   @apply absolute inset-x-0 -bottom-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura2.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
+}
+
+.btn {
+  @apply p-0 rounded-sm w-36 text-center text-2xl font-black relative z-10;
+}
+
+.btn::before,
+.btn::after {
+  content: "";
+  @apply absolute left-0 w-full h-0 transition-all duration-300 -z-10;
+}
+
+.btn::before {
+  @apply top-0;
+}
+
+.btn::after {
+  @apply bottom-0;
+}
+
+.btn:hover::before,
+.btn:hover::after {
+  @apply h-1/2;
+}
+
+.btn-primary {
+  @apply border-2 border-primary-300 text-primary-500;
+}
+
+.btn-primary::before,
+.btn-primary::after {
+  @apply bg-primary-500;
+}
+
+.btn-primary:hover {
+  @apply text-black;
 }

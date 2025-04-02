@@ -23,7 +23,7 @@
   @apply w-full;
 }
 .img-bg {
-  @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat aspect-video w-full;
+  @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat aspect-video w-full transition-transform duration-300;
 }
 .img-min {
   @apply size-48 border-amber-800 object-cover

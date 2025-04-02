@@ -81,37 +81,20 @@
   <div
     class="rounded-md uppercase italic leading-7 font-black text-center text-5xl"
   >
-    <span class="m-0 border border-red-300"
+    <!-- <span class="m-0 border border-red-300"
       >PORTA<span class="text-primary-500 font-black pl-0">FOLIO</span></span
-    >
+    > -->
+
+    <app-hover-string text="PORTA#FOLIO#" growSize="7xl" class="text-6xl font-black uppercase relative" />
+
   </div>
   <app-project-gal />
 </section>
 <section id="contact">
   <span class="rasgadura-up border-red-500 border"></span>
-  <div class="rounded-md italic font-black text-center -rotate-3 flex flex-col">
-    <span class="m-0 border border-red-300 uppercase text-7xl"
-      >¡Contáctame!</span
-    >
-    <span class="m-0 border border-red-300 text-3xl mb-10"
-      >Hagamos <strong class="text-primary-500">realidad</strong> tus
-      ideas</span
-    >
-    <div class="flex justify-center gap-4">
-      <img src="github.svg" alt="github icon" class="size-12" />
-      <img src="linkedin.svg" alt="linkedin icon" class="size-12" />
-    </div>
-  </div>
+
   <div class="contact-form-container">
-    <form action="">
-      <label for="">Nombre</label>
-      <input type="text" />
-      <label for="">Correo</label>
-      <input type="email" />
-      <label for="">Mensaje</label>
-      <textarea name="" id=""> </textarea>
-      <button class="btn-primary">ENVIAR</button>
-    </form>
+    <app-contact-form />
   </div>
 </section>
 <app-footer />

@@ -8,12 +8,13 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './skills-list.component.html',
   styleUrl: './skills-list.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillsListComponent {
   skillsList: SkillsItem[] = [];
   skillsTypes: string[] = [];
   selectedType: string = 'frontend';
+  animationKey: number = 0;
+  isVisible: boolean = true;
 
   constructor(private skillsService: SkillsService) {}
 
@@ -31,6 +32,11 @@ export class SkillsListComponent {
   }
 
   selectedTypeChange(type: string) {
-    this.selectedType = type;
+    this.isVisible = false;
+    setTimeout(() => {
+      this.selectedType = type;
+      this.isVisible = true;
+    }, 300); // Esperar a que termine fadeOut
+    this.animationKey++;
   }
 }

@@ -3,26 +3,35 @@
   <li
     (click)="selectedTypeChange(type)"
     [class.selected]="selectedType === type"
+    class="btn-secondary-outline"
   >
     {{ type }}
   </li>
   }
 </ul>
-<div class="skills-gallery" >
-  <div class="featured-skills">
-    @for (skill of getSelectedSkills(); track $index) {
-    <div class="skill-item featured">
-      <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
-      <span>{{ skill.title }}</span>
+<div class="skills-gallery">
+  @if (isVisible) {
+    <div class="featured-skills">
+      @for (skill of getSelectedSkills(); track $index) {
+      <div
+        class="skill-item featured"
+        [style.animation-delay]="$index * 0.1 + 's'"
+      >
+        <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
+        <span>{{ skill.title }}</span>
+      </div>
+      }
     </div>
-    }
-  </div>
-  <div class="other-skills">
-    @for (skill of getNonSelectedSkills(); track $index) {
-    <div class="skill-item">
-      <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
-      <span>{{ skill.title }}</span>
+    <div class="other-skills">
+      @for (skill of getNonSelectedSkills(); track $index) {
+      <div 
+        class="skill-item" 
+        [style.animation-delay]="$index * 0.1 + 's'"
+      >
+        <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
+        <span>{{ skill.title }}</span>
+      </div>
+      }
     </div>
-    }
-  </div>
+  }
 </div>
