@@ -52,6 +52,21 @@ export class SkillsService {
       type: 'backend',
     },
     {
+      title: 'NodeJS',
+      img: 'node.svg',
+      type: 'backend',
+    },
+    {
+      title: 'ExpressJS',
+      img: 'express.svg',
+      type: 'backend',
+    },
+    {
+      title: 'nestJS',
+      img: 'nest.svg',
+      type: 'backend',
+    },
+    {
       title: 'Git',
       img: 'git.webp',
       type: 'tools',
@@ -76,9 +91,19 @@ export class SkillsService {
       img: 'ps.webp',
       type: 'tools',
     },
+    {
+      title: 'Docker',
+      img: 'docker.svg',
+      type: 'cloud',
+    },
+    {
+      title: 'AWS',
+      img: 'aws.svg',
+      type: 'cloud',
+    },
   ];
 
-  private skillsTypes: string[] = ['frontend', 'backend', 'tools'];
+  private skillsTypes: string[] = ['frontend', 'backend', 'tools', 'cloud'];
 
   getSkillsListByType(skillType: string): SkillsItem[] {
     return this.skillsList.filter((item) => item.type === skillType);
