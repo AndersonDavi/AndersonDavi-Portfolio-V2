@@ -2,14 +2,14 @@
 @import "../styles.css";
 
 #title {
-  @apply bg-[url("/backgrounds/bg2.png")] bg-cover bg-center bg-no-repeat w-full border-2 min-h-[35vh] max-h-[100vh] aspect-16/9;
+  @apply bg-[url("/backgrounds/bg2.png")] bg-cover bg-center bg-no-repeat w-full  min-h-[35vh] max-h-[100vh] aspect-16/9;
 }
 * {
   @apply p-0 m-0;
 }
 
 #about {
-  @apply bg-secondary-800 min-h-screen relative border border-red-400 pt-[3vw] flex flex-col lg:flex-row items-center justify-center p-5 px-20 lg:px-10 gap-5 italic mx-auto z-10;
+  @apply bg-secondary-800 min-h-screen relative  pt-[3vw] flex flex-col lg:flex-row items-center justify-center p-5  px-5 sm:px-20 lg:px-10 gap-5 italic mx-auto z-10;
 }
 #curriculum {
   @apply bg-secondary-500 h-auto min-h-[700px] flex  flex-col md:flex-row  items-end justify-center relative overflow-hidden gap-5 pt-50 sm:px-5;
@@ -20,7 +20,7 @@
   }
 }
 .curriculum-list-container {
-  @apply flex md:flex-row flex-col items-center justify-center w-full border border-purple-700 gap-10 p-10 sm:p-0;
+  @apply flex md:flex-row flex-col items-center justify-center w-full  gap-10 p-10 sm:p-0;
 }
 .marquee {
   @apply flex;
@@ -33,7 +33,7 @@
   padding-right: calc(100px + 2.5rem);
 }
 .skills-container {
-  @apply -rotate-2 border border-red-400 flex flex-col justify-center items-start size-full;
+  @apply -rotate-2  flex flex-col justify-center items-start size-full;
   width: calc(100vw - 50px);
 }
 .skills-list-container {
@@ -44,62 +44,22 @@
   @apply bg-secondary-500 min-h-screen flex flex-col  items-center justify-start mt-28 md:mt-36 xl:mt-40;
 }
 
-.btn {
-  @apply p-0 rounded-sm  w-36 text-center text-2xl font-black;
-}
-.btn-primary {
-  @apply bg-primary-500 border border-primary-300/25 text-black;
-}
-.btn-secondary {
-  @apply border border-white text-white;
-}
 #contact {
-  @apply bg-secondary-800 min-h-screen relative;
+  @apply bg-secondary-800 min-h-screen relative h-auto flex;
 }
 .contact-form-container {
-  @apply h-100 min-h-[700px] border border-blue-600  w-full;
+  @apply h-auto min-h-[700px] w-full;
 }
 
 .rasgadura-up {
-  @apply absolute inset-x-0 -top-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura1.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
+  @apply absolute inset-x-0 -top-[4vw] w-full h-auto aspect-22/1 bg-[url("/decoration/rasgadura1.png")] bg-center bg-contain bg-repeat-round;
 }
 
 .rasgadura-down {
-  @apply absolute inset-x-0 -bottom-[5vw] w-full h-auto aspect-16/1 bg-[url("/decoration/rasgadura2.png")] bg-center bg-contain bg-repeat-round border border-primary-500;
+  @apply absolute inset-x-0 -bottom-[4vw] w-full h-auto aspect-22/1 bg-[url("/decoration/rasgadura2.png")] bg-center bg-contain bg-repeat-round;
 }
 
-.btn {
-  @apply p-0 rounded-sm w-36 text-center text-2xl font-black relative z-10;
-}
-
-.btn::before,
-.btn::after {
-  content: "";
-  @apply absolute left-0 w-full h-0 transition-all duration-300 -z-10;
-}
-
-.btn::before {
-  @apply top-0;
-}
-
-.btn::after {
-  @apply bottom-0;
-}
-
-.btn:hover::before,
-.btn:hover::after {
-  @apply h-1/2;
-}
-
-.btn-primary {
-  @apply border-2 border-primary-300 text-primary-500;
-}
-
-.btn-primary::before,
-.btn-primary::after {
-  @apply bg-primary-500;
-}
-
-.btn-primary:hover {
-  @apply text-black;
+img {
+  user-select: none;
+  -webkit-user-drag: none;
 }

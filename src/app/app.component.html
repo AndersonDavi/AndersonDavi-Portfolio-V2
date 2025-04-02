@@ -4,18 +4,20 @@
 <section id="about">
   <span class="rasgadura-up"></span>
   <div
-    class="border border-blue-400 lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px]"
+    class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px]"
   >
-    <span class="font-black text-[6rem]"
-      >¡Que <span class="text-primary-500">más</span>!</span
-    >
-    <p class="text-3xl">
+    <app-hover-string
+      text="¡Que #más#!"
+      growSize="7xl"
+      class="text-6xl uppercase"
+    />
+    <p class="text-xl sm:text-2xl md:text-3xl">
       Soy <strong>Anderson Rueda</strong>,
       <strong class="text-primary-500"> desarrollador web</strong> dedicado y
       apasionado por el diseño, me dedico a convertir tus ideas en herramientas
       digitales que faciliten tu trabajo con eficiencia y estilo
     </p>
-    <p class="text-3xl">
+    <p class="text-xl sm:text-2xl md:text-3xl">
       Me encuentro constantemente
       <span class="text-primary-500">aprendiendo</span> cosas nuevas y
       afrontando retos
@@ -23,15 +25,23 @@
     <img
       src="/decoration/arrow1.png"
       alt="marco foto perfil"
-      class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block"
+      class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block floatingX scale"
     />
     <div class="flex gap-4">
-      <img src="github.svg" alt="github icon" class="size-12" />
-      <img src="linkedin.svg" alt="linkedin icon" class="size-12" />
+      <img
+        src="github.svg"
+        alt="github icon"
+        class="size-8 sm:size-12 scale cursor-pointer"
+      />
+      <img
+        src="linkedin.svg"
+        alt="linkedin icon"
+        class="size-8 sm:size-12 scale cursor-pointer"
+      />
     </div>
   </div>
   <div
-    class="border border-blue-400 lg:w-1/2 lg:max-w-[600px] rotate-6 w-full flex items-center justify-center"
+    class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center"
   >
     <img src="/decoration/marco1.png" alt="marco foto perfil" />
   </div>
@@ -73,7 +83,12 @@
         <strong class="text-primary-500 font-black">LIST</strong></span
       >
     </div>
+    @defer (on viewport) {
+
     <app-skills-list class="skills-list-container" />
+    } @placeholder {
+    <app-skills-list class="skills-list-container" />
+    }
   </div>
   <span class="rasgadura-down"></span>
 </section>
@@ -81,18 +96,16 @@
   <div
     class="rounded-md uppercase italic leading-7 font-black text-center text-5xl"
   >
-    <!-- <span class="m-0 border border-red-300"
-      >PORTA<span class="text-primary-500 font-black pl-0">FOLIO</span></span
-    > -->
-
-    <app-hover-string text="PORTA#FOLIO#" growSize="7xl" class="text-6xl font-black uppercase relative" />
-
+    <app-hover-string
+      text="PORTA#FOLIO#"
+      growSize="7xl"
+      class="text-6xl font-black uppercase relative"
+    />
   </div>
   <app-project-gal />
 </section>
 <section id="contact">
-  <span class="rasgadura-up border-red-500 border"></span>
-
+  <span class="rasgadura-up"></span>
   <div class="contact-form-container">
     <app-contact-form />
   </div>

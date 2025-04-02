@@ -1,17 +1,32 @@
 @if (!isSubmitted && !failed && true) {
-<div class="flex flex-col md:flex-row justify-around items-center size-full">
-  <div class="rounded-md italic font-black text-center -rotate-3 flex flex-col">
-    <app-hover-string text="¡Contáctame!" growSize="8xl" class="text-7xl uppercase" />
-    <span class="m-0 border border-red-300 text-3xl mb-10"
+<div
+  class="flex flex-col lg:flex-row justify-around items-center size-full p-5 h-full overflow-hidden"
+>
+  <div
+    class="rounded-md italic font-black text-center -rotate-3 flex flex-col items-center justify-center p-5 pt-10 size-full"
+  >
+    <app-hover-string
+      text="¡Contáctame!"
+      growSize="8xl"
+      class="text-6xl sm:text-7xl uppercase scale-75"
+    />
+    <span class="m-0 text-2xl md:text-3xl mb-10"
       >Hagamos <strong class="text-primary-500">realidad</strong> tus
       ideas</span
     >
     <div class="flex justify-center gap-4">
-      <img src="github.svg" alt="github icon" class="size-12" />
-      <img src="linkedin.svg" alt="linkedin icon" class="size-12" />
+      <a
+        href="https://www.linkedin.com/in/anderson-david-rueda-consuegra/"
+        target="_blank"
+      >
+        <img src="linkedin.svg" alt="linkedin icon" class="size-12 scale" />
+      </a>
+      <a href="https://github.com/andersondavi" target="_blank">
+        <img src="github.svg" alt="github icon" class="size-12 scale" />
+      </a>
     </div>
   </div>
-  <div>
+  <div class="size-full flex flex-col justify-center items-center p-5">
     <form
       [formGroup]="myForm"
       class="flex flex-col size-full p-2 gap-6 justify-center"
@@ -72,12 +87,12 @@
     <a
       href="mailto:contactoandersonrueda@gmail.com/"
       target="_blank"
-      class="lg:w-2/3 w-full p-2 hidden md:flex md:items-center md:justify-start text-wrap gap-1 pr-5"
+      class="email-link"
     >
       <img
-        src="assets/email.svg"
-        alt="github"
-        class="my-3 h-[20px] w-[20px] object-contain hover:scale-110 mx-5 md:mx-0 active:scale-105"
+        src="/email.svg"
+        alt="email icon"
+        class="my-3 h-[20px] w-[20px] object-contain hover:scale-110 lg:mx-5 mr-1 md:mx-0 active:scale-105"
       />
       <p class="text-wrap w-full break-words lg:pr-10">
         contactoandersonrueda&#64;gmail.com
@@ -92,14 +107,14 @@
 >
   <div class="flex flex-col justify-center items-center">
     <h2
-      class="text-center text-6xl mb-3 font-semibold my-5 card-motion motion-preset-bounce motion-duration-500"
+      class="text-center text-6xl mb-3 font-semibold my-5 motion-preset-bounce motion-duration-500"
     >
       <app-hover-string text="¡Todo listo!" growSize="7xl" />
     </h2>
     <p class="text-gray-300 text-lg motion-preset-bounce motion-duration-500">
       Nos estaremos comunicando contigo
     </p>
-    <p class="w-[50%] border-b-2 border-primary my-5 card-motion"></p>
+    <p class="w-[50%] border-b-2 border-primary my-5"></p>
   </div>
   <img
     src="/email-submit.svg"
@@ -112,7 +127,7 @@
 <section
   class="flex flex-col md:flex-row justify-around items-center size-full"
 >
-  <div class="flex flex-col justify-center items-center">
+  <div class="flex flex-col justify-center items-center p-5">
     <h2
       class="text-center text-6xl mb-3 font-semibold my-5 card-motion motion-preset-bounce motion-duration-500"
     >
@@ -124,27 +139,24 @@
       No pudimos enviar directamente tu mensaje, pero puedes contactarme en mis
       redes sociales o enviarme un mensaje directo a mi correo
     </p>
-    <p class="w-[50%] border-b-2 border-primary my-5 card-motion"></p>
-    <div class="w-[130px] flex justify-center card-motion">
-      <a
-        href="mailto:contactoandersonrueda@gmail.com"
-        class="h-[60px] w-[60px] flex items-center justify-center p-1"
-      >
+    <p class="w-[50%] my-5"></p>
+    <div class="w-[130px] flex justify-center">
+      <a href="mailto:contactoandersonrueda@gmail.com" class="size-[60px]">
         <img
           src="/email.svg"
           alt="github"
-          class="my-3 hover:scale-110 mx-5 md:mx-0 h-full active:scale-105"
+          class="hover:scale-110 md:mx-0 h-full active:scale-105"
         />
       </a>
       <a
         href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/"
         target="_blank"
-        class="h-[60px] w-[60px] flex items-center justify-center p-2"
+        class="size-[60px]"
       >
         <img
           src="/linkedin.svg"
           alt="github"
-          class="my-3 hover:scale-110 mx-5 md:mx-0 h-full active:scale-105"
+          class="hover:scale-110 h-full active:scale-105"
         />
       </a>
     </div>

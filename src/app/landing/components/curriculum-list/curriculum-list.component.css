@@ -2,9 +2,8 @@
 @import "../../../../styles.css";
 
 .experience-title-card {
-  @apply bg-secondary-800 border border-primary-300/25 p-2 m-2 rounded-md h-28 w-[100%] max-w-[500px] mx-auto flex items-center justify-center uppercase italic leading-7 font-black text-center text-5xl relative;
+  @apply bg-secondary-800 border border-primary-300/25 p-2 m-2 rounded-md h-28 w-[100%] max-w-[500px] mx-auto flex items-center justify-center uppercase italic leading-7 font-black text-center text-4xl sm:text-5xl relative;
 }
-
 .experience-cotent-list {
   @apply h-auto w-[100%] max-w-[500px] flex flex-col items-center justify-center gap-2;
 }
@@ -12,5 +11,5 @@
   @apply bg-secondary-800 border border-primary-300/25  rounded-md h-auto w-[100%] max-w-[500px] flex items-start justify-center flex-col p-3;
 }
 .curriculum-container {
-  @apply flex flex-col lg:flex-row border border-red-600 h-auto;
+  @apply flex flex-col lg:flex-row h-auto;
 }

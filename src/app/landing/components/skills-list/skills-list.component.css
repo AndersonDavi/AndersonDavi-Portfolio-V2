@@ -8,7 +8,7 @@
 }
 
 .skills-category-list li {
-  @apply border-2  p-2 rounded-3xl px-10 cursor-pointer transition-all duration-300;
+  @apply  p-2 rounded-3xl px-10 cursor-pointer transition-all duration-300;
 }
 .skills-gallery {
   @apply container mx-auto px-4 flex flex-col items-center;
@@ -73,20 +73,17 @@
   animation: fadeOut 0.3s both;
 }
 
-.skill-item.featured {
-  @apply basis-40 p-6;
-}
 
 .skill-item:not(.featured) {
   @apply basis-24 p-2;
 }
 
 .skill-item.featured img {
-  @apply size-24;
+  @apply size-20 sm:size-24;
 }
 
 .skill-item img {
-  @apply size-12 object-contain;
+  @apply size-8 sm:size-12 object-contain;
 }
 
 .skill-item span {

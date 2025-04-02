@@ -14,7 +14,7 @@
     <div class="featured-skills">
       @for (skill of getSelectedSkills(); track $index) {
       <div
-        class="skill-item featured"
+        class="skill-item featured scale"
         [style.animation-delay]="$index * 0.1 + 's'"
       >
         <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />
@@ -25,7 +25,7 @@
     <div class="other-skills">
       @for (skill of getNonSelectedSkills(); track $index) {
       <div 
-        class="skill-item" 
+        class="skill-item scale" 
         [style.animation-delay]="$index * 0.1 + 's'"
       >
         <img [src]="'/skills/' + skill.img" [alt]="skill.title + ' icon'" />

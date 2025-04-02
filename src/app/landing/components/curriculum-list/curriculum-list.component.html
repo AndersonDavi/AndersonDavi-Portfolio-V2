@@ -1,6 +1,4 @@
-<div
-  class="w-full flex justify-center items-center flex-col border border-emerald-200"
->
+<div class="w-full h-auto  flex justify-center items-center flex-col lg:py-5">
   <div
     class="experience-title-card"
     [ngClass]="{
@@ -12,7 +10,7 @@
     <img
       src="/icon2.png"
       alt=""
-      class="absolute -top-5 -left-5 size-16 -rotate-6"
+      class="absolute -top-5 -left-5 size-16 -rotate-6 floatingY scale"
     />
     <span class="">
       {{ dividedTitle[0] }} <br />
@@ -24,9 +22,9 @@
     <img
       src="/icon1.png"
       alt=""
-      class="absolute -top-7 -right-7 size-20 rotate-6"
+      class="absolute -top-7 -right-7 size-20 rotate-6 floatingY scale"
     />
-    <span class="text-6xl">{{ title }}</span>
+    <span class="text-5xl sm:text-6xl">{{ title }}</span>
     }
   </div>
   <ul

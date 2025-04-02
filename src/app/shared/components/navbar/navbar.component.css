@@ -6,7 +6,8 @@ img {
 }
 
 nav {
-  @apply fixed z-20 w-full p-4 h-10;
+  @apply fixed w-full p-4 h-10;
+  z-index: 9999;
 }
 
 div {

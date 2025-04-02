@@ -66,6 +66,82 @@ export class ProjectsService {
       colors: ['#212529', '#1f2022', '#ffffff'],
       alt_imgs: ['GIFS-img-1.png', 'GIFS-img-2.png'],
     },
+    {
+      id: 4,
+      title: 'EDICIONES #KAZIYADU#',
+      description:
+        'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
+      demo_url: 'https://kaziyadu.vercel.app/',
+      bg_img: 'kaziyaduAppIMG.webp',
+      logo_img: 'kaziyaduAppLogo.png',
+      tecnologies: [
+        { title: 'HTML', img: 'html.webp' },
+        { title: 'CSS', img: 'css.webp' },
+        { title: 'JS', img: 'js.webp' },
+        { title: 'Angular', img: 'angular.webp' },
+        { title: 'TypeScript', img: 'ts.webp' },
+        { title: 'Tailwind', img: 'tailwind.webp' },
+      ],
+      colors: ['#fed801', '#eb546c', '#84bae7'],
+      alt_imgs: ['kaziyadu-img-1.png', 'kaziyadu-img-2.png'],
+    },
+    {
+      id: 5,
+      title: 'EDICIONES #KAZIYADU#',
+      description:
+        'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
+      demo_url: 'https://kaziyadu.vercel.app/',
+      bg_img: 'kaziyaduAppIMG.webp',
+      logo_img: 'kaziyaduAppLogo.png',
+      tecnologies: [
+        { title: 'HTML', img: 'html.webp' },
+        { title: 'CSS', img: 'css.webp' },
+        { title: 'JS', img: 'js.webp' },
+        { title: 'Angular', img: 'angular.webp' },
+        { title: 'TypeScript', img: 'ts.webp' },
+        { title: 'Tailwind', img: 'tailwind.webp' },
+      ],
+      colors: ['#fed801', '#eb546c', '#84bae7'],
+      alt_imgs: ['kaziyadu-img-1.png', 'kaziyadu-img-2.png'],
+    },
+    {
+      id: 6,
+      title: 'EDICIONES #KAZIYADU#',
+      description:
+        'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
+      demo_url: 'https://kaziyadu.vercel.app/',
+      bg_img: 'kaziyaduAppIMG.webp',
+      logo_img: 'kaziyaduAppLogo.png',
+      tecnologies: [
+        { title: 'HTML', img: 'html.webp' },
+        { title: 'CSS', img: 'css.webp' },
+        { title: 'JS', img: 'js.webp' },
+        { title: 'Angular', img: 'angular.webp' },
+        { title: 'TypeScript', img: 'ts.webp' },
+        { title: 'Tailwind', img: 'tailwind.webp' },
+      ],
+      colors: ['#fed801', '#eb546c', '#84bae7'],
+      alt_imgs: ['kaziyadu-img-1.png', 'kaziyadu-img-2.png'],
+    },
+    {
+      id: 7,
+      title: 'EDICIONES #KAZIYADU#',
+      description:
+        'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
+      demo_url: 'https://kaziyadu.vercel.app/',
+      bg_img: 'kaziyaduAppIMG.webp',
+      logo_img: 'kaziyaduAppLogo.png',
+      tecnologies: [
+        { title: 'HTML', img: 'html.webp' },
+        { title: 'CSS', img: 'css.webp' },
+        { title: 'JS', img: 'js.webp' },
+        { title: 'Angular', img: 'angular.webp' },
+        { title: 'TypeScript', img: 'ts.webp' },
+        { title: 'Tailwind', img: 'tailwind.webp' },
+      ],
+      colors: ['#fed801', '#eb546c', '#84bae7'],
+      alt_imgs: ['kaziyadu-img-1.png', 'kaziyadu-img-2.png'],
+    },
   ];
 
   getProjectsList(): ProjectItem[] {

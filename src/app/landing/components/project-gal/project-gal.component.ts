@@ -28,6 +28,7 @@ export class ProjectGalComponent {
   selectProject(project: ProjectItem) {
     this.selectedProject = project;
     this.resetDraggablePositions();
+    this.restartAnimations();
   }
 
   private resetDraggablePositions() {
@@ -39,6 +40,24 @@ export class ProjectGalComponent {
       el.style.top = '';
       el.style.transform = '';
     });
+  }
+
+  private restartAnimations() {
+    const img1 = document.querySelector('.img-min-1');
+    const img2 = document.querySelector('.img-min-2');
+    
+    if (img1 && img2) {
+      // Remover y volver a añadir las clases de animación
+      img1.classList.remove('img-min-1');
+      img2.classList.remove('img-min-2');
+      
+      // Forzar un reflow
+      void (img1 as HTMLElement).offsetWidth;
+      void (img2 as HTMLElement).offsetWidth;
+      
+      img1.classList.add('img-min-1');
+      img2.classList.add('img-min-2');
+    }
   }
 
   formatTitle(title: string): string {

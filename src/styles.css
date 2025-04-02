@@ -6,7 +6,7 @@
   @apply scroll-smooth scroll-mt-[60px] font-roboto;
 }
 body {
-  @apply bg-secondary-500 text-white;
+  @apply bg-secondary-500 text-white overflow-x-hidden;
 }
 
 @theme {
@@ -18,4 +18,46 @@ body {
   --color-secondary-300: #514f4f;
   --color-secondary-500: #2b2a2a;
   --color-secondary-800: #1b1818;
+}
+.scale {
+  @apply hover:scale-105 active:scale-95 transition-all duration-75;
+}
+
+.floatingX {
+  animation: floatingX 3s ease-in-out infinite;
+}
+@keyframes floatingX {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.floatingY {
+  animation: floatingY 3s ease-in-out infinite;
+}
+@keyframes floatingY {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500 rounded-full;
+}
+::-webkit-scrollbar-track {
+  @apply bg-secondary-500;
 }
