@@ -108,12 +108,31 @@
 .project-info-tecnologies li img {
   @apply size-full object-contain active:scale-95 hover:scale-105;
 }
+.project-info-tecnologies li span {
+  @apply whitespace-nowrap;
+}
 .project-info h2 {
-  @apply text-5xl font-black italic;
+  @apply text-5xl font-black italic break-words;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
+.project-info h2 span {
+  @apply break-words;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+}
+
 .project-info p {
-  @apply text-xl;
+  @apply text-xl break-words;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
 }
+
 .project-info-btns {
   @apply flex flex-row w-full h-auto gap-2 items-center  flex-wrap mt-2;
 }
