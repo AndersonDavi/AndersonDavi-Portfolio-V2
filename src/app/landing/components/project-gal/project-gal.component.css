@@ -28,10 +28,10 @@
   @apply size-full object-contain active:scale-95 hover:scale-105;
 }
 .project-info {
-  @apply rounded-md flex flex-col gap-2 flex-1 min-w-0 mb-10 mt-5 lg:mt-0 w-full p-5 lg:p-0 max-w-[1200px];
+  @apply rounded-md flex flex-col gap-2 flex-1 min-w-0 mb-10 mt-5 lg:mt-0 w-full p-5 lg:p-0 max-w-[1200px] hyphens-auto;
 }
 .project-info-images {
-  @apply w-full;
+  @apply w-full mb-3 md:mb-0;
 }
 .img-bg {
   @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat  h-80 sm:h-auto sm:aspect-video w-full transition-transform duration-300;
@@ -100,7 +100,7 @@
 }
 
 .project-info-technologies {
-  @apply flex flex-row w-full h-auto gap-2 items-center flex-wrap mt-2;
+  @apply flex flex-row w-full h-auto gap-2 items-center flex-wrap mt-2 hyphens-none;
 }
 .project-info-technologies li {
   @apply p-2 object-contain h-8 flex items-center gap-2 border border-primary-300/50 w-auto hover:border-2 hover:border-primary-300/75 hover:bg-primary-800/5 cursor-pointer active:shadow-md active:shadow-primary-500/5 transition-all duration-75 active:border-2 active:border-primary-500/75 select-none;

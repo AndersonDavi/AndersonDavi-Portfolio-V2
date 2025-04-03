@@ -8,8 +8,9 @@
   @apply h-auto w-[100%] max-w-[500px] flex flex-col items-center justify-center gap-2;
 }
 .experience-cotent-list-item {
-  @apply bg-secondary-800 border border-primary-300/25  rounded-md h-auto w-[100%] max-w-[500px] flex items-start justify-center flex-col p-3;
+  @apply bg-secondary-800 border border-primary-300/25  rounded-md h-auto w-[100%] max-w-[500px] flex items-start justify-center flex-col p-3 hyphens-auto;
 }
+
 .curriculum-container {
   @apply flex flex-col lg:flex-row h-auto;
 }

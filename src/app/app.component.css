@@ -9,7 +9,7 @@
 }
 
 #about {
-  @apply bg-secondary-800 min-h-screen relative  pt-10 lg:pt-0 flex flex-col lg:flex-row items-center justify-center p-5  px-5 sm:px-20 lg:px-10 gap-5 italic mx-auto z-10;
+  @apply bg-secondary-800 min-h-screen relative  pt-10 lg:pt-0 flex flex-col lg:flex-row items-center justify-center p-5  px-8 sm:px-20 lg:px-10 gap-5 italic mx-auto z-10;
 }
 #curriculum {
   @apply bg-secondary-500 h-auto min-h-[700px] flex  flex-col md:flex-row  items-end justify-center relative overflow-hidden gap-5 pt-50 sm:px-5;

@@ -5,6 +5,10 @@
     [ngClass]="{
       'text-primary-500 hover:text-primary-300': character.isPrimary,
       'hover:text-primary-500': !character.isPrimary,
+      'hover:text-3xl': growSize === '3xl',
+      'hover:text-4xl': growSize === '4xl',
+      'hover:text-5xl': growSize === '5xl',
+      'hover:text-6xl': growSize === '6xl',
       'hover:text-7xl': growSize === '7xl',
       'hover:text-8xl': growSize === '8xl',
       'hover:text-9xl': growSize === '9xl',
