@@ -28,8 +28,8 @@
   animation: appear 0.4s ease-out both;
   will-change: transform, opacity;
   contain: layout style paint;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  animation: appear 0.75s both;
+  animation-delay: 0.5s;
 }
 .text-decoration-1 {
   @apply text-[clamp(2rem,5vw,25rem)] text-center leading-[0.75em] font-normal absolute bottom-[calc(12vh)] left-[calc(5vw)] text-primary-500;
@@ -46,16 +46,14 @@
   animation: appear 1s both;
   animation-delay: 0.7s;
 }
-/* @keyframes appear {
+ @keyframes appear {
   0% {
     opacity: 0;
-    transform: translate3d(-50%, -45%, 0);
   }
   100% {
     opacity: 1;
-    transform: translate3d(-50%, -50%, 0);
   }
-} */
+} 
 .content-container {
   @apply opacity-90 mix-blend-screen saturate-200;
 }

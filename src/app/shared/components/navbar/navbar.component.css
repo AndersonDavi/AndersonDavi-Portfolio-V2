@@ -4,7 +4,7 @@
 nav {
   @apply fixed w-screen p-4 flex justify-center;
   z-index: 9999;
-  animation: appear 2s both;
+  animation: appear 3s both;
 }
 .nav-logo {
   @apply h-16 w-16 transition-transform duration-100 relative will-change-transform;
