@@ -1,10 +1,10 @@
 <app-navbar />
 <section id="title">
   <div class="size-full floatingY content-container px-4 relative">
-    <h1 class="header-title scale" aria-label="Anderson Rueda">
-      <span class="text-primary-500 font-display">ANDERSON</span>
+    <h1 class="header-title scale">
+      <span class="text-primary-500">ANDERSON</span>
       <br />
-      <span class="font-display">RUEDA</span>
+      RUEDA
     </h1>
     <span class="text-decoration-1 scale"
       >Web <br />
@@ -21,6 +21,7 @@
 <section id="about">
   <span class="rasgadura-up"></span>
 
+  @defer (on viewport) {
   <div
     class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px] opacity-appearL"
   >
@@ -41,24 +42,17 @@
       src="/decoration/arrow1.webp"
       alt="marco foto perfil"
       class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block floatingX scale"
-      loading="lazy"
-      decoding="async"
-      fetchpriority="low"
     />
     <div class="flex gap-4">
       <img
         src="github.svg"
         alt="github icon"
         class="size-8 sm:size-12 scale cursor-pointer"
-        loading="lazy"
-        decoding="async"
       />
       <img
         src="linkedin.svg"
         alt="linkedin icon"
         class="size-8 sm:size-12 scale cursor-pointer"
-        loading="lazy"
-        decoding="async"
       />
       <a
         [href]="translations[currentLanguage].resume.url"
@@ -77,12 +71,11 @@
       src="/decoration/marco1.webp"
       alt="marco foto perfil"
       class="floatingY"
-      loading="lazy"
-      decoding="async"
-      fetchpriority="low"
     />
   </div>
-
+  } @placeholder {
+  <div></div>
+  }
   <span class="rasgadura-down"></span>
 </section>
 <section id="curriculum">
@@ -98,6 +91,7 @@
     </div>
   </div>
   <div class="curriculum-list-container">
+    @defer (on viewport) {
     <app-curriculum-list
       class="size-full opacity-appearL"
       cardType="work-experience"
@@ -108,6 +102,9 @@
       cardType="education"
       titleType="solo"
     />
+    } @placeholder {
+    <div></div>
+    }
   </div>
 </section>
 <section id="skills">
@@ -120,11 +117,16 @@
         <strong class="text-primary-500 font-black">LIST</strong></span
       >
     </div>
+    @defer (on viewport) {
     <app-skills-list class="skills-list-container" />
+    } @placeholder {
+    <app-skills-list class="skills-list-container" />
+    }
   </div>
   <span class="rasgadura-down"></span>
 </section>
 <section id="projects">
+  @defer (on viewport) {
   <div
     class="rounded-md uppercase italic leading-7 font-black text-center text-5xl"
   >
@@ -135,11 +137,18 @@
     />
   </div>
   <app-project-gal />
+  } @placeholder {
+  <div></div>
+  }
 </section>
 <section id="contact">
+  @defer (on viewport) {
   <span class="rasgadura-up"></span>
   <div class="contact-form-container">
     <app-contact-form />
   </div>
+  } @placeholder {
+  <div class="h-screen"></div>
+  }
 </section>
 <app-footer />
