@@ -2,7 +2,7 @@
 @import "../styles.css";
 
 #title {
-  @apply bg-[url("/backgrounds/bg2.png")] bg-cover bg-center bg-no-repeat w-full  min-h-[35vh] max-h-[100vh] aspect-16/9;
+  @apply bg-[url("/backgrounds/bg2.webp")] bg-cover bg-center bg-no-repeat w-full  min-h-[35vh] max-h-[100vh] aspect-16/9;
 }
 * {
   @apply p-0 m-0;
@@ -52,11 +52,11 @@
 }
 
 .rasgadura-up {
-  @apply absolute inset-x-0 -top-[4vw] w-full h-auto aspect-22/1 bg-[url("/decoration/rasgadura1.png")] bg-center bg-contain bg-repeat-round;
+  @apply absolute inset-x-0 -top-[4vw] w-full h-auto aspect-22/1 bg-[url("/decoration/rasgadura1.webp")] bg-center bg-contain bg-repeat-round;
 }
 
 .rasgadura-down {
-  @apply absolute inset-x-0 -bottom-[4vw] w-full h-auto aspect-22/1 bg-[url("/decoration/rasgadura2.png")] bg-center bg-contain bg-repeat-round;
+  @apply absolute inset-x-0 -bottom-[4vw] w-full h-auto aspect-22/1 bg-[url("/decoration/rasgadura2.webp")] bg-center bg-contain bg-repeat-round;
 }
 
 img {
