@@ -9,7 +9,7 @@
 }
 
 #title {
-  @apply bg-[url("/backgrounds/bg2.webp")] bg-cover bg-center bg-no-repeat w-screen h-[calc(100vh+10vh)] aspect-16/9 relative;
+  @apply bg-[url("/backgrounds/bg2.webp")] bg-cover bg-center bg-no-repeat w-screen h-[calc(100vh+5vh)] aspect-16/9 relative;
   background-image: -webkit-image-set(url("/backgrounds/bg2.webp") 1x);
   content-visibility: auto;
   contain: paint;
