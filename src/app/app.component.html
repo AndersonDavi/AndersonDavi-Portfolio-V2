@@ -37,14 +37,10 @@
       />
       <a
         [href]="translations[currentLanguage].resume.url"
-        class="flex gap-1 items-center text-2xl uppercase font-black italic"
+        class="flex gap-1 items-center sm:text-xl uppercase font-black italic scale cursor-pointer"
         target="_blank"
       >
-        <img
-          src="resume-es.svg"
-          alt="resume icon"
-          class="size-8 sm:size-12 scale cursor-pointer"
-        />
+        <img src="resume-es.svg" alt="resume icon" class="size-8 sm:size-12" />
         {{ translations[currentLanguage].resume.text }}
       </a>
     </div>
@@ -109,9 +105,9 @@
     class="rounded-md uppercase italic leading-7 font-black text-center text-5xl"
   >
     <app-hover-string
-      text="PORTA#FOLIO#"
+      [text]="translations[currentLanguage].projectsTitle"
       growSize="7xl"
-      class="text-5xl  sm:text-6xl font-black uppercase relative"
+      class="text-5xl sm:text-6xl font-black uppercase relative"
     />
   </div>
   <app-project-gal />

@@ -53,7 +53,7 @@ export const translations = {
           },
         ],
       },
-    },
+    },projectsTitle: 'PORTA#FOLIO#',
     projects: {
       title: 'Proyectos',
       items: [
@@ -186,7 +186,7 @@ export const translations = {
           },
         ],
       },
-    },
+    },projectsTitle: 'PORT#FOLIO#',
     projects: {
       title: 'Projects',
       items: [

@@ -68,7 +68,7 @@ a:active::after {
 }
 
 .language-selector {
-  @apply flex items-center cursor-pointer  px-2 font-black italic h-full gap-1 select-none;
+  @apply flex items-center cursor-pointer mx-4 font-black italic h-full gap-1 select-none;
 }
 .language-selector img {
   @apply size-6;
