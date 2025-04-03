@@ -22,31 +22,23 @@ nav {
   contain: layout paint style;
 }
 .nav-container {
-  @apply flex justify-between items-center border-2 p-1 px-2 sm:px-4 rounded-xl h-16 w-full transition-all duration-300 max-w-7xl mx-auto;
+  @apply flex justify-between items-center border-2 p-1 px-2 sm:px-4 rounded-xl h-16 w-full transition-all duration-300 max-w-[1900px] mx-auto;
+  transition: backdrop-filter 0.3s ease-in-out, 
+              background-color 0.3s ease-in-out, 
+              border-color 0.3s ease-in-out;
 }
 .nav-spacing {
   @apply w-full hidden;
+}
+.nav-blur-container {
+  backdrop-filter: blur(0px);
+  background-color: transparent;
+  border-color: transparent;
 }
 .nav-blur-active {
   backdrop-filter: blur(10px);
   background-color: rgba(27, 24, 24, 0.4);
   border-color: rgba(255, 202, 65, 0.3);
-}
-
-@supports (backdrop-filter: blur(0px)) {
-  .nav-blur-container {
-    backdrop-filter: blur(0px);
-    background-color: transparent;
-    border-color: transparent;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .nav-blur-container {
-      animation: header-blur-scroll 0.5s linear both;
-      animation-timeline: scroll();
-      animation-range: 0 80vh;
-    }
-  }
 }
 
 @keyframes header-blur-scroll {
