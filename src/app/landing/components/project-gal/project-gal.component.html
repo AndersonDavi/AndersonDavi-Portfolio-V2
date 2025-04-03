@@ -47,8 +47,8 @@
         </ul>
       </div>
     </div>
-    <ul class="project-info-tecnologies">
-      @for (tecnologie of selectedProject?.tecnologies; track $index) {
+    <ul class="project-info-technologies">
+      @for (tecnologie of selectedProject?.technologies; track $index) {
 
       <li>
         <img
@@ -82,11 +82,20 @@
         rel="noopener noreferrer"
         class="btn btn-figma"
       >
-        <div class=""><img src="/skills/figma.webp" alt="figma icon" />MOCKUP</div>
+        <div class="">
+          <img src="/skills/figma.webp" alt="figma icon" />MOCKUP
+        </div>
       </a>
       }
     </div>
-    <h2 [innerHTML]="formatTitle(selectedProject!.title)"></h2>
+    <div class="projects-title-card">
+      <img
+        src="/icon3.webp"
+        alt=""
+        class="absolute -top-10 -right-10 size-20 rotate-6 floatingY scale"
+      />
+      <span class="text-5xl sm:text-6xl font-black" [innerHTML]="selectedProject!.title | textFormat"></span>
+    </div>
     <p>
       {{ selectedProject!.description }}
     </p>

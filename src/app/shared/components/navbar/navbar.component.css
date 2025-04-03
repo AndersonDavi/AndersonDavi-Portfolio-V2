@@ -67,6 +67,23 @@ a:active::after {
   @apply block w-6 h-[3px] my-[5px] mx-0 bg-white transition-all duration-300;
 }
 
+.language-selector {
+  @apply flex items-center cursor-pointer px-4 font-black italic h-full gap-1 select-none;
+}
+.language-selector img {
+  @apply size-6;
+}
+
+.lang-btn {
+  @apply cursor-pointer;
+}
+.language-selector:hover {
+  @apply -rotate-6;
+}
+.language-selector:active {
+  @apply -rotate-3 scale-95;
+}
+
 /* Estilos responsive */
 @media (max-width: 950px) {
   .menu-toggle {
@@ -87,11 +104,11 @@ a:active::after {
   }
 
   li {
-    @apply w-full;
+    @apply w-full h-20;
   }
 
   a {
-    @apply w-full justify-center py-2;
+    @apply w-full justify-center py-1;
   }
 
   /* Animación del botón hamburguesa */

@@ -1,4 +1,4 @@
-@if (!isSubmitted && !failed && true) {
+@if (!isSubmitted && !failed) {
 <div
   class="flex flex-col lg:flex-row justify-around items-center size-full p-5 h-full overflow-hidden"
 >
@@ -6,22 +6,27 @@
     class="rounded-md italic font-black text-center -rotate-3 flex flex-col items-center justify-center p-5 pt-10 size-full"
   >
     <app-hover-string
-      text="¡Contáctame!"
+      [text]="translations[currentLanguage].contact.title"
       growSize="8xl"
       class="text-6xl sm:text-7xl uppercase scale-75"
     />
-    <span class="m-0 text-2xl md:text-3xl mb-10"
-      >Hagamos <strong class="text-primary-500">realidad</strong> tus
-      ideas</span
-    >
+    <span
+      class="m-0 text-2xl md:text-3xl mb-10"
+      [innerHTML]="translations[currentLanguage].contact.text1 | textFormat"
+    ></span>
     <div class="flex justify-center gap-4">
       <a
         href="https://www.linkedin.com/in/anderson-david-rueda-consuegra/"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <img src="linkedin.svg" alt="linkedin icon" class="size-12 scale" />
       </a>
-      <a href="https://github.com/andersondavi" target="_blank">
+      <a
+        href="https://github.com/andersondavi"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img src="github.svg" alt="github icon" class="size-12 scale" />
       </a>
     </div>
@@ -33,7 +38,9 @@
       (ngSubmit)="onSubmit()"
     >
       <div class="flex flex-col gap-2">
-        <label for="name">Nombre</label>
+        <label for="name">{{
+          translations[currentLanguage].contact.form.name
+        }}</label>
         <input
           type="text"
           name="name"
@@ -49,7 +56,9 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <label for="email">Correo</label>
+        <label for="email">{{
+          translations[currentLanguage].contact.form.email
+        }}</label>
         <input
           type="text"
           name="email"
@@ -65,7 +74,9 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <label for="message">Mensaje</label>
+        <label for="message">{{
+          translations[currentLanguage].contact.form.message
+        }}</label>
         <textarea
           name="message"
           id="message"
@@ -80,7 +91,7 @@
       </div>
       <div class="flex flex-col-reverse lg:flex-row items-center">
         <button type="submit" class="btn btn-primary" [disabled]="isLoading">
-          Enviar
+          {{ translations[currentLanguage].contact.form.send }}
         </button>
       </div>
     </form>
@@ -100,29 +111,32 @@
     </a>
   </div>
 </div>
-} @if (isSubmitted || false) {
+} @if (isSubmitted) {
 
 <section
-  class="flex flex-col md:flex-row justify-evenly items-center size-full bg-red-300/5"
+  class="flex flex-col md:flex-row justify-evenly items-center size-full"
 >
   <div class="flex flex-col justify-center items-center">
     <h2
       class="text-center text-6xl mb-3 font-semibold my-5 motion-preset-bounce motion-duration-500"
     >
-      <app-hover-string text="¡Todo listo!" growSize="7xl" />
+      <app-hover-string
+        [text]="translations[currentLanguage].contact.text2"
+        growSize="7xl"
+      />
     </h2>
     <p class="text-gray-300 text-lg motion-preset-bounce motion-duration-500">
-      Nos estaremos comunicando contigo
+      {{ translations[currentLanguage].contact.text3 | textFormat }}
     </p>
     <p class="w-[50%] border-b-2 border-primary my-5"></p>
   </div>
   <img
     src="/email-submit.svg"
     alt="submit-image"
-    class="w-auto max-h-96 mt-10 motion-preset-bounce motion-duration-500 border-2"
+    class="w-auto max-h-96 mt-10 motion-preset-bounce motion-duration-500"
   />
 </section>
-} @if (failed || false) {
+} @if (failed) {
 
 <section
   class="flex flex-col md:flex-row justify-around items-center size-full"
@@ -131,17 +145,19 @@
     <h2
       class="text-center text-6xl mb-3 font-semibold my-5 card-motion motion-preset-bounce motion-duration-500"
     >
-      <app-hover-string text="Algo salió mal :(" growSize="7xl" />
+      <app-hover-string
+        [text]="translations[currentLanguage].contact.text4"
+        growSize="7xl"
+      />
     </h2>
     <p
       class="text-gray-300 text-lg motion-preset-bounce motion-duration-500 text-center max-w-[650px]"
     >
-      No pudimos enviar directamente tu mensaje, pero puedes contactarme en mis
-      redes sociales o enviarme un mensaje directo a mi correo
+      {{ translations[currentLanguage].contact.text5 }}
     </p>
     <p class="w-[50%] my-5"></p>
-    <div class="w-[130px] flex justify-center">
-      <a href="mailto:contactoandersonrueda@gmail.com" class="size-[60px]">
+    <div class="w-[130px] flex justify-center gap-3">
+      <a href="mailto:contactoandersonrueda@gmail.com" class="size-9">
         <img
           src="/email.svg"
           alt="github"
@@ -151,7 +167,8 @@
       <a
         href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/"
         target="_blank"
-        class="size-[60px]"
+        class="size-9"
+        rel="noopener noreferrer"
       >
         <img
           src="/linkedin.svg"
@@ -164,7 +181,7 @@
   <img
     src="/email-error.svg"
     alt="submit-image"
-    class="w-1/2 max-h-96 mt-10 motion-preset-bounce motion-duration-500"
+    class="w-1/2 max-h-96 md:mt-10 motion-preset-bounce motion-duration-500"
   />
 </section>
 }

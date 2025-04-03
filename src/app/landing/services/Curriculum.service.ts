@@ -1,40 +1,42 @@
 import { Injectable } from '@angular/core';
 import { CurriculumItem } from '../interfaces/curriculum-item';
+import { LanguageService } from '../../shared/services/language.service';
+
+interface TranslatedItem {
+  title: string;
+  description: string;
+  date_range: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class CurriculumService {
-  private curriculumItems: CurriculumItem[] = [
-    {
-      title: 'Tecnico en análisis y desarrollo de software',
-      date_range: '2020 ene - 2021 ene',
-      type: 'education',
-      description: 'SENA',
-    },
-    {
-      title: 'Desarrollador',
-      description:
-        'SENA | Diseño de mockups e interfaces para web de DigibootCamp, iniciativa como plataforma para cursos cortos y bootcamps de progrmación',
-      date_range: '2022 ene - 2022 jun',
-      type: 'work-experience',
-    },
-    {
-      title: 'Analista TI',
-      description:
-        'Gestión Laboral | Automatizaciòn de procesos con Power Platform, diseño de interfaces, administraciòn de bases de datos SQL SERVER',
-      date_range: '2022 ago - Actualidad',
-      type: 'work-experience',
-    },
-    {
-      title: 'Tecnólogo en análisis y desarrollo de software',
-      date_range: '2022 oct - 2024 dic',
-      type: 'education',
-      description: 'SENA',
-    },
-  ];
+  constructor(private languageService: LanguageService) {}
 
   getItemsByType(type: 'education' | 'work-experience'): CurriculumItem[] {
-    return this.curriculumItems.filter((item) => item.type === type);
+    const currentLang = this.languageService.getCurrentLanguage();
+    const translations = this.languageService.getTranslations();
+    
+    if (type === 'education') {
+      return translations[currentLang].experience.education.items.map((item: TranslatedItem) => ({
+        ...item,
+        type: 'education'
+      }));
+    } else {
+      return translations[currentLang].experience.work.items.map((item: TranslatedItem) => ({
+        ...item,
+        type: 'work-experience'
+      }));
+    }
+  }
+
+  getTitle(type: 'education' | 'work-experience'): string {
+    const currentLang = this.languageService.getCurrentLanguage();
+    const translations = this.languageService.getTranslations();
+    
+    return type === 'education' 
+      ? translations[currentLang].experience.education.title
+      : translations[currentLang].experience.work.title;
   }
 }

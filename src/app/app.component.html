@@ -7,21 +7,18 @@
     class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px]"
   >
     <app-hover-string
-      text="¡Que #más#!"
+      [text]="translations[currentLanguage].about.title"
       growSize="7xl"
       class="text-6xl uppercase"
     />
-    <p class="text-xl sm:text-2xl md:text-3xl">
-      Soy <strong>Anderson Rueda</strong>,
-      <strong class="text-primary-500"> desarrollador web</strong> dedicado y
-      apasionado por el diseño, me dedico a convertir tus ideas en herramientas
-      digitales que faciliten tu trabajo con eficiencia y estilo
-    </p>
-    <p class="text-xl sm:text-2xl md:text-3xl">
-      Me encuentro constantemente
-      <span class="text-primary-500">aprendiendo</span> cosas nuevas y
-      afrontando retos
-    </p>
+    <p
+      class="text-xl sm:text-2xl md:text-3xl"
+      [innerHTML]="translations[currentLanguage].about.text1 | textFormat"
+    ></p>
+    <p
+      class="text-xl sm:text-2xl md:text-3xl"
+      [innerHTML]="translations[currentLanguage].about.text2 | textFormat"
+    ></p>
     <img
       src="/decoration/arrow1.webp"
       alt="marco foto perfil"
@@ -38,12 +35,28 @@
         alt="linkedin icon"
         class="size-8 sm:size-12 scale cursor-pointer"
       />
+      <a
+        [href]="translations[currentLanguage].resume.url"
+        class="flex gap-1 items-center text-xl"
+        target="_blank"
+      >
+        <img
+          src="resume-es.svg"
+          alt="resume icon"
+          class="size-8 sm:size-12 scale cursor-pointer"
+        />
+        {{ translations[currentLanguage].resume.text }}
+      </a>
     </div>
   </div>
   <div
     class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center"
   >
-    <img src="/decoration/marco1.webp" alt="marco foto perfil" class="floatingY" />
+    <img
+      src="/decoration/marco1.webp"
+      alt="marco foto perfil"
+      class="floatingY"
+    />
   </div>
   <span class="rasgadura-down"></span>
 </section>
@@ -62,13 +75,12 @@
   <div class="curriculum-list-container">
     <app-curriculum-list
       class="size-full"
-      title="Experiencia laboral"
+      cardType="work-experience"
       titleType="divided"
     />
     <app-curriculum-list
       class="size-full"
       cardType="education"
-      title="Educación"
       titleType="solo"
     />
   </div>

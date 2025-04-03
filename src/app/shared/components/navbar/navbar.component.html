@@ -2,47 +2,77 @@
   <div class="nav-container">
     <img src="/simbolo.svg" alt="logo" />
 
-    <button class="menu-toggle"
-            (click)="toggleMenu()"
-            [attr.aria-expanded]="isMenuOpen"
-            aria-label="Toggle navigation menu"
-            title="Toggle menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-
-    <ul [class.active]="isMenuOpen">
-      <li>
-        <a href="#title"
-           [class.active]="activeLink === 'title'"
-           (click)="setActiveLink('title')">Inicio</a>
-      </li>
-      <li>
-        <a href="#about"
-           [class.active]="activeLink === 'about'"
-           (click)="setActiveLink('about')">Sobre mi</a>
-      </li>
-      <li>
-        <a href="#curriculum"
-           [class.active]="activeLink === 'curriculum'"
-           (click)="setActiveLink('curriculum')">Experiencia</a>
-      </li>
-      <li>
-        <a href="#skills"
-           [class.active]="activeLink === 'skills'"
-           (click)="setActiveLink('skills')">Skills</a>
-      </li>
-      <li>
-        <a href="#projects"
-           [class.active]="activeLink === 'projects'"
-           (click)="setActiveLink('projects')">Proyectos</a>
-      </li>
-      <li>
-        <a href="#contact"
-           [class.active]="activeLink === 'contact'"
-           (click)="setActiveLink('contact')">Contacto</a>
-      </li>
-    </ul>
+    <div class="flex h-full items-center">
+      <ul [class.active]="isMenuOpen">
+        <li>
+          <a
+            href="#title"
+            [class.active]="activeLink === 'title'"
+            (click)="setActiveLink('title')"
+            >{{ translations[currentLanguage].nav.home }}</a
+          >
+        </li>
+        <li>
+          <a
+            href="#about"
+            [class.active]="activeLink === 'about'"
+            (click)="setActiveLink('about')"
+            >{{ translations[currentLanguage].nav.about }}</a
+          >
+        </li>
+        <li>
+          <a
+            href="#curriculum"
+            [class.active]="activeLink === 'curriculum'"
+            (click)="setActiveLink('curriculum')"
+            >{{ translations[currentLanguage].nav.experience }}</a
+          >
+        </li>
+        <li>
+          <a
+            href="#skills"
+            [class.active]="activeLink === 'skills'"
+            (click)="setActiveLink('skills')"
+            >{{ translations[currentLanguage].nav.skills }}</a
+          >
+        </li>
+        <li>
+          <a
+            href="#projects"
+            [class.active]="activeLink === 'projects'"
+            (click)="setActiveLink('projects')"
+            >{{ translations[currentLanguage].nav.projects }}</a
+          >
+        </li>
+        <li>
+          <a
+            href="#contact"
+            [class.active]="activeLink === 'contact'"
+            (click)="setActiveLink('contact')"
+            >{{ translations[currentLanguage].nav.contact }}</a
+          >
+        </li>
+      </ul>
+      <div class="language-selector" (click)="toggleLanguage()">
+        <img
+          [src]="'/decoration/' + currentLanguage + '-lang.svg'"
+          alt="language icon"
+        />
+        <button class="lang-btn">
+          {{ currentLanguage.toUpperCase() }}
+        </button>
+      </div>
+      <button
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-label="Toggle navigation menu"
+        title="Toggle menu"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
   </div>
 </nav>
