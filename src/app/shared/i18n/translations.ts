@@ -27,30 +27,32 @@ export const translations = {
           {
             title: 'Tecnico en análisis y desarrollo de software',
             date_range: '2020 ene - 2021 ene',
-            description: 'SENA'
+            description: 'SENA',
           },
           {
             title: 'Tecnólogo en análisis y desarrollo de software',
             date_range: '2022 oct - 2024 dic',
-            description: 'SENA'
-          }
-        ]
+            description: 'SENA',
+          },
+        ],
       },
       work: {
         title: 'Experiencia laboral',
         items: [
           {
             title: 'Desarrollador',
-            description: 'SENA | Diseño de mockups e interfaces para web de DigibootCamp, iniciativa como plataforma para cursos cortos y bootcamps de progrmación',
-            date_range: '2022 ene - 2022 jun'
+            description:
+              'SENA | Diseño de mockups e interfaces para web de DigibootCamp, iniciativa como plataforma para cursos cortos y bootcamps de progrmación',
+            date_range: '2022 ene - 2022 jun',
           },
           {
             title: 'Analista TI',
-            description: 'Gestión Laboral | Automatizaciòn de procesos con Power Platform, diseño de interfaces, administraciòn de bases de datos SQL SERVER',
-            date_range: '2022 ago - Actualidad'
-          }
-        ]
-      }
+            description:
+              'Gestión Laboral | Automatizaciòn de procesos con Power Platform, diseño de interfaces, administraciòn de bases de datos SQL SERVER',
+            date_range: '2022 ago - Actualidad',
+          },
+        ],
+      },
     },
     projects: {
       title: 'Proyectos',
@@ -58,9 +60,11 @@ export const translations = {
         {
           id: 1,
           title: 'EMPLEO #GRUPOLOGIS#',
-          description: 'Colaboración en proyecto ATS para publicación de ofertas de empleo, corrección de estilos y mejoras en diseño',
+          description:
+            'Colaboración en proyecto ATS para publicación de ofertas de empleo, corrección de estilos y mejoras en diseño',
           demo_url: 'https://www.empleogrupologis.com/',
-          mockup_url: 'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
+          mockup_url:
+            'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
           bg_img: 'ATSIMG.webp',
           logo_img: 'ATSLogo.webp',
           technologies: [
@@ -76,7 +80,8 @@ export const translations = {
         {
           id: 2,
           title: 'EDICIONES #KAZIYADU#',
-          description: 'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
+          description:
+            'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
           demo_url: 'https://kaziyadu.vercel.app/',
           bg_img: 'kaziyaduAppIMG.webp',
           logo_img: 'kaziyaduAppLogo.webp',
@@ -94,7 +99,8 @@ export const translations = {
         {
           id: 3,
           title: 'GIFS#APP#',
-          description: 'Aplicación para buscar y compartir GIFs usando la API de GIPHY',
+          description:
+            'Aplicación para buscar y compartir GIFs usando la API de GIPHY',
           demo_url: 'https://gifs-app-ar.netlify.app/',
           bg_img: 'gifsAppIMG.webp',
           logo_img: 'gifsAppLogo.webp',
@@ -107,23 +113,24 @@ export const translations = {
           ],
           colors: ['#7c1c78', '#9c27b0', '#e1bee7'],
           alt_imgs: ['GIFS-img-1.webp', 'GIFS-img-2.webp'],
-        }
-      ]
+        },
+      ],
     },
-    contact:{
+    contact: {
       title: '¡CONTÁCTAME!',
-      text1:'Hagamos #realidad# tus ideas',
-      text2:'¡Todo listo!',
-      text3:'Nos estaremos comunicando contigo',
-      text4:'Algo salió mal :(',
-      text5:'No pudimos enviar directamente tu mensaje, pero puedes contactarme en mis redes sociales o enviarme un mensaje directo a mi correo',
-      form:{
-        name:'Nombre',
-        email:'Correo',
-        message:'Mensaje',
-        send:'Enviar'
-      }
-    }
+      text1: 'Hagamos #realidad# tus ideas',
+      text2: '¡Todo listo!',
+      text3: 'Nos estaremos comunicando contigo',
+      text4: 'Algo salió mal :(',
+      text5:
+        'No pudimos enviar directamente tu mensaje, pero puedes contactarme en mis redes sociales o enviarme un mensaje directo a mi correo',
+      form: {
+        name: 'Nombre',
+        email: 'Correo',
+        message: 'Mensaje',
+        send: 'Enviar',
+      },
+    },
   },
   en: {
     nav: {
@@ -153,30 +160,32 @@ export const translations = {
           {
             title: 'Software Analysis and Development Technician',
             date_range: 'Jan 2020 - Jan 2021',
-            description: 'SENA'
+            description: 'SENA',
           },
           {
             title: 'Software Analysis and Development Technologist',
             date_range: 'Oct 2022 - Dec 2024',
-            description: 'SENA'
-          }
-        ]
+            description: 'SENA',
+          },
+        ],
       },
       work: {
         title: 'Work Experience',
         items: [
           {
             title: 'Developer',
-            description: 'SENA | Design of mockups and web interfaces for DigibootCamp, an initiative as a platform for short courses and programming bootcamps',
-            date_range: 'Jan 2022 - Jun 2022'
+            description:
+              'SENA | Design of mockups and web interfaces for DigibootCamp, an initiative as a platform for short courses and programming bootcamps',
+            date_range: 'Jan 2022 - Jun 2022',
           },
           {
             title: 'IT Analyst',
-            description: 'Gestión Laboral | Process automation with Power Platform, interface design, SQL SERVER database administration',
-            date_range: 'Aug 2022 - Present'
-          }
-        ]
-      }
+            description:
+              'Gestión Laboral | Process automation with Power Platform, interface design, SQL SERVER database administration',
+            date_range: 'Aug 2022 - Present',
+          },
+        ],
+      },
     },
     projects: {
       title: 'Projects',
@@ -184,9 +193,11 @@ export const translations = {
         {
           id: 1,
           title: 'EMPLEO #GRUPOLOGIS#',
-          description: 'Collaboration on ATS project for job posting, style correction and design improvements',
+          description:
+            'Collaboration on ATS project for job posting, style correction and design improvements',
           demo_url: 'https://www.empleogrupologis.com/',
-          mockup_url: 'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
+          mockup_url:
+            'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
           bg_img: 'ATSIMG.webp',
           logo_img: 'ATSLogo.webp',
           technologies: [
@@ -202,7 +213,8 @@ export const translations = {
         {
           id: 2,
           title: 'EDICIONES #KAZIYADU#',
-          description: 'Website to publish free books designed for Ediciones kaziyadu publishing house',
+          description:
+            'Website to publish free books designed for Ediciones kaziyadu publishing house',
           demo_url: 'https://kaziyadu.vercel.app/',
           bg_img: 'kaziyaduAppIMG.webp',
           logo_img: 'kaziyaduAppLogo.webp',
@@ -220,7 +232,8 @@ export const translations = {
         {
           id: 3,
           title: 'GIFS#APP#',
-          description: 'Application to search and share GIFs using the GIPHY API',
+          description:
+            'Application to search and share GIFs using the GIPHY API',
           demo_url: 'https://gifs-app-ar.netlify.app/',
           bg_img: 'gifsAppIMG.webp',
           logo_img: 'gifsAppLogo.webp',
@@ -233,23 +246,23 @@ export const translations = {
           ],
           colors: ['#7c1c78', '#9c27b0', '#e1bee7'],
           alt_imgs: ['GIFS-img-1.webp', 'GIFS-img-2.webp'],
-        }
-      ]
+        },
+      ],
     },
-    contact:{
+    contact: {
       title: 'CONTACT ME!',
-      text1:"Let's bring your ideas to #reality#",
-      text2:'All set!',
-      text3:'We will be in touch with you',
-      text4:'Something went wrong :(',
-      text5:"We can't send your message directly, but you can contact me via my social networks or send me a direct message to my email",
-      form:{
-        name:'Name',
-        email:'Email',
-        message:'Message',
-        send:'Send'
-
-      }
-    }
+      text1: "Let's bring your ideas to #reality#",
+      text2: 'All set!',
+      text3: 'We will be in touch with you',
+      text4: 'Something went wrong :(',
+      text5:
+        "We can't send your message directly, but you can contact me via my social networks or send me a direct message to my email",
+      form: {
+        name: 'Name',
+        email: 'Email',
+        message: 'Message',
+        send: 'Send',
+      },
+    },
   },
 };

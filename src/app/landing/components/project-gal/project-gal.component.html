@@ -89,12 +89,10 @@
       }
     </div>
     <div class="projects-title-card">
-      <img
-        src="/icon3.webp"
-        alt=""
-        class="absolute -top-10 -right-10 size-20 rotate-6 floatingY scale"
-      />
-      <span class="text-5xl sm:text-6xl font-black" [innerHTML]="selectedProject!.title | textFormat"></span>
+      <span
+        class="text-5xl sm:text-6xl font-black"
+        [innerHTML]="selectedProject!.title | textFormat"
+      ></span>
     </div>
     <p>
       {{ selectedProject!.description }}

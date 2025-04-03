@@ -2,12 +2,12 @@
 @import "../../../../styles.css";
 
 nav {
-  @apply fixed w-full p-4;
+  @apply fixed w-screen p-4  flex justify-center;
   z-index: 9999;
 }
 
 .nav-container {
-  @apply mx-auto flex justify-between items-center border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl backdrop-blur-xs h-16;
+  @apply flex justify-between items-center border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl backdrop-blur-xs h-16 w-full;
 }
 
 img {
@@ -68,7 +68,7 @@ a:active::after {
 }
 
 .language-selector {
-  @apply flex items-center cursor-pointer px-4 font-black italic h-full gap-1 select-none;
+  @apply flex items-center cursor-pointer  px-2 font-black italic h-full gap-1 select-none;
 }
 .language-selector img {
   @apply size-6;
