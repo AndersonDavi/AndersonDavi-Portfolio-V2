@@ -9,7 +9,10 @@ import { translations } from '../../i18n/translations';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true
+  standalone: true,
+  host: {
+    'style': 'contain: layout style; content-visibility: auto;'
+  }
 })
 export class NavbarComponent {
   activeLink: string = '';
@@ -19,18 +22,29 @@ export class NavbarComponent {
 
   constructor(private languageService: LanguageService) {
     this.currentLanguage = this.languageService.getCurrentLanguage();
-    this.languageService.getLanguage$().subscribe(lang => {
+    this.languageService.getLanguage$().subscribe((lang) => {
       this.currentLanguage = lang;
     });
   }
 
   setActiveLink(link: string) {
     this.activeLink = link;
-    this.isMenuOpen = false;  // Cerrar el menú al hacer clic en un enlace
+    if (window.innerWidth <= 950) {
+      this.toggleMenu();
+    }
   }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+    const navContainer = document.querySelector('.nav-container');
+
+    if (this.isMenuOpen) {
+      navContainer?.classList.remove('nav-blur-container');
+      navContainer?.classList.add('nav-blur-active');
+    } else {
+      navContainer?.classList.remove('nav-blur-active');
+      navContainer?.classList.add('nav-blur-container');
+    }
   }
 
   toggleLanguage() {

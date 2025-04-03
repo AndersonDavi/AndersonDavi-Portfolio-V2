@@ -1,10 +1,28 @@
 <app-navbar />
-<section id="title"></section>
+<section id="title">
+  <div class="size-full floatingY content-container px-4 relative">
+    <h1 class="header-title scale" aria-label="Anderson Rueda">
+      <span class="text-primary-500 font-display">ANDERSON</span>
+      <br />
+      <span class="font-display">RUEDA</span>
+    </h1>
+    <span class="text-decoration-1 scale"
+      >Web <br />
+      developer</span
+    >
+    <span class="text-decoration-2 scale">404</span>
+    <span class="text-decoration-3 scale"
+      >HELLO <br />
+      WORLD</span
+    >
+  </div>
+</section>
 
 <section id="about">
   <span class="rasgadura-up"></span>
+
   <div
-    class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px]"
+    class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px] opacity-appearL"
   >
     <app-hover-string
       [text]="translations[currentLanguage].about.title"
@@ -23,17 +41,24 @@
       src="/decoration/arrow1.webp"
       alt="marco foto perfil"
       class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block floatingX scale"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
     />
     <div class="flex gap-4">
       <img
         src="github.svg"
         alt="github icon"
         class="size-8 sm:size-12 scale cursor-pointer"
+        loading="lazy"
+        decoding="async"
       />
       <img
         src="linkedin.svg"
         alt="linkedin icon"
         class="size-8 sm:size-12 scale cursor-pointer"
+        loading="lazy"
+        decoding="async"
       />
       <a
         [href]="translations[currentLanguage].resume.url"
@@ -46,14 +71,18 @@
     </div>
   </div>
   <div
-    class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center"
+    class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center opacity-appearR"
   >
     <img
       src="/decoration/marco1.webp"
       alt="marco foto perfil"
       class="floatingY"
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
     />
   </div>
+
   <span class="rasgadura-down"></span>
 </section>
 <section id="curriculum">
@@ -70,12 +99,12 @@
   </div>
   <div class="curriculum-list-container">
     <app-curriculum-list
-      class="size-full"
+      class="size-full opacity-appearL"
       cardType="work-experience"
       titleType="divided"
     />
     <app-curriculum-list
-      class="size-full"
+      class="size-full opacity-appearR"
       cardType="education"
       titleType="solo"
     />
@@ -91,12 +120,7 @@
         <strong class="text-primary-500 font-black">LIST</strong></span
       >
     </div>
-    @defer (on viewport) {
-
     <app-skills-list class="skills-list-container" />
-    } @placeholder {
-    <app-skills-list class="skills-list-container" />
-    }
   </div>
   <span class="rasgadura-down"></span>
 </section>
@@ -107,7 +131,7 @@
     <app-hover-string
       [text]="translations[currentLanguage].projectsTitle"
       growSize="7xl"
-      class="text-5xl sm:text-6xl font-black uppercase relative"
+      class="text-5xl sm:text-6xl font-black uppercase relative opacity-appearR"
     />
   </div>
   <app-project-gal />

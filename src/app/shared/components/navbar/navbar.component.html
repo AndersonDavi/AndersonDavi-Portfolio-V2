@@ -1,78 +1,88 @@
 <nav>
-  <div class="nav-container">
-    <img src="/simbolo.svg" alt="logo"  class="py-1"/>
-
-    <div class="flex h-full items-center">
-      <ul [class.active]="isMenuOpen">
-        <li>
-          <a
-            href="#title"
-            [class.active]="activeLink === 'title'"
-            (click)="setActiveLink('title')"
-            >{{ translations[currentLanguage].nav.home }}</a
-          >
-        </li>
-        <li>
-          <a
-            href="#about"
-            [class.active]="activeLink === 'about'"
-            (click)="setActiveLink('about')"
-            >{{ translations[currentLanguage].nav.about }}</a
-          >
-        </li>
-        <li>
-          <a
-            href="#curriculum"
-            [class.active]="activeLink === 'curriculum'"
-            (click)="setActiveLink('curriculum')"
-            >{{ translations[currentLanguage].nav.experience }}</a
-          >
-        </li>
-        <li>
-          <a
-            href="#skills"
-            [class.active]="activeLink === 'skills'"
-            (click)="setActiveLink('skills')"
-            >{{ translations[currentLanguage].nav.skills }}</a
-          >
-        </li>
-        <li>
-          <a
-            href="#projects"
-            [class.active]="activeLink === 'projects'"
-            (click)="setActiveLink('projects')"
-            >{{ translations[currentLanguage].nav.projects }}</a
-          >
-        </li>
-        <li>
-          <a
-            href="#contact"
-            [class.active]="activeLink === 'contact'"
-            (click)="setActiveLink('contact')"
-            >{{ translations[currentLanguage].nav.contact }}</a
-          >
-        </li>
-      </ul>
-      <div class="language-selector" (click)="toggleLanguage()">
-        <img
-          [src]="'/decoration/' + currentLanguage + '-lang.svg'"
-          alt="language icon"
-        />
-        <button class="lang-btn">
-          {{ currentLanguage.toUpperCase() }}
-        </button>
-      </div>
-      <button
-        class="menu-toggle"
-        (click)="toggleMenu()"
-        [attr.aria-expanded]="isMenuOpen"
-        aria-label="Toggle navigation menu"
-        title="Toggle menu"
-      >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+  <div class="nav-container nav-blur-container">
+    <a href="#title" class="nav-logo">
+      <!-- <img 
+        src="/simbolo.svg" 
+        alt="Anderson Rueda Logo"
+        width="64" 
+        height="64"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        class="rendered-logo"
+        aria-label="Site logo"
+      /> -->
+    </a>
+    <div class="nav-spacing"></div>
+    <ul [class.active]="isMenuOpen">
+      <li>
+        <a
+          href="#title"
+          [class.active]="activeLink === 'title'"
+          (click)="setActiveLink('title')"
+          >{{ translations[currentLanguage].nav.home }}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#about"
+          [class.active]="activeLink === 'about'"
+          (click)="setActiveLink('about')"
+          >{{ translations[currentLanguage].nav.about }}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#curriculum"
+          [class.active]="activeLink === 'curriculum'"
+          (click)="setActiveLink('curriculum')"
+          >{{ translations[currentLanguage].nav.experience }}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#skills"
+          [class.active]="activeLink === 'skills'"
+          (click)="setActiveLink('skills')"
+          >{{ translations[currentLanguage].nav.skills }}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#projects"
+          [class.active]="activeLink === 'projects'"
+          (click)="setActiveLink('projects')"
+          >{{ translations[currentLanguage].nav.projects }}</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contact"
+          [class.active]="activeLink === 'contact'"
+          (click)="setActiveLink('contact')"
+          >{{ translations[currentLanguage].nav.contact }}</a
+        >
+      </li>
+    </ul>
+    <div class="language-selector" (click)="toggleLanguage()">
+      <img
+        [src]="'/decoration/' + currentLanguage + '-lang.svg'"
+        alt="language icon"
+      />
+      <button class="lang-btn">
+        {{ currentLanguage.toUpperCase() }}
       </button>
     </div>
+    <button
+      class="menu-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen"
+      aria-label="Toggle navigation menu"
+      title="Toggle menu"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
   </div>
 </nav>

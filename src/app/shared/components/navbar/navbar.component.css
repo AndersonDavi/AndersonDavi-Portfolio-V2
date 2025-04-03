@@ -2,18 +2,74 @@
 @import "../../../../styles.css";
 
 nav {
-  @apply fixed w-screen p-4  flex justify-center;
+  @apply fixed w-screen p-4 flex justify-center;
   z-index: 9999;
+  animation: appear 2s both;
 }
-
+.nav-logo {
+  @apply h-16 w-16 transition-transform duration-100 relative will-change-transform;
+  contain: strict;
+  content-visibility: auto;
+}
+.nav-logo img {
+  @apply h-full w-full hover:rotate-3 hover:scale-105 active:rotate-6 active:scale-95;
+}
+.nav-logo img.rendered-logo {
+  @apply h-full w-full transition-transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  contain: layout paint style;
+}
 .nav-container {
-  @apply flex justify-between items-center border-2 border-primary-300/25 bg-secondary-800/40 p-1 px-5 rounded-xl backdrop-blur-xs h-16 w-full;
+  @apply flex justify-between items-center border-2 p-1 px-2 sm:px-4 rounded-xl h-16 w-full transition-all duration-300 max-w-7xl mx-auto;
+}
+.nav-spacing {
+  @apply w-full hidden;
+}
+.nav-blur-active {
+  backdrop-filter: blur(10px);
+  background-color: rgba(27, 24, 24, 0.4);
+  border-color: rgba(255, 202, 65, 0.3);
+}
+/* 
+@supports (backdrop-filter: blur(0px)) {
+  .nav-blur-container {
+    backdrop-filter: blur(0px);
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-blur-container {
+      animation: header-blur-scroll 0.5s linear both;
+      animation-timeline: scroll();
+      animation-range: 0 80vh;
+    }
+  }
 }
 
-img {
-  @apply size-14;
+@keyframes header-blur-scroll {
+  0% {
+    backdrop-filter: blur(0px);
+    background-color: transparent;
+    border-color: transparent;
+  }
+  100% {
+    backdrop-filter: blur(10px);
+    background-color: rgba(27, 24, 24, 0.4);
+    border-color: rgba(255, 202, 65, 0.3);
+  }
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
 ul {
   @apply flex text-white gap-3 uppercase italic font-bold h-full py-1;
 }
@@ -22,45 +78,45 @@ li {
   @apply w-full h-full;
 }
 
-a {
+li a {
   @apply relative px-4 h-full transition-all duration-300 flex items-center z-10 whitespace-nowrap;
 }
 
-a::before,
-a::after {
+li a::before,
+li a::after {
   content: "";
   @apply absolute left-0 w-full h-0 bg-primary-500 transition-all duration-300 -z-10;
 }
 
-a::before {
+li a::before {
   @apply top-0;
 }
 
-a::after {
+li a::after {
   @apply bottom-0;
 }
 
-a:hover::before,
-a:hover::after {
+li a:hover::before,
+li a:hover::after {
   @apply h-1/2;
 }
 
-a:hover {
+li a:hover {
   @apply text-black transition-all duration-300;
 }
 
-a:active {
+li a:active {
   @apply transition-none duration-75 rotate-3 scale-105;
 }
 
-a:active::before,
-a:active::after {
+li a:active::before,
+li a:active::after {
   @apply bg-white shadow shadow-primary-800/50 transition-none text-black -rotate-4;
 }
 
 /* Botón de menú hamburguesa */
 .menu-toggle {
-  @apply hidden bg-transparent border-none cursor-pointer p-2 relative z-[1001];
+  @apply hidden bg-transparent border-none cursor-pointer p-2 mx-2 relative z-[1001];
 }
 
 .bar {
@@ -68,7 +124,7 @@ a:active::after {
 }
 
 .language-selector {
-  @apply flex items-center cursor-pointer mx-4 font-black italic h-full gap-1 select-none;
+  @apply flex items-center cursor-pointer px-4 font-black italic h-full gap-1 select-none;
 }
 .language-selector img {
   @apply size-6;
@@ -89,14 +145,17 @@ a:active::after {
   .menu-toggle {
     @apply block;
   }
+  .nav-logo {
+    @apply h-full aspect-square max-h-full;
+  }
 
   ul {
     @apply fixed top-[4rem] right-0 w-full h-0
-           bg-secondary-800/95 backdrop-blur-xs
+           bg-secondary-800/95 
            border-2 border-primary-300/25 border-t-0
            flex-col justify-start items-stretch
            transition-all duration-100 ease-in-out
-           p-0 gap-2 overflow-hidden opacity-0;
+           p-0 gap-2 overflow-hidden opacity-0 backdrop-blur-xl;
   }
 
   ul.active {
@@ -107,7 +166,7 @@ a:active::after {
     @apply w-full h-20;
   }
 
-  a {
+  li a {
     @apply w-full justify-center py-1;
   }
 
@@ -122,5 +181,16 @@ a:active::after {
 
   .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
     @apply transform -rotate-45 -translate-y-[8px];
+  }
+}
+@media (min-width: 400px) {
+  .nav-spacing {
+    @apply block;
+  }
+}
+
+@media (min-width: 640px) {
+  .nav-logo {
+    @apply absolute left-4;
   }
 }

@@ -1,8 +1,63 @@
 @import "tailwindcss";
 @import "../styles.css";
 
+/* Precargar la fuente crítica */
+@font-face {
+  font-family: "Mars";
+  font-display: swap;
+  src: local("Mars"), url("/fonts/MARSNEVENEKSK-Regular");
+}
+
 #title {
-  @apply bg-[url("/backgrounds/bg2.webp")] bg-cover bg-center bg-no-repeat w-full  min-h-[35vh] max-h-[100vh] aspect-16/9;
+  @apply bg-[url("/backgrounds/bg2.webp")] bg-cover bg-center bg-no-repeat w-screen h-[calc(100vh+10vh)] aspect-16/9 relative;
+  background-image: -webkit-image-set(url("/backgrounds/bg2.webp") 1x);
+  content-visibility: auto;
+  contain: paint;
+}
+#title div * {
+  @apply select-none;
+  font-family: var(--font-mars) !important;
+}
+#title div app-hover-string * {
+  @apply select-none;
+  font-family: var(--font-mars) !important;
+}
+/* DEBO HACER QUE ESTE EN EL CENTRO DEL DIV PADRE*/
+.header-title {
+  @apply text-[clamp(4rem,18vw,25rem)] text-center leading-[0.75em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  animation: appear 0.4s ease-out both;
+  will-change: transform, opacity;
+  contain: layout style paint;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+.text-decoration-1 {
+  @apply text-[clamp(2rem,5vw,25rem)] text-center leading-[0.75em] font-normal absolute bottom-[calc(12vh)] left-[calc(5vw)] text-primary-500;
+  animation: appear 1s both;
+  animation-delay: 0.5s;
+}
+.text-decoration-2 {
+  @apply text-[clamp(2rem,3vw,25rem)] text-center leading-[0.75em] font-normal absolute top-30 left-[calc(5vw)];
+  animation: appear 1s both;
+  animation-delay: 0.6s;
+}
+.text-decoration-3 {
+  @apply text-[clamp(2rem,4vw,25rem)] text-center leading-[0.75em] font-normal absolute bottom-[calc(12vh)] right-[calc(5vw)];
+  animation: appear 1s both;
+  animation-delay: 0.7s;
+}
+/* @keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, -45%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0);
+  }
+} */
+.content-container {
+  @apply opacity-90 mix-blend-screen saturate-200;
 }
 * {
   @apply p-0 m-0;
@@ -62,4 +117,9 @@
 img {
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.font-display {
+  font-family: "Mars", sans-serif;
+  text-rendering: optimizeLegibility;
 }
