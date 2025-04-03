@@ -32,7 +32,7 @@ nav {
   background-color: rgba(27, 24, 24, 0.4);
   border-color: rgba(255, 202, 65, 0.3);
 }
-/* 
+
 @supports (backdrop-filter: blur(0px)) {
   .nav-blur-container {
     backdrop-filter: blur(0px);
@@ -69,7 +69,7 @@ nav {
   100% {
     opacity: 1;
   }
-} */
+}
 ul {
   @apply flex text-white gap-3 uppercase italic font-bold h-full py-1;
 }
