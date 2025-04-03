@@ -101,7 +101,7 @@ export const translations = {
           title: 'GIFS#APP#',
           description:
             'Aplicación para buscar y compartir GIFs usando la API de GIPHY',
-          demo_url: 'https://gifs-app-ar.netlify.app/',
+          demo_url: 'https://andersondavi.github.io/GIFS-API/',
           bg_img: 'gifsAppIMG.webp',
           logo_img: 'gifsAppLogo.webp',
           technologies: [
@@ -111,7 +111,7 @@ export const translations = {
             { title: 'Angular', img: 'angular.webp' },
             { title: 'TypeScript', img: 'ts.webp' },
           ],
-          colors: ['#7c1c78', '#9c27b0', '#e1bee7'],
+          colors: ['#1f2022', '#212529', '#ffffff'],
           alt_imgs: ['GIFS-img-1.webp', 'GIFS-img-2.webp'],
         },
       ],
@@ -234,7 +234,7 @@ export const translations = {
           title: 'GIFS#APP#',
           description:
             'Application to search and share GIFs using the GIPHY API',
-          demo_url: 'https://gifs-app-ar.netlify.app/',
+          demo_url: 'https://andersondavi.github.io/GIFS-API/',
           bg_img: 'gifsAppIMG.webp',
           logo_img: 'gifsAppLogo.webp',
           technologies: [
@@ -244,7 +244,7 @@ export const translations = {
             { title: 'Angular', img: 'angular.webp' },
             { title: 'TypeScript', img: 'ts.webp' },
           ],
-          colors: ['#7c1c78', '#9c27b0', '#e1bee7'],
+          colors: ['#1f2022', '#212529', '#ffffff'],
           alt_imgs: ['GIFS-img-1.webp', 'GIFS-img-2.webp'],
         },
       ],
