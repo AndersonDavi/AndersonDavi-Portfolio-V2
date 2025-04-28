@@ -1,0 +1,104 @@
+<app-navbar />
+<section id="title">
+  <div class="size-full floatingY content-container px-4 relative">
+    <h1 class="header-title scale">
+      <span class="text-primary-500">ANDERSON</span>
+      <br />
+      <span>RUEDA</span>
+    </h1>
+    <div class="text-decoration-1">
+      <span class="scale">Web
+        developer</span>
+        <a href="#about">
+
+          <img src="/icons/scroll-down.svg" alt="scroll down" class="scale">
+        </a>
+    </div>
+    <span class="text-decoration-2 scale">404</span>
+    <!-- <span class="text-decoration-3 scale"
+      >HELLO <br />
+      WORLD</span
+    > -->
+  </div>
+</section>
+
+<section id="about">
+  <span class="rasgadura-up"></span>
+
+  @defer (on viewport) {
+  <div class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px] opacity-appearL">
+    <app-hover-string [text]="translations[currentLanguage].about.title" growSize="7xl"
+      class="text-5xl sm:text-6xl uppercase" />
+    <p class="text-xl sm:text-2xl md:text-3xl" [innerHTML]="translations[currentLanguage].about.text1 | textFormat"></p>
+    <p class="text-xl sm:text-2xl md:text-3xl" [innerHTML]="translations[currentLanguage].about.text2 | textFormat"></p>
+    <img src="/decoration/arrow1.webp" alt="marco foto perfil"
+      class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block floatingX scale" />
+    <div class="flex gap-4">
+      <img src="github.svg" alt="github icon" class="size-8 sm:size-12 scale cursor-pointer" />
+      <img src="linkedin.svg" alt="linkedin icon" class="size-8 sm:size-12 scale cursor-pointer" />
+      <a [href]="translations[currentLanguage].resume.url"
+        class="flex gap-1 items-center sm:text-xl uppercase font-black italic scale cursor-pointer" target="_blank">
+        <img src="resume-es.svg" alt="resume icon" class="size-8 sm:size-12" />
+        {{ translations[currentLanguage].resume.text }}
+      </a>
+    </div>
+  </div>
+  <div class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center opacity-appearR">
+    <img src="/decoration/marco1.webp" alt="marco foto perfil" class="floatingY scale" />
+  </div>
+  } @placeholder {
+  <div></div>
+  }
+  <span class="rasgadura-down"></span>
+</section>
+<section id="curriculum">
+  <div
+    class="overflow-hidden h-auto w-full bg-primary-500 text-secondary-500 flex items-center rotate-2 absolute top-32">
+    <div class="marquee flex whitespace-nowrap text-3xl font-bold gap-1 uppercase">
+      @for (text of marqueeTexts; track $index) {
+      <p>{{ text }}</p>
+      }
+    </div>
+  </div>
+  <div class="curriculum-list-container">
+    @defer (on viewport) {
+    <app-curriculum-list class="size-full opacity-appearL" cardType="work-experience" titleType="divided" />
+    <app-curriculum-list class="size-full opacity-appearR" cardType="education" titleType="solo" />
+    } @placeholder {
+    <div></div>
+    }
+  </div>
+</section>
+<section id="skills">
+  <div class="skills-container">
+    <div class="rounded-md uppercase italic leading-7 font-black text-center text-5xl">
+      <span class="">SKILLS <br />
+        <strong class="text-primary-500 font-black">LIST</strong></span>
+    </div>
+    @defer (on viewport) {
+    <app-skills-list class="skills-list-container" />
+    } @placeholder {
+    <app-skills-list class="skills-list-container" />
+    }
+  </div>
+  <span class="rasgadura-down"></span>
+</section>
+<section id="projects">
+  <div class="rounded-md uppercase italic leading-7 font-black text-center text-5xl">
+    <app-hover-string [text]="translations[currentLanguage].projectsTitle" growSize="7xl"
+      class="text-5xl sm:text-6xl font-black uppercase relative opacity-appearR" />
+  </div>
+  <app-project-gal />
+
+</section>
+<section id="contact">
+  @defer (on viewport) {
+  <span class="rasgadura-up"></span>
+  <div class="contact-form-container">
+    <app-contact-form />
+  </div>
+  } @placeholder {
+  <div class="h-screen"></div>
+  }
+</section>
+<app-footer />
