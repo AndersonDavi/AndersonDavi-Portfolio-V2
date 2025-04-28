@@ -1,6 +1,6 @@
 <div class="projects-container">
   <!-- Elimina la clase sticky del ul y añádela al div contenedor -->
-  <div class="project-selector-container sticky top-20">
+  <div class="project-selector-container">
     <ul class="project-selector opacity-appearL mx-auto">
       @for (project of projectsList; track $index) {
       <li (click)="selectProject(project)" [ngClass]="{
@@ -14,39 +14,57 @@
       }
     </ul>
   </div>
-  <div class="project-info border">
+  <div class="project-info relative">
     <div class="project-info-images relative overflow-hidden px-6 h-full">
-      <div class="border w-1/2 py-5 z-10 mt-10 h-40 mb-5 relative">
+      <div class=" w-1/2 py-5 z-10 mt-10 h-40 mb-5 relative">
         <img [src]="'/logos/' + selectedProject!.logo_img" [alt]="selectedProject!.title + ' logo'"
-          class="h-full w-auto object-contain">
+          class="h-full w-auto object-contain scale">
       </div>
-      <div class="border w-full z-10 mt-[22rem] h-full max-h-[350px] absolute -top-40 -rotate-[30deg] flex">
+      <div class=" w-full z-10 mt-[22rem] h-full max-h-[350px] absolute -top-40 -rotate-[30deg] flex">
         <div class="w-2/3  p-3 gap-5 max-h-[300px]">
           <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' logo'"
-            class="size-full ratio-16/9 object-cover rounded-2xl">
+            class="size-full ratio-16/9 object-cover rounded-2xl scale">
         </div>
         <div class="w-1/3 flex flex-col h-full relative -top-[30px]">
           <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' logo'"
-            class="size-full ratio-16/9 object-cover rounded-2xl my-1">
+            class="size-full ratio-16/9 object-cover rounded-2xl my-1 scale">
           <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' logo'"
-            class="size-full ratio-16/9 object-cover rounded-2xl my-1">
+            class="size-full ratio-16/9 object-cover rounded-2xl my-1 scale">
         </div>
       </div>
-      <div class="img-bg z-10 mt-[28rem]" [ngStyle]="{
-          'background-image': 'url(/gal-img/' + selectedProject!.bg_img + ')'
-        }">
-        <img [src]="'/gal-img/' + selectedProject!.alt_imgs[0]" [alt]="selectedProject!.title + ' background'"
-          class="img-min img-min-1 draggable" />
-        <img [src]="'/gal-img/' + selectedProject!.alt_imgs[1]" [alt]="selectedProject!.title + ' background'"
-          class="img-min img-min-2 draggable" />
+      <div class="w-auto z-10 mt-[22rem] ml-auto right-0 relative">
         <ul class="colors">
           @for (color of selectedProject!.colors; track $index) {
           <li [ngStyle]="{
-              'background-color': color,
-              '--hover-color': color
-            }"></li>
+            'background-color': color,
+            '--hover-color': color
+          }"></li>
           }
         </ul>
+      </div>
+      <div class="w-[200%] relative h-80 -left-80 flex gap-2 my-1">
+        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale" />
+        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale" />
+      </div>
+      <div class="w-[200%] relative h-80 -left-40 flex gap-2 my-1">
+        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale" />
+        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale" />
+      </div>
+      <div class="relative h-auto  w-full min-h-[200px]">
+        <div class="bg-plain-color w-[150%] h-[100%]
+        absolute -bottom-[50%] z-[0] -left-40" [ngStyle]="{
+         'background-color': selectedProject!.colors[0],
+         '--hover-color': selectedProject!.colors[0]
+       }">
+        </div>
+        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
+          class="aspect-video object-cover w-[90%] mx-auto z-[10] rotate-y-[20deg] rotate-x-[10deg] -rotate-z-[5deg] border-gray-900 border-[20px] mt-10 h-80 relative mb-40 img-desktop  shadow-black shadow-md scale" />
+        <img [src]="'/gal-img/' + selectedProject!.alt_imgs[1]" [alt]="selectedProject!.title + ' background'"
+          class="img-min img-min-2 z-100 mt-40 shadow-black shadow-md scale" />
       </div>
       <div class="bg-plain-color w-[110%] h-full max-h-[600px]
        absolute -top-40 -left-2/5 -rotate-[30deg] rounded-4xl z-0" [ngStyle]="{
@@ -55,7 +73,7 @@
       }">
       </div>
     </div>
-    <div class="project-info-text sticky">
+    <div class="project-info-text">
       <div class="projects-title-card">
         <span class="text-5xl sm:text-6xl font-black italic" [innerHTML]="selectedProject!.title | textFormat"></span>
       </div>

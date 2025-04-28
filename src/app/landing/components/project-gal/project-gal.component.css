@@ -6,7 +6,6 @@
 }
 .projects-container {
   @apply flex flex-col gap-5 py-20 w-screen justify-center min-h-screen relative;
-  overflow: visible; /* Evita interferencias con sticky */
 }
 .project-selector {
   @apply flex gap-2 overflow-auto items-start justify-start w-full p-5 px-10;
@@ -29,22 +28,20 @@
   @apply size-full object-contain active:scale-95 hover:scale-105;
 }
 .project-info {
-  @apply rounded-md flex flex-col  w-full hyphens-auto lg:flex-row-reverse h-[200vh] items-start overflow-hidden;
+  @apply rounded-md flex flex-col  w-full hyphens-auto lg:flex-row-reverse h-auto items-start;
 }
 .project-info-images {
   @apply w-full lg:w-1/2 mb-3 lg:mb-0 flex flex-col;
 }
 .project-info-text {
-  @apply w-full lg:w-1/2 flex flex-col gap-2 pl-10 pr-5 border sticky bg-red-100/10;
-  top: 20px; /* Ajusta la posición sticky */
-  position: sticky !important;
+  @apply w-full lg:w-1/2 flex flex-col gap-2 pl-10 pr-5 sticky top-26;
 }
 
 .img-bg {
   @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat  h-80 sm:h-auto sm:aspect-video w-full transition-transform duration-300;
 }
 .img-min {
-  @apply size-28 sm:size-32 md:size-48 border-amber-800 object-cover
+  @apply size-28 sm:size-32 md:size-48 object-cover
   absolute transition-shadow duration-150 shadow-sm;
 }
 .img-min:hover {
@@ -65,10 +62,12 @@
   @apply scale-75;
 }
 .img-min-2 {
-  @apply -bottom-5 -right-5 rotate-6 aspect-4/3 md:h-64 md:w-36 h-36 w-20 border border-[8px] border-b-[20px] border-gray-900 md:rounded-4xl rounded-2xl;
+  @apply top-5 -right-5 rotate-6 aspect-4/3 md:h-64 md:w-36 h-36 w-20 border border-[8px] border-b-[20px] border-gray-900 md:rounded-4xl rounded-2xl;
   animation: appearR 1s both;
 }
-
+.img-desktop {
+  @apply border-gray-900 border-[10px] rounded-2xl;
+}
 .img-min-2:hover {
   @apply -bottom-6 -right-6 rotate-7 shadow-xl;
 }
@@ -90,8 +89,8 @@
   }
 }
 .colors {
-  @apply w-auto border-amber-800 object-cover
-  absolute -top-5 -right-5 flex transition-transform duration-75;
+  @apply w-auto object-cover
+   flex transition-transform duration-75;
 }
 .colors li:hover {
   @apply scale-95 cursor-pointer translate-y-1;

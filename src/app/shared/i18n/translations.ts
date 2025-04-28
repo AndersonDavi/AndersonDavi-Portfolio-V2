@@ -67,6 +67,7 @@ export const translations = {
             'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
           bg_img: 'ATSIMG.webp',
           logo_img: 'ATSLogo.webp',
+          logo_img_noColor: 'ATSLogo-noColor.webp',
           technologies: [
             { title: 'HTML', img: 'html.webp' },
             { title: 'CSS', img: 'css.webp' },
@@ -75,7 +76,7 @@ export const translations = {
             { title: 'TypeScript', img: 'ts.webp' },
           ],
           colors: ['#e45b00', '#ff6e0d', '#f0f0f7'],
-          alt_imgs: ['ATS-img-2.webp', 'ATS-img-1.webp'],
+          alt_imgs: ['ATS-img-2.webp', 'ATS-img-1.webp', 'ATSLogo.webp'],
         },
         {
           id: 2,
