@@ -14,7 +14,7 @@ export const translations = {
     },
     marquee: 'Curriculum vitae -',
     about: {
-      title: '¡Que #más#!',
+      title: '¡Hola #mundo#!',
       text1:
         'Soy Anderson Rueda, #desarrollador web# dedicado y apasionado por el diseño, me especializo en convertir tus ideas en herramientas digitales eficientes y con estilo que agilizan tu trabajo',
       text2:
@@ -176,7 +176,7 @@ export const translations = {
     },
     marquee: 'Resume -',
     about: {
-      title: 'Hello #World#',
+      title: 'Hello #World!#',
       text1:
         "I'm Anderson Rueda, a dedicated #web developer# passionate about design. I specialize in turning your ideas into efficient and stylish digital tools that streamline your work.",
       text2:

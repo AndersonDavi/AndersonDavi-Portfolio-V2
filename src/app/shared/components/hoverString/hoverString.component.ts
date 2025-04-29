@@ -15,6 +15,9 @@ export class HoverStringComponent {
   @Input()
   public growSize: string = '8xl';
 
+  @Input()
+  public useMarsFont: boolean = false;
+
   public getCharacters(): { char: string; isPrimary: boolean }[] {
     const parts = this.text.split(/(#.*?#)/g);
     return parts.flatMap((part): { char: string; isPrimary: boolean }[] => {

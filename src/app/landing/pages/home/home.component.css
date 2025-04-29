@@ -22,6 +22,9 @@
   @apply select-none;
   font-family: var(--font-mars) !important;
 }
+.hello-text *{
+  font-family: var(--font-mars) !important;
+}
 /* DEBO HACER QUE ESTE EN EL CENTRO DEL DIV PADRE*/
 .header-title {
   @apply text-[clamp(4rem,18vw,20rem)] text-center leading-[0.75em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mb-10;
@@ -91,9 +94,12 @@
 }
 
 #skills {
-  @apply bg-secondary-800 h-auto min-h-[700px] flex flex-col lg:flex-row items-start justify-center border-dashed border-t-2 rotate-2 relative -left-5 mt-10 p-10 pb-20;
+  @apply bg-secondary-800 h-full flex flex-col lg:flex-row items-start justify-center border-dashed border-t-2 rotate-2 relative -left-5 mt-10 p-10 ;
   width: calc(100vw + 125px);
   padding-right: calc(100px + 2.5rem);
+}
+#skills-section-container {
+  @apply overflow-x-hidden  overflow-y-hidden w-screen h-full pb-20;
 }
 .skills-container {
   @apply -rotate-2  flex flex-col justify-center items-start size-full;

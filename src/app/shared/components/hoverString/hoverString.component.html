@@ -1,7 +1,8 @@
-<div (aria-label)="getCleanText()">
+<div (aria-label)="getCleanText()" class="hello-text" [style.fontFamily]="useMarsFont ? 'var(--font-mars) !important' : ''">
   @for (character of getCharacters(); track character.char) {
   <span
     class="cursor-default relative select-none italic hover:transition-transform duration-75"
+    [style.fontFamily]="useMarsFont ? 'var(--font-mars) !important' : ''"
     [ngClass]="{
       'text-primary-500 hover:text-primary-300': character.isPrimary,
       'hover:text-primary-500': !character.isPrimary,

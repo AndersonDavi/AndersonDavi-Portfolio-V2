@@ -9,10 +9,10 @@
     <div class="text-decoration-1">
       <span class="scale">Web
         developer</span>
-        <a href="#about">
+      <a href="#about">
 
-          <img src="/icons/scroll-down.svg" alt="scroll down" class="scale">
-        </a>
+        <img src="/icons/scroll-down.svg" alt="scroll down" class="scale">
+      </a>
     </div>
     <span class="text-decoration-2 scale">404</span>
     <!-- <span class="text-decoration-3 scale"
@@ -26,9 +26,9 @@
   <span class="rasgadura-up"></span>
 
   @defer (on viewport) {
-  <div class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px] opacity-appearL">
-    <app-hover-string [text]="translations[currentLanguage].about.title" growSize="7xl"
-      class="text-5xl sm:text-6xl uppercase" />
+  <div class="lg:w-1/2 flex flex-col gap-3 -rotate-3 font-bold lg:max-w-[600px] opacity-appearL ">
+    <app-hover-string [text]="translations[currentLanguage].about.title" growSize="8xl" [useMarsFont]="true"
+      class="text-5xl sm:text-7xl uppercase hello-text" />
     <p class="text-xl sm:text-2xl md:text-3xl" [innerHTML]="translations[currentLanguage].about.text1 | textFormat"></p>
     <p class="text-xl sm:text-2xl md:text-3xl" [innerHTML]="translations[currentLanguage].about.text2 | textFormat"></p>
     <img src="/decoration/arrow1.webp" alt="marco foto perfil"
@@ -69,20 +69,22 @@
     }
   </div>
 </section>
-<section id="skills">
-  <div class="skills-container">
-    <div class="rounded-md uppercase italic leading-7 font-black text-center text-5xl">
-      <span class="">SKILLS <br />
-        <strong class="text-primary-500 font-black">LIST</strong></span>
+<div class="overflow-x-hidden w-screen h-full min-h-[700px]" id="skills-section-container">
+  <section id="skills">
+    <div class="skills-container">
+      <div class="rounded-md uppercase italic leading-7 font-black text-center text-5xl">
+        <span class="">SKILLS <br />
+          <strong class="text-primary-500 font-black">LIST</strong></span>
+      </div>
+      @defer (on viewport) {
+      <app-skills-list class="skills-list-container" />
+      } @placeholder {
+      <app-skills-list class="skills-list-container" />
+      }
     </div>
-    @defer (on viewport) {
-    <app-skills-list class="skills-list-container" />
-    } @placeholder {
-    <app-skills-list class="skills-list-container" />
-    }
-  </div>
-  <span class="rasgadura-down"></span>
-</section>
+    <span class="rasgadura-down"></span>
+  </section>
+</div>
 <section id="projects" class="scroll-mt-[90px] ">
   <div class="rounded-md uppercase italic leading-7 font-black text-center text-5xl">
     <app-hover-string [text]="translations[currentLanguage].projectsTitle" growSize="7xl"
