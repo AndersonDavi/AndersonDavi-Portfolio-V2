@@ -37,7 +37,6 @@ import { SkillsListComponent } from '../../components/skills-list/skills-list.co
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit, OnDestroy {
   title = 'mi-portafolioV2';

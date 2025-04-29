@@ -32,12 +32,12 @@
   animation-delay: 0.5s;
 }
 .text-decoration-1 {
-  @apply text-[clamp(2rem,5vw,25rem)] text-center leading-[0.75em] font-normal absolute bottom-[calc(5vh)] left-1/2 -translate-x-1/2 text-primary-500 gap-5 flex flex-col;
+  @apply text-[clamp(2rem,5vw,25rem)] text-center leading-[0.75em] font-normal absolute bottom-[calc(6vh)] left-1/2 -translate-x-1/2 text-primary-500 gap-5 flex flex-col;
   animation: appear 1s both;
   animation-delay: 0.5s;
 }
 .text-decoration-1 span {
-  @apply text-[clamp(2rem,5vw,25rem)] text-center leading-[0.75em] font-normal text-primary-500;
+  @apply text-[clamp(2rem,4vw,25rem)] text-center leading-[0.75em] font-normal text-primary-500;
   animation: appear 1s both;
   animation-delay: 0.5s;
 }

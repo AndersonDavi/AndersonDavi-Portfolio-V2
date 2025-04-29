@@ -35,6 +35,9 @@ export class SkillsListComponent {
     this.isVisible = false;
     setTimeout(() => {
       this.selectedType = type;
+      console.log(this.selectedType);
+      console.log(this.getSelectedSkills());
+      console.log(this.getNonSelectedSkills());
       this.isVisible = true;
     }, 300); // Esperar a que termine fadeOut
     this.animationKey++;

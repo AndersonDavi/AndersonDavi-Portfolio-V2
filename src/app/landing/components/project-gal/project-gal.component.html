@@ -16,23 +16,28 @@
   </div>
   <div class="project-info relative">
     <div class="project-info-images relative overflow-hidden px-6 h-full">
-      <div class=" w-1/2 py-5 z-10 mt-10 h-40 mb-5 relative">
+      <div class=" w-1/2 min-w-[300px] py-5 z-10 mt-10 h-40 mb-5 relative">
+        @if(selectedProject!.logo_img_noColor){
+        <img [src]="'/logos/' + selectedProject!.logo_img_noColor" [alt]="selectedProject!.title + ' logo'"
+          class="h-full w-auto object-contain scale">
+        }@else {
         <img [src]="'/logos/' + selectedProject!.logo_img" [alt]="selectedProject!.title + ' logo'"
           class="h-full w-auto object-contain scale">
+        }
       </div>
-      <div class=" w-full z-10 mt-[22rem] h-full max-h-[350px] absolute -top-40 -rotate-[30deg] flex">
+      <div class=" w-full min-w-[400px] z-10 mt-[22rem] h-full max-h-[350px] absolute -top-40 -rotate-[0deg] flex">
         <div class="w-2/3  p-3 gap-5 max-h-[300px]">
-          <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' logo'"
-            class="size-full ratio-16/9 object-cover rounded-2xl scale">
+          <img [src]="'/gal-img/' + selectedProject!.x_images[0]" [alt]="selectedProject!.title + ' logo'"
+            class="size-full ratio-16/9 object-cover rounded-2xl scale max-w-[600px]">
         </div>
         <div class="w-1/3 flex flex-col h-full relative -top-[30px]">
-          <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' logo'"
+          <img [src]="'/gal-img/' + selectedProject!.x_images[1]" [alt]="selectedProject!.title + ' logo'"
             class="size-full ratio-16/9 object-cover rounded-2xl my-1 scale">
-          <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' logo'"
+          <img [src]="'/gal-img/' + selectedProject!.x_images[2]" [alt]="selectedProject!.title + ' logo'"
             class="size-full ratio-16/9 object-cover rounded-2xl my-1 scale">
         </div>
       </div>
-      <div class="w-auto z-10 mt-[22rem] ml-auto right-0 relative">
+      <div class="w-auto z-10 mt-[26rem] lg:mt-[22rem] ml-auto right-0 relative">
         <ul class="colors">
           @for (color of selectedProject!.colors; track $index) {
           <li [ngStyle]="{
@@ -42,32 +47,31 @@
           }
         </ul>
       </div>
-      <div class="w-[200%] relative h-80 -left-80 flex gap-2 my-1">
-        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
-          class="size-full object-cover w-full scale" />
-        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
-          class="size-full object-cover w-full scale" />
+      <div class="w-[200%] relative h-80 md:-left-80 -left-32 flex gap-2 my-1">
+        <img [src]="'/gal-img/' + selectedProject!.x_images[3]" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale-down" />
+        <img [src]="'/gal-img/' + selectedProject!.x_images[4]" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale-down" />
       </div>
       <div class="w-[200%] relative h-80 -left-40 flex gap-2 my-1">
-        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
-          class="size-full object-cover w-full scale" />
-        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
-          class="size-full object-cover w-full scale" />
+        <img [src]="'/gal-img/' + selectedProject!.x_images[5]" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale-down" />
+        <img [src]="'/gal-img/' + selectedProject!.x_images[6]" [alt]="selectedProject!.title + ' background'"
+          class="size-full object-cover w-full scale-down" />
       </div>
-      <div class="relative h-auto  w-full min-h-[200px]">
+      <div class="relative h-auto  w-full min-h-[500px]">
         <div class="bg-plain-color w-[150%] h-[100%]
-        absolute -bottom-[50%] z-[0] -left-40" [ngStyle]="{
+        absolute -bottom-[50%] z-[0] md:-left-40 -left-1/3" [ngStyle]="{
          'background-color': selectedProject!.colors[0],
          '--hover-color': selectedProject!.colors[0]
        }">
         </div>
-        <img [src]="'/gal-img/' + selectedProject!.bg_img" [alt]="selectedProject!.title + ' background'"
-          class="aspect-video object-cover w-[90%] mx-auto z-[10] rotate-y-[20deg] rotate-x-[10deg] -rotate-z-[5deg] border-gray-900 border-[20px] mt-10 h-80 relative mb-40 img-desktop  shadow-black shadow-md scale" />
-        <img [src]="'/gal-img/' + selectedProject!.alt_imgs[1]" [alt]="selectedProject!.title + ' background'"
-          class="img-min img-min-2 z-100 mt-40 shadow-black shadow-md scale" />
+        <img [src]="'/gal-img/' + selectedProject!.x_images[0]" [alt]="selectedProject!.title + ' background'"
+          class="aspect-video object-cover w-[90%] mx-auto z-[10] rotate-y-[20deg] rotate-x-[10deg] -rotate-z-[5deg] border-gray-900 border-[20px] mt-10 h-80  mb-40 img-desktop  shadow-black shadow-md scale max-w-[600px] absolute right-1/2 translate-x-1/2" />
+        <img [src]="'/gal-img/' + selectedProject!.y_images[0]" [alt]="selectedProject!.title + ' background'" class="img-min img-min-2 z-100 mt-40 shadow-black shadow-md scale right-1/2 translate-x-[40vw] lg:translate-x-[20vw]" />
       </div>
       <div class="bg-plain-color w-[110%] h-full max-h-[600px]
-       absolute -top-40 -left-2/5 -rotate-[30deg] rounded-4xl z-0" [ngStyle]="{
+       absolute -top-40 md:-left-2/5 -rotate-[30deg] rounded-4xl z-0" [ngStyle]="{
         'background-color': selectedProject!.colors[0],
         '--hover-color': selectedProject!.colors[0]
       }">

@@ -11,7 +11,9 @@ export interface ProjectItem {
   mockup_url?: string;
   bg_img: string;
   logo_img?: string;
+  logo_img_noColor?: string;
   technologies: tecnologieCard[];
   colors: string[];
-  alt_imgs: string[];
+  y_images: string[];
+  x_images: string[];
 }

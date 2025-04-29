@@ -34,42 +34,22 @@
   @apply w-full lg:w-1/2 mb-3 lg:mb-0 flex flex-col;
 }
 .project-info-text {
-  @apply w-full lg:w-1/2 flex flex-col gap-2 pl-10 pr-5 sticky top-26;
+  @apply w-full lg:w-1/2 flex flex-col gap-4 pl-10 pr-5 sticky top-26;
 }
 
 .img-bg {
   @apply relative bg-[url("/gal-img/ATSIMG.webp")] bg-cover bg-center bg-no-repeat  h-80 sm:h-auto sm:aspect-video w-full transition-transform duration-300;
 }
 .img-min {
-  @apply size-28 sm:size-32 md:size-48 object-cover
-  absolute transition-shadow duration-150 shadow-sm;
-}
-.img-min:hover {
-  @apply shadow-primary-500/25 scale-105 cursor-pointer;
-}
-.img-min:active {
-  @apply shadow-primary-500/50 scale-100 cursor-pointer;
-}
-
-.img-min-1 {
-  @apply -top-5 -left-5 -rotate-6 object-contain;
-  animation: appearL 0.5s both;
-}
-.img-min-1:hover {
-  @apply -top-6 -left-6 -rotate-7 shadow-xl;
-}
-.img-min-1:hover > img {
-  @apply scale-75;
-}
-.img-min-2 {
-  @apply top-5 -right-5 rotate-6 aspect-4/3 md:h-64 md:w-36 h-36 w-20 border border-[8px] border-b-[20px] border-gray-900 md:rounded-4xl rounded-2xl;
+  @apply  object-cover
+  absolute transition-shadow duration-150 shadow-sm top-5 rotate-6 aspect-4/3 md:h-64 md:w-36 h-56 w-28  border-[8px] border-b-[20px] border-gray-900 md:rounded-4xl rounded-2xl;
   animation: appearR 1s both;
 }
 .img-desktop {
   @apply border-gray-900 border-[10px] rounded-2xl;
 }
 .img-min-2:hover {
-  @apply -bottom-6 -right-6 rotate-7 shadow-xl;
+  @apply -bottom-6 rotate-7 shadow-xl;
 }
 
 @keyframes appearL {
