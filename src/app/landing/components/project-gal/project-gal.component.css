@@ -154,7 +154,7 @@
 }
 
 .btn-figma {
-  @apply text-white bg-[#2c2c2c] flex items-center p-[2px];
+  @apply text-white bg-[#2c2c2c] flex items-center p-[2px] w-fit;
   background: linear-gradient(90deg, #f24e1e, #a259ff, #0acf83);
   background-size: 150% 100%;
 }
@@ -168,7 +168,7 @@
 }
 
 .btn-secondary img {
-  @apply size-6 bg-black rounded-full;
+  @apply size-5 bg-black rounded-full;
 }
 
 .btn-figma div {
@@ -179,7 +179,7 @@
   @apply bg-transparent;
 }
 .btn-figma img {
-  @apply size-8;
+  @apply size-6;
   transition: transform 0.3s ease;
 }
 .btn-figma:hover img {

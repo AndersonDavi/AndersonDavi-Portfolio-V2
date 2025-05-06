@@ -15,7 +15,7 @@
     </ul>
   </div>
   <div class="project-info relative">
-    <div class="project-info-images relative overflow-hidden px-6 h-full">
+    <div class="project-info-images relative overflow-hidden px-6 h-full mask-luminance mask-t-from-white mask-t-from-97% mask-t-to-black mask-b-from-white mask-b-from-97% mask-b-to-black">
       <div class=" w-1/2 min-w-[300px] py-5 z-10 mt-10 h-40 mb-5 relative">
         @if(selectedProject!.logo_img_noColor){
         <img [src]="'/logos/' + selectedProject!.logo_img_noColor" [alt]="selectedProject!.title + ' logo'"
@@ -26,9 +26,9 @@
         }
       </div>
       <div class=" w-full min-w-[400px] z-10 mt-[22rem] h-full max-h-[350px] absolute -top-40 -rotate-[0deg] flex">
-        <div class="w-2/3  p-3 gap-5 max-h-[300px]">
+        <div class="w-fit  p-3 gap-5 max-h-[300px]">
           <img [src]="'/gal-img/' + selectedProject!.x_images[0]" [alt]="selectedProject!.title + ' logo'"
-            class="size-full ratio-16/9 object-cover rounded-2xl scale max-w-[600px]">
+            class="size-full ratio-16/9 object-cover rounded-2xl scale max-w-[500px]">
         </div>
         <div class="w-1/3 flex flex-col h-full relative -top-[30px]">
           <img [src]="'/gal-img/' + selectedProject!.x_images[1]" [alt]="selectedProject!.title + ' logo'"
@@ -102,7 +102,7 @@
         } @if (selectedProject!.mockup_url) {
         <a [href]="selectedProject!.mockup_url" target="_blank" rel="noopener noreferrer" class="btn btn-figma">
           <div class="">
-            <img src="/skills/figma.webp" alt="figma icon" />MOCKUP
+            <img src="/skills/figma.webp" alt="figma icon" /><span>MOCKUP</span>
           </div>
         </a>
         }
