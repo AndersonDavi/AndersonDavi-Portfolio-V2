@@ -1,0 +1,126 @@
+---
+import { translations } from '../../data/translations';
+import { buildHoverHtml, formatHtml } from '../../scripts/i18n';
+const t = translations.es;
+
+const helloHtml = buildHoverHtml(t.about.title, '8xl', true);
+const text1Html = formatHtml(t.about.text1);
+const text2Html = formatHtml(t.about.text2);
+---
+
+<section id="about">
+  <span class="rasgadura-up"></span>
+
+  <div class="lg:w-1/2 flex flex-col gap-3 about-left opacity-appearL">
+    <div
+      class="hello-text text-5xl sm:text-7xl uppercase about-title"
+      data-hover-key="about.title"
+      data-grow-size="8xl"
+      data-use-mars="true"
+      set:html={helloHtml}
+    />
+    <p
+      class="text-xl sm:text-2xl md:text-3xl"
+      data-i18n-html="about.text1"
+      set:html={text1Html}
+    ></p>
+    <p
+      class="text-xl sm:text-2xl md:text-3xl"
+      data-i18n-html="about.text2"
+      set:html={text2Html}
+    ></p>
+    <img
+      src="/decoration/arrow1.webp"
+      alt="decoración"
+      class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block floatingX scale"
+    />
+    <div class="flex gap-4">
+      <a href="https://github.com/andersondavi" target="_blank" rel="noopener noreferrer">
+        <img src="/github.svg" alt="github icon" class="size-8 sm:size-12 scale cursor-pointer" />
+      </a>
+      <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" rel="noopener noreferrer">
+        <img src="/linkedin.svg" alt="linkedin icon" class="size-8 sm:size-12 scale cursor-pointer" />
+      </a>
+      <a
+        href={t.resume.url}
+        class="flex gap-1 items-center sm:text-xl uppercase font-black italic scale cursor-pointer"
+        target="_blank"
+        rel="noopener noreferrer"
+        data-i18n-href="resume.url"
+        id="resume-link"
+      >
+        <img src="/resume-es.svg" alt="resume icon" class="size-8 sm:size-12" />
+        <span data-i18n="resume.text">{t.resume.text}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center opacity-appearR">
+    <img src="/decoration/marco1.webp" alt="marco foto perfil" class="floatingY scale" />
+  </div>
+
+  <span class="rasgadura-down"></span>
+</section>
+
+<style is:global>
+#about {
+  background-color: var(--color-secondary-800);
+  min-height: 100vh;
+  position: relative;
+  padding-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  gap: 1.25rem;
+  font-style: italic;
+  margin: 0 auto;
+  z-index: 10;
+}
+@media (min-width: 640px) {
+  #about { padding-left: 5rem; padding-right: 5rem; }
+}
+@media (min-width: 1024px) {
+  #about { flex-direction: row; padding-top: 0; padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+.about-left {
+  font-weight: 700;
+  max-width: 600px;
+}
+@media (min-width: 1024px) {
+  .about-left { transform: rotate(-3deg); }
+}
+.about-title * {
+  font-family: var(--font-mars) !important;
+}
+.hello-text {
+  display: flex;
+  flex-wrap: wrap;
+}
+.rasgadura-up {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(-4vw);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 22/1;
+  background-image: url("/decoration/rasgadura1.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: round;
+}
+.rasgadura-down {
+  position: absolute;
+  inset-inline: 0;
+  bottom: calc(-4vw);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 22/1;
+  background-image: url("/decoration/rasgadura2.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: round;
+}
+</style>

@@ -1,0 +1,496 @@
+---
+import { translations } from '../../data/translations';
+import { buildHoverHtml } from '../../scripts/i18n';
+const t = translations.es;
+const projects = t.projects.items;
+const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
+---
+
+<section id="projects" class="scroll-mt-[90px]">
+  <div class="projects-title opacity-appearR">
+    <div
+      class="text-5xl sm:text-6xl font-black uppercase relative hover-string-container"
+      data-hover-key="projectsTitle"
+      data-grow-size="7xl"
+      set:html={titleHtml}
+    />
+  </div>
+
+  <div class="projects-container">
+    <!-- Project selector tabs -->
+    <div class="project-selector-container">
+      <ul class="project-selector opacity-appearL mx-auto">
+        {projects.map((project, idx) => (
+          <li
+            class={`project-tab${idx === 0 ? ' active-tab' : ''}`}
+            data-project-id={project.id}
+          >
+            <img
+              src={`/logos/${project.logo_img}`}
+              alt={`${project.title.replace(/#/g, '')} logo`}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Project details — all rendered, only one visible -->
+    {projects.map((project, idx) => (
+      <div
+        class={`project-detail${idx === 0 ? ' active-project' : ' hidden-project'}`}
+        data-project-id={project.id}
+      >
+        <div class="project-info relative">
+          <!-- Images column -->
+          <div class="project-info-images relative overflow-hidden px-6 h-full">
+            <!-- Logo -->
+            <div class="w-1/2 min-w-[300px] py-5 z-10 mt-10 h-40 mb-5 relative">
+              <img
+                src={`/logos/${project.logo_img_noColor || project.logo_img}`}
+                alt={`${project.title.replace(/#/g, '')} logo`}
+                class="h-full w-auto object-contain scale"
+              />
+            </div>
+
+            <!-- Top image grid -->
+            <div class="w-full min-w-[400px] z-10 mt-[22rem] h-full max-h-[350px] absolute -top-40 flex">
+              <div class="w-fit p-3 gap-5 max-h-[300px]">
+                <img
+                  src={`/gal-img/${project.x_images[0]}`}
+                  alt={`${project.title.replace(/#/g, '')} screenshot`}
+                  class="size-full object-cover rounded-2xl scale max-w-[500px]"
+                  style="aspect-ratio: 16/9"
+                />
+              </div>
+              <div class="w-1/3 flex flex-col h-full relative -top-[30px]">
+                <img src={`/gal-img/${project.x_images[1]}`} alt="" class="size-full object-cover rounded-2xl my-1 scale" style="aspect-ratio: 16/9" />
+                <img src={`/gal-img/${project.x_images[2]}`} alt="" class="size-full object-cover rounded-2xl my-1 scale" style="aspect-ratio: 16/9" />
+              </div>
+            </div>
+
+            <!-- Color palette -->
+            <div class="w-auto z-10 mt-[26rem] lg:mt-[22rem] ml-auto right-0 relative">
+              <ul class="colors">
+                {project.colors.map(color => (
+                  <li style={`background-color: ${color}; --hover-color: ${color}`}></li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Wide image row 1 -->
+            <div class="w-[200%] relative h-80 md:-left-80 -left-32 flex gap-2 my-1">
+              <img src={`/gal-img/${project.x_images[3]}`} alt="" class="size-full object-cover w-full scale-down" />
+              <img src={`/gal-img/${project.x_images[4]}`} alt="" class="size-full object-cover w-full scale-down" />
+            </div>
+
+            <!-- Wide image row 2 -->
+            <div class="w-[200%] relative h-80 -left-40 flex gap-2 my-1">
+              <img src={`/gal-img/${project.x_images[5]}`} alt="" class="size-full object-cover w-full scale-down" />
+              <img src={`/gal-img/${project.x_images[6]}`} alt="" class="size-full object-cover w-full scale-down" />
+            </div>
+
+            <!-- Desktop + Mobile mockup -->
+            <div class="relative h-auto w-full min-h-[500px]">
+              <div
+                class="bg-plain-color w-[150%] h-[100%] absolute -bottom-[50%] z-[0] md:-left-40 -left-1/3"
+                style={`background-color: ${project.colors[0]}`}
+              ></div>
+              <img
+                src={`/gal-img/${project.x_images[0]}`}
+                alt={`${project.title.replace(/#/g, '')} desktop`}
+                class="aspect-video object-cover w-[90%] mx-auto z-[10] border-gray-900 border-[20px] mt-10 h-80 mb-40 img-desktop shadow-black shadow-md scale max-w-[600px] absolute right-1/2 translate-x-1/2"
+                style="transform: rotateY(20deg) rotateX(10deg) rotateZ(-5deg) translateX(50%)"
+              />
+              <img
+                src={`/gal-img/${project.y_images[0]}`}
+                alt={`${project.title.replace(/#/g, '')} mobile`}
+                class="img-min img-min-2 z-100 mt-40 shadow-black shadow-md scale right-1/2 translate-x-[40vw] lg:translate-x-[20vw] draggable"
+              />
+            </div>
+
+            <!-- Diagonal bg accent -->
+            <div
+              class="bg-plain-color w-[110%] h-full max-h-[600px] absolute -top-40 md:-left-2/5 -rotate-[30deg] rounded-4xl z-0"
+              style={`background-color: ${project.colors[0]}`}
+            ></div>
+          </div>
+
+          <!-- Text column -->
+          <div class="project-info-text">
+            <div class="projects-title-card">
+              <span
+                class="text-5xl sm:text-6xl font-black italic hover-string-container"
+                data-hover-key={`projects.items.${idx}.title`}
+                data-grow-size="6xl"
+                set:html={buildHoverHtml(project.title, '6xl', false)}
+              />
+            </div>
+            <p data-i18n={`projects.items.${idx}.description`}>{project.description}</p>
+            <ul class="project-info-technologies">
+              {project.technologies.map(tech => (
+                <li>
+                  <img src={`/skills/${tech.img}`} alt={`${tech.title} icon`} />
+                  <span>{tech.title}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="project-info-btns">
+              {project.demo_url && (
+                <a href={project.demo_url} target="_blank" rel="noopener noreferrer" class="btn btn-primary">DEMO</a>
+              )}
+              {'code_url' in project && project.code_url && (
+                <a href={(project as any).code_url} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  <img src="/skills/github.svg" alt="github icon" />CÓDIGO
+                </a>
+              )}
+              {'mockup_url' in project && project.mockup_url && (
+                <a href={(project as any).mockup_url} target="_blank" rel="noopener noreferrer" class="btn btn-figma">
+                  <div>
+                    <img src="/skills/figma.webp" alt="figma icon" /><span>MOCKUP</span>
+                  </div>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style is:global>
+#projects {
+  background-color: var(--color-secondary-500);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 7rem;
+  scroll-margin-top: 90px;
+}
+@media (min-width: 768px) { #projects { margin-top: 9rem; } }
+@media (min-width: 1280px) { #projects { margin-top: 10rem; } }
+.projects-title {
+  text-align: center;
+  font-style: italic;
+}
+.hover-string-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 5rem 0;
+  width: 100vw;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+.project-selector-container {
+  position: sticky;
+  top: 5rem;
+  z-index: 10;
+  background: transparent;
+  padding: 0.5rem 0;
+}
+.project-selector {
+  display: flex;
+  gap: 0.5rem;
+  overflow: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 1.25rem 2.5rem;
+  list-style: none;
+}
+.project-selector::-webkit-scrollbar { height: 0.5rem; }
+.project-selector::-webkit-scrollbar-thumb { background-color: rgba(255, 190, 65, 0.25); border-radius: 9999px; }
+.project-selector::-webkit-scrollbar-track { background: transparent; }
+.project-tab {
+  border: 1px solid rgba(255, 202, 65, 0.25);
+  border-radius: 0.375rem;
+  height: 7rem;
+  aspect-ratio: 1;
+  backdrop-filter: blur(1rem);
+  cursor: pointer;
+  transition: all 75ms ease;
+  min-width: 10rem;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(27, 24, 24, 0.75);
+}
+.project-tab:hover { border-color: rgba(255, 202, 65, 0.4); background-color: rgba(204, 151, 52, 0.05); }
+.project-tab:active { border: 2px solid rgba(255, 190, 65, 0.75); box-shadow: 0 1px 2px rgba(255, 190, 65, 0.05); }
+.project-tab.active-tab { border: 2px solid rgba(255, 202, 65, 0.8); background-color: rgba(204, 151, 52, 0.15); }
+.project-tab img { width: 100%; height: 100%; object-fit: contain; }
+.project-tab img:hover { transform: scale(1.05); }
+.project-tab img:active { transform: scale(0.95); }
+.hidden-project { display: none; }
+.active-project { display: block; width: 100%; }
+.project-detail { width: 100%; }
+.project-info {
+  border-radius: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  hyphens: auto;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .project-info { flex-direction: row-reverse; height: auto; }
+}
+.project-info-images {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  mask-image: linear-gradient(to bottom, transparent 0%, white 3%, white 97%, transparent 100%);
+}
+@media (min-width: 1024px) {
+  .project-info-images { width: 50%; margin-bottom: 0; }
+}
+.project-info-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 1.25rem;
+  position: sticky;
+  top: 6.5rem;
+}
+@media (min-width: 1024px) {
+  .project-info-text { width: 50%; }
+}
+.projects-title-card { margin-bottom: 0.5rem; }
+.project-info p { font-size: 1.25rem; }
+.img-min {
+  object-fit: cover;
+  position: absolute;
+  transition: box-shadow 150ms ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  top: 1.25rem;
+  transform: rotate(6deg);
+  aspect-ratio: 4/3;
+  border: 8px solid #111827;
+  border-bottom-width: 20px;
+  border-radius: 1rem;
+  animation: projectAppearR 1s both;
+}
+@media (min-width: 768px) {
+  .img-min { height: 16rem; width: 9rem; border-radius: 2rem; }
+}
+.img-min { height: 14rem; width: 7rem; }
+.img-min-2:hover { bottom: -1.5rem; transform: rotate(7deg); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5); }
+.img-desktop { border: 10px solid #111827; border-radius: 1rem; }
+.bg-plain-color { opacity: 0.3; }
+.colors {
+  display: flex;
+  transition: transform 75ms ease;
+  list-style: none;
+  padding: 0;
+}
+.colors li {
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid rgba(0,0,0,0.5);
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+.colors li:hover { transform: scale(0.95) translateY(4px); border: 1px solid var(--hover-color); box-shadow: 0 0 10px var(--hover-color); }
+.colors li:active { transform: scale(0.9); border: 2px solid var(--hover-color); box-shadow: 0 0 20px var(--hover-color); }
+.project-info-technologies {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  list-style: none;
+  padding: 0;
+  hyphens: none;
+}
+.project-info-technologies li {
+  padding: 0.5rem;
+  object-fit: contain;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 202, 65, 0.5);
+  width: auto;
+  cursor: pointer;
+  transition: all 75ms ease;
+}
+.project-info-technologies li:hover { border: 2px solid rgba(255, 202, 65, 0.75); }
+.project-info-technologies li img { width: 100%; height: 100%; object-fit: contain; }
+.project-info-btns {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+.btn {
+  padding: 0;
+  border-radius: 2px;
+  width: 9rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+  position: relative;
+  z-index: 10;
+  text-decoration: none;
+}
+.btn::before, .btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: height 300ms ease;
+  z-index: -10;
+}
+.btn::before { top: 0; }
+.btn::after { bottom: 0; }
+.btn:hover::before, .btn:hover::after { height: 50%; }
+.btn-primary { border: 2px solid var(--color-primary-300); color: var(--color-primary-500); }
+.btn-primary::before, .btn-primary::after { background-color: var(--color-primary-500); }
+.btn-primary:hover { color: black; }
+.btn-secondary { border: 2px solid white; color: white; display: flex; padding: 0 0.25rem; align-items: center; gap: 0.5rem; }
+.btn-secondary::before, .btn-secondary::after { background-color: white; }
+.btn-secondary:hover { color: black; }
+.btn-secondary img { width: 1.25rem; height: 1.25rem; background-color: black; border-radius: 9999px; }
+.btn-figma { color: white; display: flex; align-items: center; padding: 2px; width: fit-content; background: linear-gradient(90deg, #f24e1e, #a259ff, #0acf83); background-size: 150% 100%; }
+.btn-figma:hover { background-position: 100% 0; }
+.btn-figma div { background-color: #2c2c2c; display: flex; align-items: center; width: 100%; border-radius: 2px; gap: 0.25rem; transition: background-color 0.3s ease; }
+.btn-figma:hover div { background-color: transparent; }
+.btn-figma img { width: 1.5rem; height: 1.5rem; transition: transform 0.3s ease; }
+.btn-figma:hover img { transform: scale(1.1); }
+.btn:active { transition: none; transform: rotate(3deg) scale(0.95); border: none; }
+.draggable { cursor: grab; }
+.draggable:active { cursor: grabbing; }
+@keyframes projectAppearR {
+  from { transform: scale(0) rotate(-45deg); }
+  to { transform: scale(1) rotate(6deg); }
+}
+</style>
+
+<script>
+  import { applyLang, buildHoverHtml, getCurrentLang } from '../../scripts/i18n';
+  import { translations } from '../../data/translations';
+
+  // Tab switching
+  const tabs = document.querySelectorAll<HTMLElement>('.project-tab');
+  const details = document.querySelectorAll<HTMLElement>('.project-detail');
+
+  function switchProject(id: number) {
+    tabs.forEach(tab => {
+      tab.classList.toggle('active-tab', parseInt(tab.dataset.projectId!) === id);
+    });
+    details.forEach(detail => {
+      const isActive = parseInt(detail.dataset.projectId!) === id;
+      detail.classList.toggle('hidden-project', !isActive);
+      detail.classList.toggle('active-project', isActive);
+      if (isActive) {
+        const img = detail.querySelector('.img-min-2') as HTMLElement;
+        if (img) {
+          img.style.animation = 'none';
+          void img.offsetHeight;
+          img.style.animation = '';
+        }
+      }
+    });
+    resetDraggables();
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      switchProject(parseInt(tab.dataset.projectId!));
+    });
+  });
+
+  // Draggable images
+  let dragEl: HTMLElement | null = null;
+  let offsetX = 0, offsetY = 0;
+
+  document.addEventListener('mousedown', (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('draggable')) {
+      dragEl = target;
+      offsetX = e.clientX - target.offsetLeft;
+      offsetY = e.clientY - target.offsetTop;
+      target.style.position = 'absolute';
+      target.style.cursor = 'grabbing';
+    }
+  });
+  document.addEventListener('mousemove', (e: MouseEvent) => {
+    if (dragEl) {
+      e.preventDefault();
+      dragEl.style.left = (e.clientX - offsetX) + 'px';
+      dragEl.style.top = (e.clientY - offsetY) + 'px';
+      dragEl.style.transform = 'none';
+    }
+  });
+  document.addEventListener('mouseup', () => {
+    if (dragEl) { dragEl.style.cursor = 'grab'; dragEl = null; }
+  });
+
+  function resetDraggables() {
+    document.querySelectorAll<HTMLElement>('.draggable').forEach(el => {
+      el.style.position = '';
+      el.style.left = '';
+      el.style.top = '';
+      el.style.transform = '';
+    });
+  }
+
+  // Language change — rebuild HoverStrings in projects
+  document.addEventListener('languageChange', (e: Event) => {
+    const { lang } = (e as CustomEvent).detail;
+    const t = translations[lang as 'es' | 'en'];
+
+    // Rebuild project title hover strings
+    document.querySelectorAll<HTMLElement>('[data-hover-key^="projects.items"]').forEach(el => {
+      const key = el.dataset.hoverKey!;
+      const parts = key.split('.');
+      const idx = parseInt(parts[2]);
+      const value = t.projects.items[idx]?.title;
+      if (value) {
+        el.innerHTML = buildHoverHtml(value, el.dataset.growSize || '6xl', false);
+      }
+    });
+
+    // Update project descriptions
+    t.projects.items.forEach((project, idx) => {
+      const descEl = document.querySelector(`[data-i18n="projects.items.${idx}.description"]`);
+      if (descEl) descEl.textContent = project.description;
+    });
+
+    // Rebuild the main portfolio title
+    const titleEl = document.querySelector('[data-hover-key="projectsTitle"]');
+    if (titleEl) {
+      (titleEl as HTMLElement).innerHTML = buildHoverHtml(t.projectsTitle, '7xl', false);
+    }
+  });
+
+  // Init language
+  const lang = getCurrentLang();
+  if (lang !== 'es') {
+    applyLang(lang);
+    // Trigger rebuild for hover strings
+    document.dispatchEvent(new CustomEvent('languageChange', { detail: { lang } }));
+  }
+</script>

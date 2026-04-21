@@ -1,0 +1,258 @@
+---
+import { translations } from '../../data/translations';
+import { buildHoverHtml, formatHtml } from '../../scripts/i18n';
+const t = translations.es;
+const titleHtml = buildHoverHtml(t.contact.title, '8xl', false);
+const text1Html = formatHtml(t.contact.text1);
+const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
+---
+
+<section id="contact">
+  <span class="rasgadura-up"></span>
+  <div class="contact-form-container">
+
+    <!-- Default: contact form -->
+    <div id="contact-main" class="flex flex-col lg:flex-row justify-around items-center size-full p-5 h-full overflow-hidden">
+
+      <!-- Left: title + social -->
+      <div class="rounded-md italic font-black text-center flex flex-col items-center justify-center p-5 pt-10 size-full opacity-appearL" style="transform: rotate(-3deg)">
+        <div
+          class="text-5xl sm:text-7xl uppercase scale-75 text-nowrap hover-string-container"
+          data-hover-key="contact.title"
+          data-grow-size="8xl"
+          set:html={titleHtml}
+        />
+        <span
+          class="m-0 text-2xl md:text-3xl mb-10"
+          data-i18n-html="contact.text1"
+          set:html={text1Html}
+        ></span>
+        <div class="flex justify-center gap-4">
+          <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" rel="noopener noreferrer">
+            <img src="/linkedin.svg" alt="linkedin icon" class="size-12 scale" />
+          </a>
+          <a href="https://github.com/andersondavi" target="_blank" rel="noopener noreferrer">
+            <img src="/github.svg" alt="github icon" class="size-12 scale" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="size-full flex flex-col justify-center items-center p-5 opacity-appearR">
+        <form id="contact-form" class="flex flex-col size-full p-2 gap-6 justify-center" novalidate>
+          <input type="hidden" id="access-key" value={web3formsKey} />
+          <div class="flex flex-col gap-2">
+            <label for="name" data-i18n="contact.form.name">{t.contact.form.name}</label>
+            <input type="text" name="name" id="contact-name" autocomplete="name" />
+            <div class="text-red-500 hidden" id="name-error">Este campo es requerido</div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="email" data-i18n="contact.form.email">{t.contact.form.email}</label>
+            <input type="email" name="email" id="contact-email" autocomplete="email" />
+            <div class="text-red-500 hidden" id="email-error">Este campo es requerido</div>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label for="message" data-i18n="contact.form.message">{t.contact.form.message}</label>
+            <textarea name="message" id="contact-message" rows="5"></textarea>
+            <div class="text-red-500 hidden" id="message-error">Este campo es requerido</div>
+          </div>
+          <div class="flex flex-col-reverse lg:flex-row items-center">
+            <button type="submit" class="btn btn-primary" id="submit-btn" data-i18n="contact.form.send">
+              {t.contact.form.send}
+            </button>
+          </div>
+        </form>
+        <a href="mailto:contactoandersonrueda@gmail.com" target="_blank" class="email-link">
+          <img src="/email.svg" alt="email icon" class="my-3 h-[20px] w-[20px] object-contain hover:scale-110 lg:mx-5 mr-1 md:mx-0 active:scale-105" />
+          <p class="text-wrap w-full lg:pr-10 break-words">contactoandersonrueda&#64;gmail.com</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Success state -->
+    <section id="contact-success" class="flex-col md:flex-row justify-evenly items-center size-full hidden">
+      <div class="flex flex-col justify-center items-center">
+        <h2 class="text-center text-6xl mb-3 font-semibold my-5">
+          <div
+            class="hover-string-container"
+            data-hover-key="contact.text2"
+            data-grow-size="7xl"
+            set:html={buildHoverHtml(t.contact.text2, '7xl', false)}
+          />
+        </h2>
+        <p class="text-gray-300 text-lg" data-i18n="contact.text3">{t.contact.text3}</p>
+        <p class="w-[50%] border-b-2 border-primary my-5"></p>
+      </div>
+      <img src="/email-submit.svg" alt="email enviado" class="w-auto max-h-96 mt-10" />
+    </section>
+
+    <!-- Error state -->
+    <section id="contact-error" class="flex-col md:flex-row justify-around items-center size-full hidden">
+      <div class="flex flex-col justify-center items-center p-5">
+        <h2 class="text-center text-6xl mb-3 font-semibold my-5">
+          <div
+            class="hover-string-container"
+            data-hover-key="contact.text4"
+            data-grow-size="7xl"
+            set:html={buildHoverHtml(t.contact.text4, '7xl', false)}
+          />
+        </h2>
+        <p class="text-gray-300 text-lg text-center max-w-[650px]" data-i18n="contact.text5">{t.contact.text5}</p>
+        <div class="w-[130px] flex justify-center gap-3 mt-5">
+          <a href="mailto:contactoandersonrueda@gmail.com" class="size-9">
+            <img src="/email.svg" alt="email" class="hover:scale-110 h-full active:scale-105" />
+          </a>
+          <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" class="size-9" rel="noopener noreferrer">
+            <img src="/linkedin.svg" alt="linkedin" class="hover:scale-110 h-full active:scale-105" />
+          </a>
+        </div>
+      </div>
+      <img src="/email-error.svg" alt="error" class="w-1/2 max-h-96 md:mt-10" />
+    </section>
+
+  </div>
+</section>
+
+<style is:global>
+#contact {
+  background-color: var(--color-secondary-800);
+  min-height: 100vh;
+  position: relative;
+  height: auto;
+  display: flex;
+}
+.contact-form-container {
+  height: auto;
+  min-height: 700px;
+  width: 100%;
+}
+.email-link {
+  max-width: 500px;
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: white;
+  gap: 0.25rem;
+}
+#contact form {
+  background-color: var(--color-secondary-500);
+  border: 1px dashed rgba(255, 190, 65, 0.25);
+  padding: 1.25rem;
+  border-radius: 2px;
+  max-width: 500px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  height: auto;
+}
+#contact form button {
+  border-radius: 0.375rem;
+  width: 100%;
+  font-weight: 900;
+  font-size: 1.5rem;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+#contact input,
+#contact textarea {
+  background-color: rgba(255, 190, 65, 0.2);
+  border: 1px solid rgba(255, 190, 65, 0.25);
+  padding: 0.5rem;
+  border-radius: 2px;
+  width: 100%;
+  max-height: 15rem;
+  height: 2.5rem;
+  outline: none;
+  color: white;
+}
+#contact input:hover, #contact textarea:hover { border-color: rgba(255, 190, 65, 0.7); }
+#contact input:focus, #contact textarea:focus { border-color: var(--color-primary-500); box-shadow: 0 1px 2px rgba(255, 190, 65, 0.25); }
+#contact textarea {
+  height: 200px;
+  border: 2px solid rgba(255, 190, 65, 0.25);
+  resize: none;
+}
+#contact input.error-field { border-color: rgb(239, 68, 68); }
+</style>
+
+<script>
+  import { applyLang, getCurrentLang } from '../../scripts/i18n';
+
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const mainEl = document.getElementById('contact-main')!;
+  const successEl = document.getElementById('contact-success')!;
+  const errorEl = document.getElementById('contact-error')!;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const accessKeyEl = document.getElementById('access-key') as HTMLInputElement;
+
+  function showState(state: 'main' | 'success' | 'error') {
+    mainEl.style.display = state === 'main' ? 'flex' : 'none';
+    successEl.style.display = state === 'success' ? 'flex' : 'none';
+    errorEl.style.display = state === 'error' ? 'flex' : 'none';
+  }
+
+  function validate(): boolean {
+    let valid = true;
+    const fields = [
+      { id: 'contact-name', errorId: 'name-error' },
+      { id: 'contact-email', errorId: 'email-error' },
+      { id: 'contact-message', errorId: 'message-error' },
+    ];
+    fields.forEach(({ id, errorId }) => {
+      const input = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+      const err = document.getElementById(errorId)!;
+      if (!input.value.trim()) {
+        input.classList.add('error-field');
+        err.classList.remove('hidden');
+        valid = false;
+      } else {
+        input.classList.remove('error-field');
+        err.classList.add('hidden');
+      }
+    });
+    return valid;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    submitBtn.disabled = true;
+
+    const formData = {
+      name: (document.getElementById('contact-name') as HTMLInputElement).value,
+      email: (document.getElementById('contact-email') as HTMLInputElement).value,
+      message: (document.getElementById('contact-message') as HTMLTextAreaElement).value,
+      access_key: accessKeyEl.value,
+    };
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        showState('success');
+      } else {
+        showState('error');
+      }
+    } catch {
+      showState('error');
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+
+  // Language init
+  const lang = getCurrentLang();
+  if (lang !== 'es') applyLang(lang);
+  document.addEventListener('languageChange', (e: Event) => {
+    applyLang((e as CustomEvent).detail.lang);
+  });
+</script>

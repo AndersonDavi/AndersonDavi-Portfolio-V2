@@ -1,0 +1,282 @@
+---
+import { translations } from '../data/translations';
+const t = translations.es;
+---
+
+<nav id="navbar">
+  <div class="nav-container nav-blur-container" id="nav-container">
+    <a href="#title" class="nav-logo">
+      <img
+        src="/simbolo.svg"
+        alt="Anderson Rueda Logo"
+        width="64"
+        height="64"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        class="rendered-logo"
+        aria-label="Site logo"
+      />
+    </a>
+    <div class="nav-spacing"></div>
+    <ul id="nav-menu">
+      <li><a href="#title" data-i18n="nav.home">{t.nav.home}</a></li>
+      <li><a href="#about" data-i18n="nav.about">{t.nav.about}</a></li>
+      <li><a href="#curriculum" data-i18n="nav.experience">{t.nav.experience}</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">{t.nav.skills}</a></li>
+      <li><a href="#projects" data-i18n="nav.projects">{t.nav.projects}</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">{t.nav.contact}</a></li>
+    </ul>
+    <div class="language-selector" id="lang-toggle">
+      <img id="lang-flag" src="/decoration/es-lang.svg" alt="language icon" />
+      <button class="lang-btn" id="lang-btn">ES</button>
+    </div>
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-label="Toggle navigation menu"
+      title="Toggle menu"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</nav>
+
+<style is:global>
+nav {
+  position: fixed;
+  width: 100vw;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+  animation: navAppear 3s both;
+}
+@keyframes navAppear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.nav-logo {
+  height: 4rem;
+  width: 4rem;
+  transition: transform 100ms ease;
+  position: relative;
+  will-change: transform;
+  contain: strict;
+}
+.nav-logo img {
+  height: 100%;
+  width: 100%;
+}
+.nav-logo img:hover { transform: rotate(3deg) scale(1.05); }
+.nav-logo img:active { transform: rotate(6deg) scale(0.95); }
+.rendered-logo {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid transparent;
+  padding: 0.25rem 1rem;
+  border-radius: 0.75rem;
+  height: 4rem;
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+  transition: backdrop-filter 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.nav-spacing {
+  width: 100%;
+  display: none;
+}
+.nav-blur-container {
+  backdrop-filter: blur(0px);
+  background-color: transparent;
+  border-color: transparent;
+}
+.nav-blur-active {
+  backdrop-filter: blur(10px);
+  background-color: rgba(27, 24, 24, 0.4);
+  border-color: rgba(255, 202, 65, 0.3);
+}
+nav ul {
+  display: flex;
+  color: white;
+  gap: 0.75rem;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 700;
+  height: 100%;
+  padding: 0.25rem 0;
+  list-style: none;
+}
+nav ul li {
+  width: 100%;
+  height: 100%;
+}
+nav ul li a {
+  position: relative;
+  padding: 0 1rem;
+  height: 100%;
+  transition: all 300ms ease;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  white-space: nowrap;
+  text-decoration: none;
+  color: white;
+}
+nav ul li a::before,
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--color-primary-500);
+  transition: height 300ms ease;
+  z-index: -10;
+}
+nav ul li a::before { top: 0; }
+nav ul li a::after { bottom: 0; }
+nav ul li a:hover::before,
+nav ul li a:hover::after { height: 50%; }
+nav ul li a:hover { color: black; transition: all 300ms ease; }
+nav ul li a:active { transition: none; transform: rotate(3deg) scale(1.05); }
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  position: relative;
+  z-index: 1001;
+}
+.bar {
+  display: block;
+  width: 1.5rem;
+  height: 3px;
+  margin: 5px 0;
+  background-color: white;
+  transition: all 300ms ease;
+}
+.language-selector {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 1rem;
+  font-weight: 900;
+  font-style: italic;
+  height: 100%;
+  gap: 0.25rem;
+  user-select: none;
+  transition: transform 150ms ease;
+}
+.language-selector img { width: 1.5rem; height: 1.5rem; }
+.lang-btn { cursor: pointer; background: none; border: none; color: white; font-weight: 900; font-style: italic; font-size: 1rem; }
+.language-selector:hover { transform: rotate(-6deg); }
+.language-selector:active { transform: rotate(-3deg) scale(0.95); }
+
+@media (max-width: 950px) {
+  .menu-toggle { display: block; }
+  .nav-logo { height: 100%; aspect-ratio: 1; max-height: 100%; }
+  nav ul {
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(27, 24, 24, 0.95);
+    border: 2px solid rgba(255, 202, 65, 0.25);
+    border-top: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    transition: all 100ms ease-in-out;
+    padding: 0;
+    gap: 0.5rem;
+    overflow: hidden;
+    opacity: 0;
+    backdrop-filter: blur(1rem);
+  }
+  nav ul.active {
+    height: calc(100vh - 6rem);
+    opacity: 1;
+    border-top: 2px solid rgba(255, 202, 65, 0.25);
+    padding: 1rem;
+  }
+  nav ul li { width: 100%; height: 5rem; }
+  nav ul li a { width: 100%; justify-content: center; padding: 0.25rem 0; }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+}
+@media (min-width: 400px) { .nav-spacing { display: block; } }
+@media (min-width: 640px) { .nav-logo { position: absolute; left: 1rem; } }
+</style>
+
+<script>
+  import { initLang, toggleLang, getCurrentLang } from '../scripts/i18n';
+
+  const navContainer = document.getElementById('nav-container');
+  const menuToggle = document.getElementById('menu-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  const langToggle = document.getElementById('lang-toggle');
+  const langBtn = document.getElementById('lang-btn') as HTMLButtonElement;
+  const langFlag = document.getElementById('lang-flag') as HTMLImageElement;
+
+  // Scroll blur effect
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      navContainer?.classList.remove('nav-blur-container');
+      navContainer?.classList.add('nav-blur-active');
+    } else {
+      navContainer?.classList.remove('nav-blur-active');
+      navContainer?.classList.add('nav-blur-container');
+    }
+  }, { passive: true });
+
+  // Mobile menu
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    navMenu?.classList.toggle('active');
+    if (!isOpen) {
+      navContainer?.classList.remove('nav-blur-container');
+      navContainer?.classList.add('nav-blur-active');
+    }
+  });
+
+  navMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 950) {
+        navMenu.classList.remove('active');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Language toggle
+  function updateLangUI(lang: string) {
+    if (langBtn) langBtn.textContent = lang.toUpperCase();
+    if (langFlag) langFlag.src = `/decoration/${lang}-lang.svg`;
+  }
+
+  const savedLang = getCurrentLang();
+  updateLangUI(savedLang);
+
+  langToggle?.addEventListener('click', () => {
+    const newLang = toggleLang();
+    updateLangUI(newLang);
+  });
+
+  // Init translations on load
+  initLang();
+</script>

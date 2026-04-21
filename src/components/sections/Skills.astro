@@ -1,0 +1,235 @@
+---
+import { skills, skillTypes } from '../../data/skills';
+---
+
+<div class="overflow-x-hidden w-screen h-full min-h-[700px]" id="skills-section-container">
+  <section id="skills">
+    <div class="skills-container">
+      <div class="rounded-md uppercase italic leading-7 font-black text-center text-5xl">
+        <span>SKILLS <br />
+          <strong class="text-primary-500 font-black">LIST</strong>
+        </span>
+      </div>
+
+      <!-- Category filter -->
+      <ul class="skills-category-list opacity-appearL">
+        {skillTypes.map(type => (
+          <li
+            class={`btn-secondary-outline${type === 'frontend' ? ' selected' : ''}`}
+            data-skill-type={type}
+          >
+            {type}
+          </li>
+        ))}
+      </ul>
+
+      <!-- Skills gallery -->
+      <div class="skills-gallery" id="skills-gallery">
+        <div class="featured-skills" id="featured-skills">
+          {skills.filter(s => s.type === 'frontend').map((skill, idx) => (
+            <div
+              class="skill-item featured scale"
+              style={`animation-delay: ${idx * 0.1}s`}
+              data-type={skill.type}
+            >
+              <img src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
+              <span>{skill.title}</span>
+            </div>
+          ))}
+        </div>
+        <div class="other-skills" id="other-skills">
+          {skills.filter(s => s.type !== 'frontend').map((skill, idx) => (
+            <div
+              class="skill-item scale"
+              style={`animation-delay: ${idx * 0.1}s`}
+              data-type={skill.type}
+            >
+              <img src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
+              <span>{skill.title}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <span class="rasgadura-down"></span>
+  </section>
+</div>
+
+<style is:global>
+#skills-section-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 5rem;
+}
+#skills {
+  background-color: var(--color-secondary-800);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border: 2px dashed;
+  border-top-width: 2px;
+  transform: rotate(2deg);
+  position: relative;
+  left: -1.25rem;
+  margin-top: 2.5rem;
+  padding: 2.5rem;
+  width: calc(100vw + 125px);
+  padding-right: calc(100px + 2.5rem);
+}
+@media (min-width: 1024px) {
+  #skills { flex-direction: row; }
+}
+.skills-container {
+  transform: rotate(-2deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: calc(100vw - 50px);
+}
+.skills-category-list {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2.5rem 0;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+}
+.skills-category-list li {
+  padding: 0.5rem 2.5rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.skills-gallery {
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+  min-height: 400px;
+  width: 100%;
+}
+.featured-skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  min-height: 200px;
+  animation: traslateR 0.6s both;
+}
+.other-skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+  opacity: 0.4;
+  animation: traslateL 0.6s both;
+}
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  animation: skillFadeIn 0.5s both;
+  animation-delay: 0.8s;
+}
+.skill-item:not(.featured) {
+  flex-basis: 6rem;
+  padding: 0.5rem;
+}
+.skill-item.featured img { width: 5rem; height: 5rem; }
+@media (min-width: 640px) {
+  .skill-item.featured img { width: 6rem; height: 6rem; }
+}
+.skill-item img { width: 2rem; height: 2rem; object-fit: contain; }
+@media (min-width: 640px) {
+  .skill-item img { width: 3rem; height: 3rem; }
+}
+.skill-item span { font-size: 0.875rem; text-align: center; }
+.skill-item.featured span { font-size: 1.125rem; }
+.skills-gallery.transitioning .featured-skills,
+.skills-gallery.transitioning .other-skills { opacity: 0; transition: opacity 0.3s ease; }
+@keyframes traslateR {
+  0% { transform: translateX(25%); }
+  100% { transform: translateX(0); }
+}
+@keyframes traslateL {
+  0% { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}
+@keyframes skillFadeIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.5); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+</style>
+
+<script>
+  import { skills } from '../../data/skills';
+
+  const categoryBtns = document.querySelectorAll<HTMLElement>('[data-skill-type]');
+  const featuredEl = document.getElementById('featured-skills')!;
+  const otherEl = document.getElementById('other-skills')!;
+  const gallery = document.getElementById('skills-gallery')!;
+
+  function renderSkills(selectedType: string) {
+    const featured = skills.filter(s => s.type === selectedType);
+    const other = skills.filter(s => s.type !== selectedType);
+
+    featuredEl.innerHTML = featured.map((s, i) => `
+      <div class="skill-item featured scale" style="animation-delay: ${i * 0.1}s" data-type="${s.type}">
+        <img src="/skills/${s.img}" alt="${s.title} icon" />
+        <span>${s.title}</span>
+      </div>
+    `).join('');
+
+    otherEl.innerHTML = other.map((s, i) => `
+      <div class="skill-item scale" style="animation-delay: ${i * 0.1}s" data-type="${s.type}">
+        <img src="/skills/${s.img}" alt="${s.title} icon" />
+        <span>${s.title}</span>
+      </div>
+    `).join('');
+  }
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.skillType!;
+
+      // Update active button
+      categoryBtns.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+
+      // Transition out
+      gallery.classList.add('transitioning');
+      setTimeout(() => {
+        renderSkills(type);
+        gallery.classList.remove('transitioning');
+        // Force re-animation
+        featuredEl.style.animation = 'none';
+        otherEl.style.animation = 'none';
+        featuredEl.offsetHeight;
+        featuredEl.style.animation = '';
+        otherEl.style.animation = '';
+      }, 300);
+    });
+  });
+</script>

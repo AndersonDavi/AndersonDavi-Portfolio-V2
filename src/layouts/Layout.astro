@@ -1,0 +1,133 @@
+---
+import '../styles/global.css';
+import '../styles/buttons.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  keywords?: string;
+}
+
+const {
+  title = "Anderson Rueda | Desarrollador Angular & Full Stack | Barranquilla, Colombia",
+  description = "Anderson Rueda, Desarrollador Angular, Frontend y Full Stack. Técnico y Tecnólogo en Análisis y Desarrollo de Software por el SENA. Barranquilla, Colombia. Especializado en Angular, TypeScript, Node.js, NestJS, SQL Server.",
+  canonical = "https://andersonrueda.com/",
+  keywords = "Anderson Rueda, Desarrollador Angular Barranquilla, Desarrollador Frontend Colombia, Desarrollador Full Stack Barranquilla, Técnico Desarrollo Software Colombia, Tecnólogo Análisis Desarrollo Software SENA, Angular developer Colombia, programador web Barranquilla, desarrollador TypeScript Colombia, NestJS developer, desarrollador backend Colombia, portafolio desarrollador software",
+} = Astro.props;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Anderson Rueda",
+  "alternateName": "Anderson David Rueda Consuegra",
+  "url": "https://andersonrueda.com",
+  "image": "https://andersonrueda.com/backgrounds/og-image.png",
+  "jobTitle": "Desarrollador Full Stack — Angular, TypeScript, Node.js, NestJS",
+  "description": "Desarrollador Angular, Frontend y Full Stack. Técnico y Tecnólogo en Análisis y Desarrollo de Software por el SENA, Barranquilla, Colombia.",
+  "email": "contactoandersonrueda@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Barranquilla",
+    "addressRegion": "Atlántico",
+    "addressCountry": "CO"
+  },
+  "knowsAbout": [
+    "Angular", "TypeScript", "JavaScript", "Node.js", "NestJS",
+    "SQL Server", "MySQL", "Docker", "AWS", "Tailwind CSS", "Bootstrap",
+    "Desarrollo de Software", "Análisis y Desarrollo de Software"
+  ],
+  "alumniOf": {
+    "@type": "EducationalOrganization",
+    "name": "SENA",
+    "description": "Servicio Nacional de Aprendizaje — Técnico y Tecnólogo en Análisis y Desarrollo de Software"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/",
+    "https://github.com/andersondavi"
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Anderson Rueda — Portafolio Desarrollador Full Stack",
+  "url": "https://andersonrueda.com",
+  "description": "Portafolio personal de Anderson Rueda, desarrollador Angular, Frontend y Full Stack en Barranquilla, Colombia. Técnico y Tecnólogo en Análisis y Desarrollo de Software SENA.",
+  "inLanguage": ["es", "en"],
+  "author": { "@type": "Person", "name": "Anderson Rueda" }
+};
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Anderson Rueda" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="language" content="es" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+
+    <!-- Geo / Local SEO — Barranquilla, Colombia -->
+    <meta name="geo.region" content="CO-ATL" />
+    <meta name="geo.placename" content="Barranquilla, Colombia" />
+    <meta name="geo.position" content="10.9685;-74.7813" />
+    <meta name="ICBM" content="10.9685, -74.7813" />
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="ahZS4qCnXiX1NPEs2xwk0r2orlPFeorWpFTa6KkBEok" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://andersonrueda.com/backgrounds/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Anderson Rueda — Desarrollador Full Stack" />
+    <meta property="og:locale" content="es_CO" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://andersonrueda.com/backgrounds/og-image.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#ffbe41" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/fonts/MARSNEVENEKSK-Regular.otf" as="font" type="font/otf" crossorigin />
+    <link rel="preload" href="/simbolo.svg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/backgrounds/bg2.webp" as="image" fetchpriority="high" />
+
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+
+    <!-- Page-specific schema slot -->
+    <slot name="schema" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

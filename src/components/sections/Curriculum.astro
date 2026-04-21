@@ -1,0 +1,209 @@
+---
+import { translations } from '../../data/translations';
+const t = translations.es;
+
+const workItems = t.experience.work.items;
+const eduItems = t.experience.education.items;
+const workTitle = t.experience.work.title.toUpperCase().split(' ');
+const eduTitle = t.experience.education.title;
+
+const marqueeItems = Array.from({ length: 16 }, (_, i) =>
+  i === 15 ? t.marquee.replace('-', '').trim() : t.marquee
+);
+---
+
+<section id="curriculum">
+  <!-- Marquee banner -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track" id="marquee-track" data-i18n-marquee="marquee">
+      {marqueeItems.map(text => <p>{text}</p>)}
+    </div>
+  </div>
+
+  <div class="curriculum-list-container">
+    <!-- Work Experience (left, -rotate-3) -->
+    <div class="curriculum-card opacity-appearL" id="work-card">
+      <div class="experience-title-card" style="transform: rotate(-3deg)">
+        <img src="/icon2.webp" alt="" class="absolute -top-5 -left-5 size-16 -rotate-6 floatingY scale" />
+        <span>
+          <span data-i18n="experience.work.title.split.0">{workTitle[0]}</span>
+          <br />
+          <strong class="text-primary-500 font-black">
+            <span data-i18n="experience.work.title.split.1">{workTitle[1]}</span>
+          </strong>
+        </span>
+      </div>
+      <ul class="experience-cotent-list ml-7 work-list" style="transform: rotate(-3deg)">
+        {workItems.map((item, idx) => (
+          <li class="experience-cotent-list-item">
+            <span class="font-black text-xl" data-i18n={`experience.work.items.${idx}.date_range`}>{item.date_range}</span>
+            <p class="font-black text-2xl sm:text-4xl uppercase text-primary-500 break-words" data-i18n={`experience.work.items.${idx}.title`}>{item.title}</p>
+            <p class="text-md" data-i18n={`experience.work.items.${idx}.description`}>{item.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Education (right, rotate-3) -->
+    <div class="curriculum-card opacity-appearR" id="edu-card">
+      <div class="experience-title-card" style="transform: rotate(3deg)">
+        <img src="/icon1.webp" alt="" class="absolute -top-7 -right-7 size-20 rotate-6 floatingY scale" />
+        <span class="text-4xl sm:text-5xl" data-i18n="experience.education.title">{eduTitle}</span>
+      </div>
+      <ul class="experience-cotent-list edu-list mr-7" style="transform: rotate(3deg)">
+        {eduItems.map((item, idx) => (
+          <li class="experience-cotent-list-item">
+            <span class="font-black text-xl" data-i18n={`experience.education.items.${idx}.date_range`}>{item.date_range}</span>
+            <p class="font-black text-2xl sm:text-4xl uppercase text-primary-500 break-words text-xl" data-i18n={`experience.education.items.${idx}.title`}>{item.title}</p>
+            <p class="text-md text-xl" data-i18n={`experience.education.items.${idx}.description`}>{item.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+#curriculum {
+  background-color: var(--color-secondary-500);
+  height: auto;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  gap: 1.25rem;
+  padding-top: 12.5rem;
+}
+@media (min-width: 768px) {
+  #curriculum { flex-direction: row; padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+.marquee-wrapper {
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+  background-color: var(--color-primary-500);
+  color: var(--color-secondary-500);
+  display: flex;
+  align-items: center;
+  transform: rotate(2deg);
+  position: absolute;
+  top: 8rem;
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  font-size: 1.875rem;
+  font-weight: 700;
+  gap: 0.25rem;
+  text-transform: uppercase;
+  animation: marqueeScroll 60s linear infinite;
+}
+.marquee-track p { margin-right: 0.5rem; }
+@keyframes marqueeScroll {
+  to { transform: translateX(-100%); }
+}
+.curriculum-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 2.5rem;
+  padding: 2.5rem;
+}
+@media (min-width: 768px) {
+  .curriculum-list-container { flex-direction: row; padding: 0; }
+}
+.curriculum-card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+@media (min-width: 1024px) {
+  .curriculum-card { padding: 1.25rem; }
+}
+.experience-title-card {
+  background-color: var(--color-secondary-800);
+  border: 1px solid rgba(255, 202, 65, 0.25);
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 0.375rem;
+  height: 7rem;
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-style: italic;
+  line-height: 1.75;
+  font-weight: 900;
+  text-align: center;
+  font-size: 2.25rem;
+  position: relative;
+}
+@media (min-width: 640px) {
+  .experience-title-card { font-size: 3rem; }
+}
+.experience-cotent-list {
+  height: auto;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.experience-cotent-list-item {
+  background-color: var(--color-secondary-800);
+  border: 1px solid rgba(255, 202, 65, 0.25);
+  border-radius: 0.375rem;
+  height: auto;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.75rem;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+</style>
+
+<script>
+  import { applyLang, getCurrentLang } from '../../scripts/i18n';
+  import { translations } from '../../data/translations';
+
+  function updateWorkTitle(lang: string) {
+    const t = translations[lang as 'es' | 'en'];
+    const parts = t.experience.work.title.toUpperCase().split(' ');
+    const el0 = document.querySelector('[data-i18n="experience.work.title.split.0"]');
+    const el1 = document.querySelector('[data-i18n="experience.work.title.split.1"]');
+    if (el0) el0.textContent = parts[0] || '';
+    if (el1) el1.textContent = parts[1] || '';
+  }
+
+  // Init
+  const lang = getCurrentLang();
+  if (lang !== 'es') {
+    applyLang(lang);
+    updateWorkTitle(lang);
+  }
+
+  document.addEventListener('languageChange', (e: Event) => {
+    const { lang } = (e as CustomEvent).detail;
+    applyLang(lang);
+    updateWorkTitle(lang);
+  });
+</script>
