@@ -8,65 +8,22 @@ import Skills from '../components/sections/Skills.astro';
 import Projects from '../components/sections/Projects.astro';
 import Contact from '../components/sections/Contact.astro';
 import Footer from '../components/Footer.astro';
+import { createFaqSchema } from '../data/seo';
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Qué tecnologías domina Anderson Rueda?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Anderson Rueda es desarrollador especializado en Angular, TypeScript, JavaScript, Node.js, NestJS, SQL Server, MySQL, Docker y AWS. Técnico y Tecnólogo en Análisis y Desarrollo de Software egresado del SENA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Dónde está ubicado Anderson Rueda como desarrollador?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Anderson Rueda es un desarrollador full stack ubicado en Barranquilla, Atlántico, Colombia. Disponible para proyectos remotos y presenciales en la región Caribe colombiana."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué formación académica tiene Anderson Rueda?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Anderson Rueda es Técnico y Tecnólogo en Análisis y Desarrollo de Software del SENA. Cuenta con formación práctica en desarrollo frontend, backend y bases de datos."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Qué tipo de proyectos ha desarrollado Anderson Rueda?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ha colaborado en proyectos ATS para publicación de ofertas de empleo, plataformas web para editoriales, aplicaciones con APIs externas como GIPHY, y automatización de procesos con Power Platform en entornos empresariales."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cómo contactar a Anderson Rueda para proyectos de desarrollo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Puedes contactar a Anderson Rueda a través del formulario en su portafolio andersonrueda.com, por correo a contactoandersonrueda@gmail.com, o por LinkedIn en anderson-david-rueda-consuegra."
-      }
-    }
-  ]
-};
+const lang = 'es';
+const faqSchema = createFaqSchema(lang);
 ---
 
-<Layout>
+<Layout lang={lang}>
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
-  <Navbar />
+  <Navbar lang={lang} />
   <main>
     <Hero />
-    <About />
-    <Curriculum />
+    <About lang={lang} />
+    <Curriculum lang={lang} />
     <Skills />
-    <Projects />
-    <Contact />
+    <Projects lang={lang} />
+    <Contact lang={lang} />
   </main>
   <Footer />
 </Layout>

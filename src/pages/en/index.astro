@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from '../../components/sections/Hero.astro';
+import About from '../../components/sections/About.astro';
+import Curriculum from '../../components/sections/Curriculum.astro';
+import Skills from '../../components/sections/Skills.astro';
+import Projects from '../../components/sections/Projects.astro';
+import Contact from '../../components/sections/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import { createFaqSchema } from '../../data/seo';
+
+const lang = 'en';
+const faqSchema = createFaqSchema(lang);
+---
+
+<Layout lang={lang}>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+  <Navbar lang={lang} />
+  <main>
+    <Hero />
+    <About lang={lang} />
+    <Curriculum lang={lang} />
+    <Skills />
+    <Projects lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer />
+</Layout>

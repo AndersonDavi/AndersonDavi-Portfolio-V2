@@ -1,65 +1,78 @@
 ---
 import '../styles/global.css';
 import '../styles/buttons.css';
+import { alternateUrls, getSeo } from '../data/seo';
+import type { Lang } from '../data/translations';
 
 interface Props {
   title?: string;
   description?: string;
   canonical?: string;
   keywords?: string;
+  lang?: Lang;
 }
 
-const {
-  title = "Anderson Rueda | Desarrollador Angular & Full Stack | Barranquilla, Colombia",
-  description = "Anderson Rueda, Desarrollador Angular, Frontend y Full Stack. Técnico y Tecnólogo en Análisis y Desarrollo de Software por el SENA. Barranquilla, Colombia. Especializado en Angular, TypeScript, Node.js, NestJS, SQL Server.",
-  canonical = "https://andersonrueda.com/",
-  keywords = "Anderson Rueda, Desarrollador Angular Barranquilla, Desarrollador Frontend Colombia, Desarrollador Full Stack Barranquilla, Técnico Desarrollo Software Colombia, Tecnólogo Análisis Desarrollo Software SENA, Angular developer Colombia, programador web Barranquilla, desarrollador TypeScript Colombia, NestJS developer, desarrollador backend Colombia, portafolio desarrollador software",
-} = Astro.props;
+const { lang = 'es' } = Astro.props;
+const seo = getSeo(lang);
+const title = Astro.props.title ?? seo.title;
+const description = Astro.props.description ?? seo.description;
+const canonical = Astro.props.canonical ?? seo.canonical;
+const keywords = Astro.props.keywords ?? seo.keywords;
 
 const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Anderson Rueda",
-  "alternateName": "Anderson David Rueda Consuegra",
-  "url": "https://andersonrueda.com",
-  "image": "https://andersonrueda.com/backgrounds/og-image.png",
-  "jobTitle": "Desarrollador Full Stack — Angular, TypeScript, Node.js, NestJS",
-  "description": "Desarrollador Angular, Frontend y Full Stack. Técnico y Tecnólogo en Análisis y Desarrollo de Software por el SENA, Barranquilla, Colombia.",
-  "email": "contactoandersonrueda@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Barranquilla",
-    "addressRegion": "Atlántico",
-    "addressCountry": "CO"
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Anderson Rueda',
+  alternateName: 'Anderson David Rueda Consuegra',
+  url: 'https://andersonrueda.com',
+  image: 'https://andersonrueda.com/backgrounds/og-image.png',
+  jobTitle: seo.personJobTitle,
+  description: seo.personDescription,
+  email: 'contactoandersonrueda@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Barranquilla',
+    addressRegion: 'Atlantico',
+    addressCountry: 'CO',
   },
-  "knowsAbout": [
-    "Angular", "TypeScript", "JavaScript", "Node.js", "NestJS",
-    "SQL Server", "MySQL", "Docker", "AWS", "Tailwind CSS", "Bootstrap",
-    "Desarrollo de Software", "Análisis y Desarrollo de Software"
+  knowsAbout: [
+    'Angular',
+    'TypeScript',
+    'JavaScript',
+    'Node.js',
+    'NestJS',
+    'SQL Server',
+    'MySQL',
+    'Docker',
+    'AWS',
+    'Tailwind CSS',
+    'Bootstrap',
+    'Software Development',
+    'Web Development',
   ],
-  "alumniOf": {
-    "@type": "EducationalOrganization",
-    "name": "SENA",
-    "description": "Servicio Nacional de Aprendizaje — Técnico y Tecnólogo en Análisis y Desarrollo de Software"
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'SENA',
+    description: seo.alumniDescription,
   },
-  "sameAs": [
-    "https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/",
-    "https://github.com/andersondavi"
-  ]
+  sameAs: [
+    'https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/',
+    'https://github.com/andersondavi',
+  ],
 };
 
 const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Anderson Rueda — Portafolio Desarrollador Full Stack",
-  "url": "https://andersonrueda.com",
-  "description": "Portafolio personal de Anderson Rueda, desarrollador Angular, Frontend y Full Stack en Barranquilla, Colombia. Técnico y Tecnólogo en Análisis y Desarrollo de Software SENA.",
-  "inLanguage": ["es", "en"],
-  "author": { "@type": "Person", "name": "Anderson Rueda" }
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: seo.websiteName,
+  url: 'https://andersonrueda.com',
+  description: seo.websiteDescription,
+  inLanguage: seo.lang,
+  author: { '@type': 'Person', name: 'Anderson Rueda' },
 };
 ---
 <!doctype html>
-<html lang="es">
+<html lang={seo.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,11 +83,11 @@ const websiteSchema = {
 
     <!-- Robots -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="language" content="es" />
+    <meta name="language" content={seo.languageMeta} />
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
 
-    <!-- Geo / Local SEO — Barranquilla, Colombia -->
+    <!-- Geo / Local SEO - Barranquilla, Colombia -->
     <meta name="geo.region" content="CO-ATL" />
     <meta name="geo.placename" content="Barranquilla, Colombia" />
     <meta name="geo.position" content="10.9685;-74.7813" />
@@ -91,8 +104,9 @@ const websiteSchema = {
     <meta property="og:image" content="https://andersonrueda.com/backgrounds/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Anderson Rueda — Desarrollador Full Stack" />
-    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content={seo.siteName} />
+    <meta property="og:locale" content={seo.ogLocale} />
+    <meta property="og:locale:alternate" content={seo.alternateLocale} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -101,8 +115,11 @@ const websiteSchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://andersonrueda.com/backgrounds/og-image.png" />
 
-    <!-- Canonical -->
+    <!-- Canonical and language alternates -->
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={alternateUrls.es} />
+    <link rel="alternate" hreflang="en" href={alternateUrls.en} />
+    <link rel="alternate" hreflang="x-default" href={alternateUrls.default} />
 
     <!-- PWA -->
     <meta name="theme-color" content="#ffbe41" />

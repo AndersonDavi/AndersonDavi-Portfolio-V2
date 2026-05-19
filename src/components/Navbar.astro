@@ -1,6 +1,8 @@
 ---
 import { translations } from '../data/translations';
-const t = translations.es;
+const { lang = 'es' } = Astro.props;
+const t = translations[lang as keyof typeof translations];
+const langLabel = lang.toUpperCase();
 ---
 
 <nav id="navbar">
@@ -28,8 +30,8 @@ const t = translations.es;
       <li><a href="#contact" data-i18n="nav.contact">{t.nav.contact}</a></li>
     </ul>
     <div class="language-selector" id="lang-toggle">
-      <img id="lang-flag" src="/decoration/es-lang.svg" alt="language icon" />
-      <button class="lang-btn" id="lang-btn">ES</button>
+      <img id="lang-flag" src={`/decoration/${lang}-lang.svg`} alt="language icon" />
+      <button class="lang-btn" id="lang-btn">{langLabel}</button>
     </div>
     <button
       class="menu-toggle"

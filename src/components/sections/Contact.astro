@@ -1,7 +1,8 @@
 ---
 import { translations } from '../../data/translations';
 import { buildHoverHtml, formatHtml } from '../../scripts/i18n';
-const t = translations.es;
+const { lang = 'es' } = Astro.props;
+const t = translations[lang as keyof typeof translations];
 const titleHtml = buildHoverHtml(t.contact.title, '8xl', false);
 const text1Html = formatHtml(t.contact.text1);
 const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';

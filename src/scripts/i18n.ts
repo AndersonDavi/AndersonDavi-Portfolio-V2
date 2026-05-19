@@ -75,7 +75,8 @@ export function applyLang(lang: Lang): void {
 }
 
 export function getCurrentLang(): Lang {
-  return (localStorage.getItem('selectedLanguage') as Lang) || 'es';
+  const pageLang = document.documentElement.lang as Lang;
+  return pageLang === 'en' ? 'en' : 'es';
 }
 
 export function initLang(): void {
@@ -87,7 +88,7 @@ export function toggleLang(): Lang {
   const current = getCurrentLang();
   const next: Lang = current === 'es' ? 'en' : 'es';
   localStorage.setItem('selectedLanguage', next);
-  applyLang(next);
-  document.dispatchEvent(new CustomEvent('languageChange', { detail: { lang: next } }));
+  const nextPath = next === 'en' ? '/en/' : '/';
+  window.location.href = `${nextPath}${window.location.hash}`;
   return next;
 }

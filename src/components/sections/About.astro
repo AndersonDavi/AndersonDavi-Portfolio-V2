@@ -1,7 +1,8 @@
 ---
 import { translations } from '../../data/translations';
 import { buildHoverHtml, formatHtml } from '../../scripts/i18n';
-const t = translations.es;
+const { lang = 'es' } = Astro.props;
+const t = translations[lang as keyof typeof translations];
 
 const helloHtml = buildHoverHtml(t.about.title, '8xl', true);
 const text1Html = formatHtml(t.about.text1);
