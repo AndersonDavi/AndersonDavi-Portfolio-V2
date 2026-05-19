@@ -25,14 +25,19 @@ export const translations = {
         title: 'Educación',
         items: [
           {
-            title: 'Tecnico en análisis y desarrollo de software',
-            date_range: '2020 ene - 2021 ene',
-            description: 'SENA',
+            title: 'Técnico en Programación de Software',
+            date_range: '2021 - 2022',
+            description: 'Centro Colombo Alemán – SENA',
           },
           {
-            title: 'Tecnólogo en análisis y desarrollo de software',
-            date_range: '2022 oct - 2024 dic',
-            description: 'SENA',
+            title: 'Tecnólogo en Análisis y Desarrollo de Software',
+            date_range: '2022 - 2024',
+            description: 'Centro Colombo Alemán – SENA',
+          },
+          {
+            title: 'Tecnólogo en Desarrollo de Software',
+            date_range: '2023 - 2026',
+            description: 'Politécnico Costa Atlántica',
           },
         ],
       },
@@ -40,16 +45,22 @@ export const translations = {
         title: 'Experiencia laboral',
         items: [
           {
-            title: 'Desarrollador',
+            title: 'Desarrollador Frontend',
             description:
-              'SENA | Diseño de mockups e interfaces para web de DigibootCamp, iniciativa como plataforma para cursos cortos y bootcamps de progrmación',
+              'SENA | Diseño de mockups e interfaces para web de DigibootCamp, iniciativa como plataforma para cursos cortos y bootcamps de programación',
             date_range: '2022 ene - 2022 jun',
           },
           {
-            title: 'Analista TI',
+            title: 'Analista de Sistemas',
             description:
-              'Gestión Laboral | Automatizaciòn de procesos con Power Platform, diseño de interfaces, administraciòn de bases de datos SQL SERVER',
-            date_range: '2022 ago - Actualidad',
+              'Gestión Laboral S.A.S | Desarrollo de sistema ATS con Angular, Node.js y PostgreSQL. Automatización de procesos con Power Platform, administración de bases de datos SQL Server y despliegue en AWS.',
+            date_range: '2022 ago - 2025 ago',
+          },
+          {
+            title: 'Java Developer Engineer',
+            description:
+              'Activos S.A.S | Desarrollo frontend con Angular y backend con Node.js/NestJS. Manejo de Firestore, integración con APIs REST y despliegue en GCP bajo metodologías Scrum.',
+            date_range: '2025 ago - Actualidad',
           },
         ],
       },
@@ -187,14 +198,19 @@ export const translations = {
         title: 'Education',
         items: [
           {
-            title: 'Software Analysis and Development Technician',
-            date_range: 'Jan 2020 - Jan 2021',
-            description: 'SENA',
+            title: 'Software Programming Technician',
+            date_range: '2021 - 2022',
+            description: 'Centro Colombo Alemán – SENA',
           },
           {
             title: 'Software Analysis and Development Technologist',
-            date_range: 'Oct 2022 - Dec 2024',
-            description: 'SENA',
+            date_range: '2022 - 2024',
+            description: 'Centro Colombo Alemán – SENA',
+          },
+          {
+            title: 'Software Development Technologist',
+            date_range: '2023 - 2026',
+            description: 'Politécnico Costa Atlántica',
           },
         ],
       },
@@ -202,16 +218,22 @@ export const translations = {
         title: 'Work Experience',
         items: [
           {
-            title: 'Developer',
+            title: 'Frontend Developer',
             description:
               'SENA | Design of mockups and web interfaces for DigibootCamp, an initiative as a platform for short courses and programming bootcamps',
             date_range: 'Jan 2022 - Jun 2022',
           },
           {
-            title: 'IT Analyst',
+            title: 'Systems Analyst',
             description:
-              'Gestión Laboral | Process automation with Power Platform, interface design, SQL SERVER database administration',
-            date_range: 'Aug 2022 - Present',
+              'Gestión Laboral S.A.S | ATS system development with Angular, Node.js and PostgreSQL. Process automation with Power Platform, SQL Server database administration and deployment on AWS.',
+            date_range: 'Aug 2022 - Aug 2025',
+          },
+          {
+            title: 'Java Developer Engineer',
+            description:
+              'Activos S.A.S | Frontend development with Angular and backend with Node.js/NestJS. Firestore management, REST API integration and GCP deployment under Scrum methodologies.',
+            date_range: 'Aug 2025 - Present',
           },
         ],
       },

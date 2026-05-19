@@ -25,7 +25,7 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
     <div class="curriculum-card opacity-appearL" id="work-card">
       <div class="experience-title-card" style="transform: rotate(-3deg)">
         <img src="/icon2.webp" alt="" class="absolute -top-5 -left-5 size-16 -rotate-6 floatingY scale" />
-        <span>
+        <span class="whitespace-nowrap">
           <span data-i18n="experience.work.title.split.0">{workTitle[0]}</span>
           <br />
           <strong class="text-primary-500 font-black">
@@ -145,7 +145,7 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
   justify-content: center;
   text-transform: uppercase;
   font-style: italic;
-  line-height: 1.75;
+  line-height: 1.05;
   font-weight: 900;
   text-align: center;
   font-size: 2.25rem;

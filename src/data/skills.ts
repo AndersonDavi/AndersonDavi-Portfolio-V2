@@ -10,10 +10,12 @@ export const skills: SkillItem[] = [
   { title: 'JavaScript', img: 'js.webp', type: 'frontend' },
   { title: 'TypeScript', img: 'ts.webp', type: 'frontend' },
   { title: 'Angular', img: 'angular.webp', type: 'frontend' },
+  { title: 'Astro', img: 'astro.svg', type: 'frontend' },
   { title: 'Bootstrap', img: 'bootstrap.webp', type: 'frontend' },
   { title: 'Tailwind', img: 'tailwind.webp', type: 'frontend' },
   { title: 'SQL Server', img: 'SQLserver.webp', type: 'backend' },
   { title: 'MySQL', img: 'mysql.webp', type: 'backend' },
+  { title: 'PostgreSQL', img: 'postgresql.svg', type: 'backend' },
   { title: 'NodeJS', img: 'node.svg', type: 'backend' },
   { title: 'ExpressJS', img: 'express.svg', type: 'backend' },
   { title: 'nestJS', img: 'nest.svg', type: 'backend' },
@@ -24,6 +26,7 @@ export const skills: SkillItem[] = [
   { title: 'Photoshop', img: 'ps.webp', type: 'tools' },
   { title: 'Docker', img: 'docker.svg', type: 'cloud' },
   { title: 'AWS', img: 'aws.svg', type: 'cloud' },
+  { title: 'GCP', img: 'gcp.svg', type: 'cloud' },
 ];
 
 export const skillTypes = ['frontend', 'backend', 'tools', 'cloud'] as const;

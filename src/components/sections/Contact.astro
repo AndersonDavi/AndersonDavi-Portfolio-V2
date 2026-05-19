@@ -27,7 +27,7 @@ const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
           data-i18n-html="contact.text1"
           set:html={text1Html}
         ></span>
-        <div class="flex justify-center gap-4">
+        <div class="contact-social-icons flex justify-center gap-4">
           <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" rel="noopener noreferrer">
             <img src="/linkedin.svg" alt="linkedin icon" class="size-12 scale" />
           </a>
@@ -125,6 +125,9 @@ const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
   height: auto;
   min-height: 700px;
   width: 100%;
+}
+.contact-social-icons {
+  margin-top: 1.25rem;
 }
 .email-link {
   max-width: 500px;

@@ -3,7 +3,7 @@
 
 <section id="title">
   <div class="size-full floatingY content-container px-4 relative">
-    <h1 class="header-title scale">
+    <h1 class="header-title">
       <span class="text-primary-500" style="font-family: var(--font-mars) !important;">ANDERSON</span>
       <br />
       <span style="font-family: var(--font-mars) !important;">RUEDA</span>
@@ -52,6 +52,14 @@
   animation: titleAppear 0.75s both;
   animation-delay: 0.5s;
   will-change: transform, opacity;
+  transition: filter 150ms ease, transform 150ms ease;
+  cursor: pointer;
+}
+.header-title:hover {
+  filter: brightness(1.15);
+}
+.header-title:active {
+  transform: translate(-50%, -50%) scale(0.96);
 }
 @keyframes titleAppear {
   0% { opacity: 0; }

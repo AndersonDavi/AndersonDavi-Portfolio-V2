@@ -2,19 +2,27 @@ import { translations, type Lang } from '../data/translations';
 
 export function buildHoverHtml(text: string, growSize = '8xl', useMars = false): string {
   const parts = text.split(/(#.*?#)/g);
-  const characters = parts.flatMap(part => {
-    if (part.startsWith('#') && part.endsWith('#')) {
-      return part.slice(1, -1).split('').map(char => ({ char, isPrimary: true }));
-    }
-    return part.split('').map(char => ({ char, isPrimary: false }));
-  });
   const marsStyle = useMars ? ' style="font-family: var(--font-mars) !important"' : '';
-  return characters.map(({ char, isPrimary }) => {
+
+  // Group letters by word so flex-wrap can only break between words.
+  const wordGroups: { word: string; isPrimary: boolean }[] = [];
+  parts.forEach(part => {
+    const isPrimary = part.startsWith('#') && part.endsWith('#');
+    const content = isPrimary ? part.slice(1, -1) : part;
+    content.split(' ').forEach(w => {
+      if (w) wordGroups.push({ word: w, isPrimary });
+    });
+  });
+
+  return wordGroups.map(({ word, isPrimary }) => {
     const color = isPrimary
       ? 'text-primary-500 hover:text-primary-300'
       : 'hover:text-primary-500';
-    return `<span class="cursor-default relative select-none italic hover:transition-transform duration-75 ${color} hover:text-${growSize}"${marsStyle}>${char === ' ' ? '&nbsp;' : char}</span>`;
-  }).join('');
+    const chars = word.split('').map(char =>
+      `<span class="cursor-default relative select-none italic hover:transition-transform duration-75 ${color} hover:text-${growSize}"${marsStyle}>${char}</span>`
+    ).join('');
+    return `<span class="inline-block whitespace-nowrap">${chars}</span>`;
+  }).join(' ');
 }
 
 export function formatHtml(text: string): string {
