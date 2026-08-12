@@ -9,7 +9,7 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
 
 <section id="projects" class="scroll-mt-[90px]">
   <div class="projects-title opacity-appearR">
-    <div
+    <h2
       class="text-5xl sm:text-6xl font-black uppercase relative hover-string-container"
       data-hover-key="projectsTitle"
       data-grow-size="7xl"
@@ -63,8 +63,8 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
                   class="project-gallery-main scale-down"
                 />
                 <div class="project-gallery-side">
-                  <img src={`/gal-img/${project.x_images[1]}`} alt="" class="scale-down" />
-                  <img src={`/gal-img/${project.x_images[2]}`} alt="" class="scale-down" />
+                  <img src={`/gal-img/${project.x_images[1]}`} alt={`${project.title.replace(/#/g, '')} secondary screenshot 1`} class="scale-down" />
+                  <img src={`/gal-img/${project.x_images[2]}`} alt={`${project.title.replace(/#/g, '')} secondary screenshot 2`} class="scale-down" />
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
           <!-- Text column -->
           <div class="project-info-text">
             <div class="projects-title-card">
-              <span
+              <h3
                 class="text-5xl sm:text-6xl font-black italic hover-string-container"
                 data-hover-key={`projects.items.${idx}.title`}
                 data-grow-size="6xl"

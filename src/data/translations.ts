@@ -25,6 +25,17 @@ export const translations = {
         title: 'Educación',
         items: [
           {
+            title: 'Bachiller',
+            date_range: '2014 - 2020',
+            description:
+              'Institución Colombiana de Educación para el Talento Humano - ICETEC',
+          },
+          {
+            title: 'Conocimientos Académicos en Habilidades en Programación',
+            date_range: '2021',
+            description: 'Misión TIC 2022 - Universidad del Norte',
+          },
+          {
             title: 'Técnico en Programación de Software',
             date_range: '2021 - 2022',
             description: 'Centro Colombo Alemán – SENA',
@@ -36,8 +47,15 @@ export const translations = {
           },
           {
             title: 'Tecnólogo en Desarrollo de Software',
-            date_range: '2023 - 2026',
-            description: 'Politécnico Costa Atlántica',
+            date_range: '2025 - 2026',
+            description:
+              'Corporación Universitaria Politécnico Costa Atlántica (PCA)',
+          },
+          {
+            title: 'Ingeniería de Sistemas - En curso',
+            date_range: '2026 - Actualidad',
+            description:
+              'Corporación Universitaria Politécnico Costa Atlántica (PCA)',
           },
         ],
       },
@@ -198,6 +216,17 @@ export const translations = {
         title: 'Education',
         items: [
           {
+            title: 'High School Diploma',
+            date_range: '2014 - 2020',
+            description:
+              'Institución Colombiana de Educación para el Talento Humano - ICETEC',
+          },
+          {
+            title: 'Academic Training in Programming Skills',
+            date_range: '2021',
+            description: 'Misión TIC 2022 - Universidad del Norte',
+          },
+          {
             title: 'Software Programming Technician',
             date_range: '2021 - 2022',
             description: 'Centro Colombo Alemán – SENA',
@@ -209,8 +238,15 @@ export const translations = {
           },
           {
             title: 'Software Development Technologist',
-            date_range: '2023 - 2026',
-            description: 'Politécnico Costa Atlántica',
+            date_range: '2025 - 2026',
+            description:
+              'Corporación Universitaria Politécnico Costa Atlántica (PCA)',
+          },
+          {
+            title: 'Systems Engineering - In progress',
+            date_range: '2026 - Present',
+            description:
+              'Corporación Universitaria Politécnico Costa Atlántica (PCA)',
           },
         ],
       },

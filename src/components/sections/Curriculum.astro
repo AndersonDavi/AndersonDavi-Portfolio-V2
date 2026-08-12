@@ -24,7 +24,7 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
   <div class="curriculum-list-container">
     <!-- Work Experience (left, -rotate-3) -->
     <div class="curriculum-card opacity-appearL" id="work-card">
-      <div class="experience-title-card" style="transform: rotate(-3deg)">
+      <h2 class="experience-title-card" style="transform: rotate(-3deg)">
         <img src="/icon2.webp" alt="" class="absolute -top-5 -left-5 size-16 -rotate-6 floatingY scale" />
         <span class="whitespace-nowrap">
           <span data-i18n="experience.work.title.split.0">{workTitle[0]}</span>
@@ -33,12 +33,12 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
             <span data-i18n="experience.work.title.split.1">{workTitle[1]}</span>
           </strong>
         </span>
-      </div>
+      </h2>
       <ul class="experience-cotent-list ml-7 work-list" style="transform: rotate(-3deg)">
         {workItems.map((item, idx) => (
           <li class="experience-cotent-list-item">
             <span class="font-black text-xl" data-i18n={`experience.work.items.${idx}.date_range`}>{item.date_range}</span>
-            <p class="font-black text-2xl sm:text-4xl uppercase text-primary-500 break-words" data-i18n={`experience.work.items.${idx}.title`}>{item.title}</p>
+            <h3 class="font-black text-2xl sm:text-4xl uppercase text-primary-500 break-words" data-i18n={`experience.work.items.${idx}.title`}>{item.title}</h3>
             <p class="text-md" data-i18n={`experience.work.items.${idx}.description`}>{item.description}</p>
           </li>
         ))}
@@ -47,15 +47,15 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
 
     <!-- Education (right, rotate-3) -->
     <div class="curriculum-card opacity-appearR" id="edu-card">
-      <div class="experience-title-card" style="transform: rotate(3deg)">
+      <h2 class="experience-title-card" style="transform: rotate(3deg)">
         <img src="/icon1.webp" alt="" class="absolute -top-7 -right-7 size-20 rotate-6 floatingY scale" />
         <span class="text-4xl sm:text-5xl" data-i18n="experience.education.title">{eduTitle}</span>
-      </div>
+      </h2>
       <ul class="experience-cotent-list edu-list mr-7" style="transform: rotate(3deg)">
         {eduItems.map((item, idx) => (
           <li class="experience-cotent-list-item">
             <span class="font-black text-xl" data-i18n={`experience.education.items.${idx}.date_range`}>{item.date_range}</span>
-            <p class="font-black text-2xl sm:text-4xl uppercase text-primary-500 break-words text-xl" data-i18n={`experience.education.items.${idx}.title`}>{item.title}</p>
+            <h3 class="font-black text-2xl sm:text-4xl uppercase text-primary-500 break-words text-xl" data-i18n={`experience.education.items.${idx}.title`}>{item.title}</h3>
             <p class="text-md text-xl" data-i18n={`experience.education.items.${idx}.description`}>{item.description}</p>
           </li>
         ))}
