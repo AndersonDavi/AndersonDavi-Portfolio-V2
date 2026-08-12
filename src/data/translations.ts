@@ -31,11 +31,6 @@ export const translations = {
               'Institución Colombiana de Educación para el Talento Humano - ICETEC',
           },
           {
-            title: 'Conocimientos Académicos en Habilidades en Programación',
-            date_range: '2021',
-            description: 'Misión TIC 2022 - Universidad del Norte',
-          },
-          {
             title: 'Técnico en Programación de Software',
             date_range: '2021 - 2022',
             description: 'Centro Colombo Alemán – SENA',
@@ -220,11 +215,6 @@ export const translations = {
             date_range: '2014 - 2020',
             description:
               'Institución Colombiana de Educación para el Talento Humano - ICETEC',
-          },
-          {
-            title: 'Academic Training in Programming Skills',
-            date_range: '2021',
-            description: 'Misión TIC 2022 - Universidad del Norte',
           },
           {
             title: 'Software Programming Technician',
