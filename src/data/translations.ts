@@ -83,6 +83,35 @@ export const translations = {
       title: 'Proyectos',
       items: [
         {
+          id: 4,
+          title: 'COTI#ZADOR#',
+          description:
+            'Generador de cotizaciones y cuentas de cobro para freelancers y agencias: 11 plantillas, PDF vectorial, envío por WhatsApp, respaldo en Google Drive, app instalable que funciona sin conexión y CLI. Sin backend ni registro.',
+          demo_url: 'https://cotizador.andersonrueda.com/',
+          code_url: 'https://github.com/AndersonDavi/Cotizador',
+          logo_img: 'cotizadorLogo.webp',
+          logo_img_noColor: 'cotizadorLogo-noColor.webp',
+          technologies: [
+            { title: 'Astro', img: 'astro.svg' },
+            { title: 'TypeScript', img: 'ts.webp' },
+            { title: 'JS', img: 'js.webp' },
+            { title: 'HTML', img: 'html.webp' },
+            { title: 'CSS', img: 'css.webp' },
+            { title: 'Node.js', img: 'node.svg' },
+          ],
+          colors: ['#f2d22b', '#15181e', '#f4f1e6'],
+          y_images: ['COTIZADOR-Y-1.webp'],
+          x_images: [
+            'COTIZADOR-X-1.webp',
+            'COTIZADOR-X-2.webp',
+            'COTIZADOR-X-3.webp',
+            'COTIZADOR-X-4.webp',
+            'COTIZADOR-X-5.webp',
+            'COTIZADOR-X-6.webp',
+            'COTIZADOR-X-7.webp',
+          ],
+        },
+        {
           id: 1,
           title: 'EMPLEO #GRUPOLOGIS#',
           description:
@@ -268,6 +297,35 @@ export const translations = {
     projects: {
       title: 'Projects',
       items: [
+        {
+          id: 4,
+          title: 'COTI#ZADOR#',
+          description:
+            'Quote and invoice generator for freelancers and agencies: 11 templates, vector PDF export, WhatsApp sharing, Google Drive backup, an installable app that works offline and a CLI. No backend or sign-up.',
+          demo_url: 'https://cotizador.andersonrueda.com/',
+          code_url: 'https://github.com/AndersonDavi/Cotizador',
+          logo_img: 'cotizadorLogo.webp',
+          logo_img_noColor: 'cotizadorLogo-noColor.webp',
+          technologies: [
+            { title: 'Astro', img: 'astro.svg' },
+            { title: 'TypeScript', img: 'ts.webp' },
+            { title: 'JS', img: 'js.webp' },
+            { title: 'HTML', img: 'html.webp' },
+            { title: 'CSS', img: 'css.webp' },
+            { title: 'Node.js', img: 'node.svg' },
+          ],
+          colors: ['#f2d22b', '#15181e', '#f4f1e6'],
+          y_images: ['COTIZADOR-Y-1.webp'],
+          x_images: [
+            'COTIZADOR-X-1.webp',
+            'COTIZADOR-X-2.webp',
+            'COTIZADOR-X-3.webp',
+            'COTIZADOR-X-4.webp',
+            'COTIZADOR-X-5.webp',
+            'COTIZADOR-X-6.webp',
+            'COTIZADOR-X-7.webp',
+          ],
+        },
         {
           id: 1,
           title: 'EMPLEO #GRUPOLOGIS#',

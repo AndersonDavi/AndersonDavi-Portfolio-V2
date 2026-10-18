@@ -41,7 +41,7 @@ export const seoByLang = {
       {
         question: 'Que tipo de proyectos ha desarrollado Anderson Rueda?',
         answer:
-          'Ha colaborado en proyectos ATS para publicacion de ofertas de empleo, plataformas web para editoriales, aplicaciones con APIs externas como GIPHY, y automatizacion de procesos con Power Platform en entornos empresariales.',
+          'Creó Cotizador (cotizador.andersonrueda.com), un generador de cotizaciones y cuentas de cobro en PDF con plantillas, respaldo en Google Drive y CLI. También ha colaborado en proyectos ATS para publicacion de ofertas de empleo, plataformas web para editoriales, aplicaciones con APIs externas como GIPHY, y automatizacion de procesos con Power Platform en entornos empresariales.',
       },
       {
         question: 'Como contactar a Anderson Rueda para proyectos de desarrollo?',
@@ -88,7 +88,7 @@ export const seoByLang = {
       {
         question: 'What kind of projects has Anderson Rueda built?',
         answer:
-          'He has worked on ATS job posting platforms, editorial websites, API-based applications such as GIPHY projects, and business process automation with Power Platform.',
+          'He built Cotizador (cotizador.andersonrueda.com), a PDF quote and invoice generator with templates, Google Drive backup and a CLI. He has also worked on ATS job posting platforms, editorial websites, API-based applications such as GIPHY projects, and business process automation with Power Platform.',
       },
       {
         question: 'How can I contact Anderson Rueda for a software project?',
