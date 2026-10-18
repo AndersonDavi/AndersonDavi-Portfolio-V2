@@ -1,6 +1,6 @@
 ---
 import type { Lang } from '../data/translations';
-import { EMAIL, GITHUB, LINKEDIN, routes, homeSection, ui } from '../data/site';
+import { EMAIL, GITHUB, LINKEDIN, routes, homeSection, ui, whatsappLink } from '../data/site';
 
 const { lang = 'es' } = Astro.props as { lang?: Lang };
 const t = ui[lang];
@@ -31,6 +31,7 @@ const links = [
     <div>
       <p class="site-footer-title">{t.footer.contact}</p>
       <ul>
+        <li><a href={whatsappLink(lang)} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
         <li><a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
         <li><a href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a></li>

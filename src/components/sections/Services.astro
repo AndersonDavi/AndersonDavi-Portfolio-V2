@@ -2,7 +2,7 @@
 import ActionLink from '../ui/ActionLink.astro';
 import { serviceIcons } from '../../data/icons';
 import { servicesPage } from '../../data/pages';
-import { homeSection, routes, ui } from '../../data/site';
+import { homeSection, routes, ui, whatsappLink } from '../../data/site';
 import type { Lang } from '../../data/translations';
 import { buildHoverHtml } from '../../scripts/i18n';
 
@@ -32,6 +32,7 @@ const copy = es
     </div>
     <div class="actions home-services-actions">
       <ActionLink href={routes.services[lang]} icon="arrow">{copy.more}</ActionLink>
+      <ActionLink href={whatsappLink(lang)} variant="whatsapp" icon="whatsapp" external>{ui[lang].cta.whatsapp}</ActionLink>
       <ActionLink href={homeSection('contact', lang)} variant="ghost" icon="mail">{ui[lang].cta.contact}</ActionLink>
     </div>
   </div>

@@ -4,6 +4,16 @@ export const SITE_URL = 'https://www.andersonrueda.com';
 export const EMAIL = 'contactoandersonrueda@gmail.com';
 export const LINKEDIN = 'https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/';
 export const GITHUB = 'https://github.com/AndersonDavi';
+export const PHONE = '+57 302 364 8690';
+const WHATSAPP = '573023648690';
+
+/** wa.me link with a prefilled message, so the raw number never needs to be printed on the page. */
+export function whatsappLink(lang: Lang): string {
+  const text = lang === 'es'
+    ? 'Hola Anderson, vi tu portafolio y quiero hablar sobre un proyecto.'
+    : "Hi Anderson, I saw your portfolio and I'd like to talk about a project.";
+  return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+}
 
 /** First professional role (SENA, Jan 2022). Years of experience are derived from it at build time. */
 const CAREER_START = new Date('2022-01-01');
@@ -52,6 +62,7 @@ export const ui = {
       title: '¿Tienes un proyecto en mente?',
       text: 'Cuéntame qué necesitas y te respondo con una propuesta. Trabajo como freelance y estoy abierto a ofertas de empleo presencial, híbrido o remoto.',
       contact: 'Escríbeme',
+      whatsapp: 'WhatsApp',
       services: 'Ver servicios',
     },
   },
@@ -68,6 +79,7 @@ export const ui = {
       title: 'Have a project in mind?',
       text: "Tell me what you need and I'll get back to you with a proposal. I take freelance work and I'm open to full-time remote roles with companies anywhere.",
       contact: 'Get in touch',
+      whatsapp: 'WhatsApp',
       services: 'See services',
     },
   },

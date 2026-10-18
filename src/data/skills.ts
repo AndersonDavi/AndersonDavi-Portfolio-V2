@@ -1,6 +1,6 @@
 import type { Lang } from './translations';
 
-export const skillTypes = ['frontend', 'backend', 'mobile', 'data', 'cloud', 'tools', 'ai'] as const;
+export const skillTypes = ['frontend', 'backend', 'data', 'cloud', 'tools', 'ai'] as const;
 export type SkillType = typeof skillTypes[number];
 
 export interface SkillItem {
@@ -21,7 +21,6 @@ export const skills: SkillItem[] = [
   { title: 'Node.js', img: 'node.svg', type: 'backend' },
   { title: 'NestJS', img: 'nest.svg', type: 'backend' },
   { title: 'Express', img: 'express.svg', type: 'backend' },
-  { title: 'Flutter', img: 'flutter.svg', type: 'mobile' },
   { title: 'PostgreSQL', img: 'postgresql.svg', type: 'data' },
   { title: 'SQL Server', img: 'SQLserver.webp', type: 'data' },
   { title: 'Firestore', img: 'firestore.svg', type: 'data' },
@@ -45,8 +44,8 @@ export const skills: SkillItem[] = [
 ];
 
 export const skillTypeLabels: Record<Lang, Record<SkillType, string>> = {
-  es: { frontend: 'frontend', backend: 'backend', mobile: 'móvil', data: 'bases de datos', cloud: 'cloud', tools: 'herramientas', ai: 'IA' },
-  en: { frontend: 'frontend', backend: 'backend', mobile: 'mobile', data: 'databases', cloud: 'cloud', tools: 'tools', ai: 'AI' },
+  es: { frontend: 'frontend', backend: 'backend', data: 'bases de datos', cloud: 'cloud', tools: 'herramientas', ai: 'IA' },
+  en: { frontend: 'frontend', backend: 'backend', data: 'databases', cloud: 'cloud', tools: 'tools', ai: 'AI' },
 };
 
 /** Icon for a technology name used in project stacks; names without an icon render as text-only chips. */

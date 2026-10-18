@@ -1,6 +1,8 @@
 ---
 import { translations } from '../../data/translations';
 import { buildHoverHtml, formatHtml } from '../../scripts/i18n';
+import ActionLink from '../ui/ActionLink.astro';
+import { whatsappLink } from '../../data/site';
 const { lang = 'es' } = Astro.props;
 const t = translations[lang as keyof typeof translations];
 const titleHtml = buildHoverHtml(t.contact.title, '8xl', false);
@@ -36,6 +38,9 @@ const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
             <img loading="lazy" decoding="async" src="/github.svg" alt="github icon" class="size-12 scale" />
           </a>
         </div>
+        <ActionLink href={whatsappLink(lang)} variant="whatsapp" icon="whatsapp" external class="contact-whatsapp">
+          {lang === 'en' ? 'Message me on WhatsApp' : 'Escríbeme por WhatsApp'}
+        </ActionLink>
       </div>
 
       <!-- Right: form -->

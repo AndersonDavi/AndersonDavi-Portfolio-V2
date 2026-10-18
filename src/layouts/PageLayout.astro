@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import ActionLink from '../components/ui/ActionLink.astro';
 import type { Lang } from '../data/translations';
-import { absolute, homeSection, routes, ui } from '../data/site';
+import { absolute, homeSection, routes, ui, whatsappLink } from '../data/site';
 
 interface Crumb {
   label: string;
@@ -59,6 +59,7 @@ const breadcrumbSchema = {
           <h2>{t.cta.title}</h2>
           <p>{t.cta.text}</p>
           <div class="actions">
+            <ActionLink href={whatsappLink(lang)} variant="whatsapp" icon="whatsapp" external>{t.cta.whatsapp}</ActionLink>
             <ActionLink href={homeSection('contact', lang)} icon="mail">{t.cta.contact}</ActionLink>
             <ActionLink href={routes.services[lang]} variant="ghost" icon="arrow">{t.cta.services}</ActionLink>
           </div>
