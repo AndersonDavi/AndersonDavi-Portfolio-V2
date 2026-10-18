@@ -1,4 +1,5 @@
 import type { Lang } from './translations';
+import { YEARS } from './site';
 
 export const baseUrl = 'https://www.andersonrueda.com';
 
@@ -9,46 +10,17 @@ export const seoByLang = {
     canonical: `${baseUrl}/`,
     ogLocale: 'es_CO',
     alternateLocale: 'en_US',
-    title: 'Anderson Rueda | Desarrollador Angular & Full Stack | Barranquilla, Colombia',
-    description:
-      'Anderson Rueda, Desarrollador Angular, Frontend y Full Stack. Tecnico y Tecnologo en Analisis y Desarrollo de Software por el SENA. Barranquilla, Colombia. Especializado en Angular, TypeScript, Node.js, NestJS, SQL Server.',
+    title: 'Anderson Rueda | Desarrollador de Software Full Stack en Barranquilla, Colombia',
+    description: `Desarrollador de software Frontend y Full Stack en Barranquilla, Colombia, con ${YEARS}+ años de experiencia en Angular, Astro, TypeScript, Node.js y NestJS. Desarrollo web freelance y disponible para empresas.`,
     keywords:
-      'Anderson Rueda, Desarrollador Angular Barranquilla, Desarrollador Frontend Colombia, Desarrollador Full Stack Barranquilla, Tecnico Desarrollo Software Colombia, Tecnologo Analisis Desarrollo Software SENA, Angular developer Colombia, programador web Barranquilla, desarrollador TypeScript Colombia, NestJS developer, desarrollador backend Colombia, portafolio desarrollador software',
-    siteName: 'Anderson Rueda - Desarrollador Full Stack',
-    personJobTitle: 'Desarrollador Full Stack - Angular, TypeScript, Node.js, NestJS',
-    personDescription:
-      'Desarrollador Angular, Frontend y Full Stack. Tecnico y Tecnologo en Analisis y Desarrollo de Software por el SENA, Barranquilla, Colombia.',
-    websiteName: 'Anderson Rueda - Portafolio Desarrollador Full Stack',
+      'desarrollador de software Barranquilla, desarrollador web Barranquilla, desarrollador frontend Colombia, desarrollador full stack Colombia, desarrollador Angular Barranquilla, desarrollador Astro, programador freelance Barranquilla, páginas web Barranquilla, Anderson Rueda',
+    siteName: 'Anderson Rueda - Desarrollador de Software',
+    personJobTitle: 'Desarrollador de Software Full Stack',
+    personDescription: `Desarrollador de software Frontend y Full Stack en Barranquilla, Colombia, con ${YEARS}+ años de experiencia en Angular, Astro, TypeScript, Node.js, NestJS y bases de datos SQL y NoSQL.`,
+    websiteName: 'Anderson Rueda - Portafolio de Desarrollador de Software',
     websiteDescription:
-      'Portafolio personal de Anderson Rueda, desarrollador Angular, Frontend y Full Stack en Barranquilla, Colombia. Tecnico y Tecnologo en Analisis y Desarrollo de Software SENA.',
-    alumniDescription: 'Servicio Nacional de Aprendizaje - Tecnico y Tecnologo en Analisis y Desarrollo de Software',
-    faq: [
-      {
-        question: 'Que tecnologias domina Anderson Rueda?',
-        answer:
-          'Anderson Rueda es desarrollador especializado en Angular, TypeScript, JavaScript, Node.js, NestJS, SQL Server, MySQL, Docker y AWS. Tecnico y Tecnologo en Analisis y Desarrollo de Software egresado del SENA.',
-      },
-      {
-        question: 'Donde esta ubicado Anderson Rueda como desarrollador?',
-        answer:
-          'Anderson Rueda es un desarrollador full stack ubicado en Barranquilla, Atlantico, Colombia. Disponible para proyectos remotos y presenciales en la region Caribe colombiana.',
-      },
-      {
-        question: 'Que formacion academica tiene Anderson Rueda?',
-        answer:
-          'Anderson Rueda es Tecnico y Tecnologo en Analisis y Desarrollo de Software del SENA. Cuenta con formacion practica en desarrollo frontend, backend y bases de datos.',
-      },
-      {
-        question: 'Que tipo de proyectos ha desarrollado Anderson Rueda?',
-        answer:
-          'Creó Cotizador (cotizador.andersonrueda.com), un generador de cotizaciones y cuentas de cobro en PDF con plantillas, respaldo en Google Drive y CLI. También ha colaborado en proyectos ATS para publicacion de ofertas de empleo, plataformas web para editoriales, aplicaciones con APIs externas como GIPHY, y automatizacion de procesos con Power Platform en entornos empresariales.',
-      },
-      {
-        question: 'Como contactar a Anderson Rueda para proyectos de desarrollo?',
-        answer:
-          'Puedes contactar a Anderson Rueda a traves del formulario en su portafolio andersonrueda.com, por correo a contactoandersonrueda@gmail.com, o por LinkedIn en anderson-david-rueda-consuegra.',
-      },
-    ],
+      'Portafolio de Anderson Rueda, desarrollador de software Frontend y Full Stack en Barranquilla, Colombia: proyectos, servicios y experiencia.',
+    alumniDescription: 'Servicio Nacional de Aprendizaje - Tecnólogo en Análisis y Desarrollo de Software',
   },
   en: {
     lang: 'en',
@@ -56,46 +28,17 @@ export const seoByLang = {
     canonical: `${baseUrl}/en/`,
     ogLocale: 'en_US',
     alternateLocale: 'es_CO',
-    title: 'Anderson Rueda | Angular & Full Stack Developer | Barranquilla, Colombia',
-    description:
-      'Anderson Rueda, Angular, Frontend and Full Stack Developer based in Barranquilla, Colombia. Specialized in Angular, TypeScript, Node.js, NestJS, SQL Server and modern web applications.',
+    title: 'Anderson Rueda | Remote Full Stack Developer from Colombia',
+    description: `Frontend and Full Stack software developer from Barranquilla, Colombia, with ${YEARS}+ years of experience in Angular, Astro, TypeScript, Node.js and NestJS. Available for remote roles and freelance projects.`,
     keywords:
-      'Anderson Rueda, Angular developer Colombia, Frontend developer Colombia, Full Stack developer Barranquilla, TypeScript developer Colombia, Node.js developer, NestJS developer, software developer portfolio, web developer Barranquilla',
-    siteName: 'Anderson Rueda - Full Stack Developer',
-    personJobTitle: 'Full Stack Developer - Angular, TypeScript, Node.js, NestJS',
-    personDescription:
-      'Angular, Frontend and Full Stack Developer based in Barranquilla, Colombia. Specialized in web application development with Angular, TypeScript, Node.js and NestJS.',
-    websiteName: 'Anderson Rueda - Full Stack Developer Portfolio',
+      'remote full stack developer Colombia, remote frontend developer LATAM, hire Angular developer, Astro developer, TypeScript developer Colombia, Node.js developer, nearshore software developer, Barranquilla software developer, Anderson Rueda',
+    siteName: 'Anderson Rueda - Software Developer',
+    personJobTitle: 'Full Stack Software Developer',
+    personDescription: `Frontend and Full Stack software developer based in Barranquilla, Colombia, with ${YEARS}+ years of experience in Angular, Astro, TypeScript, Node.js, NestJS and SQL/NoSQL databases.`,
+    websiteName: 'Anderson Rueda - Software Developer Portfolio',
     websiteDescription:
-      'Personal portfolio of Anderson Rueda, Angular, Frontend and Full Stack Developer based in Barranquilla, Colombia.',
-    alumniDescription: 'National Learning Service - Software Analysis and Development training',
-    faq: [
-      {
-        question: 'What technologies does Anderson Rueda work with?',
-        answer:
-          'Anderson Rueda specializes in Angular, TypeScript, JavaScript, Node.js, NestJS, SQL Server, MySQL, Docker and AWS.',
-      },
-      {
-        question: 'Where is Anderson Rueda based?',
-        answer:
-          'Anderson Rueda is a full stack developer based in Barranquilla, Atlantico, Colombia, available for remote and local software projects.',
-      },
-      {
-        question: 'What is Anderson Rueda academic background?',
-        answer:
-          'Anderson Rueda has technical and technologist training in software analysis and development, with practical experience in frontend, backend and databases.',
-      },
-      {
-        question: 'What kind of projects has Anderson Rueda built?',
-        answer:
-          'He built Cotizador (cotizador.andersonrueda.com), a PDF quote and invoice generator with templates, Google Drive backup and a CLI. He has also worked on ATS job posting platforms, editorial websites, API-based applications such as GIPHY projects, and business process automation with Power Platform.',
-      },
-      {
-        question: 'How can I contact Anderson Rueda for a software project?',
-        answer:
-          'You can contact Anderson Rueda through the form on andersonrueda.com, by email at contactoandersonrueda@gmail.com, or through LinkedIn.',
-      },
-    ],
+      'Portfolio of Anderson Rueda, a Frontend and Full Stack software developer from Colombia: projects, services and experience.',
+    alumniDescription: 'National Learning Service (SENA) - Software Analysis and Development Technologist',
   },
 } as const;
 
@@ -107,19 +50,4 @@ export const alternateUrls = {
 
 export function getSeo(lang: Lang) {
   return seoByLang[lang];
-}
-
-export function createFaqSchema(lang: Lang) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: seoByLang[lang].faq.map(item => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
 }

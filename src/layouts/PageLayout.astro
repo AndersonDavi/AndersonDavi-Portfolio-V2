@@ -1,0 +1,74 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import ActionLink from '../components/ui/ActionLink.astro';
+import type { Lang } from '../data/translations';
+import { absolute, homeSection, routes, ui } from '../data/site';
+
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** Path of this page in each language, e.g. { es: '/sobre-mi/', en: '/en/about/' }. */
+  paths: { es: string; en: string };
+  crumbs?: Crumb[];
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  cta?: boolean;
+}
+
+const { lang, title, description, paths, crumbs = [], ogImage, ogType, cta = true } = Astro.props;
+const other: Lang = lang === 'es' ? 'en' : 'es';
+const t = ui[lang];
+const trail = [{ label: t.breadcrumbHome, href: routes.home[lang] }, ...crumbs];
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.label,
+    item: absolute(c.href),
+  })),
+};
+---
+
+<Layout
+  lang={lang}
+  title={title}
+  description={description}
+  canonical={absolute(paths[lang])}
+  alternates={{ es: absolute(paths.es), en: absolute(paths.en) }}
+  ogImage={ogImage}
+  ogType={ogType}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(breadcrumbSchema)} />
+  <slot name="schema" slot="schema" />
+  <Navbar lang={lang} alt={paths[other]} />
+  <main class="page">
+    <slot />
+    {cta && (
+      <div class="wrap">
+        <section class="cta-band">
+          <h2>{t.cta.title}</h2>
+          <p>{t.cta.text}</p>
+          <div class="actions">
+            <ActionLink href={homeSection('contact', lang)} icon="mail">{t.cta.contact}</ActionLink>
+            <ActionLink href={routes.services[lang]} variant="ghost" icon="arrow">{t.cta.services}</ActionLink>
+          </div>
+        </section>
+      </div>
+    )}
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<style is:global>
+.page { padding-bottom: 4rem; }
+</style>

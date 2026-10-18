@@ -1,0 +1,29 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  url?: string;
+  width?: number;
+  height?: number;
+  eager?: boolean;
+  class?: string;
+}
+
+const { src, alt, url, width, height, eager = false, class: className = '' } = Astro.props;
+---
+
+<figure class={`browser ${className}`}>
+  <div class="browser-bar" aria-hidden="true">
+    <span></span><span></span><span></span>
+    {url && <p class="browser-url">{url.replace(/^https?:\/\//, '').replace(/\/$/, '')}</p>}
+  </div>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+</figure>

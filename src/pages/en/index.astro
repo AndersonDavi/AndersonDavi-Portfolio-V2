@@ -8,22 +8,19 @@ import Skills from '../../components/sections/Skills.astro';
 import Projects from '../../components/sections/Projects.astro';
 import Contact from '../../components/sections/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import { createFaqSchema } from '../../data/seo';
 
 const lang = 'en';
-const faqSchema = createFaqSchema(lang);
 ---
 
-<Layout lang={lang}>
-  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+<Layout lang={lang} preloadHero>
   <Navbar lang={lang} />
   <main>
     <Hero lang={lang} />
     <About lang={lang} />
     <Curriculum lang={lang} />
-    <Skills />
+    <Skills lang={lang} />
     <Projects lang={lang} />
     <Contact lang={lang} />
   </main>
-  <Footer />
+  <Footer lang={lang} />
 </Layout>

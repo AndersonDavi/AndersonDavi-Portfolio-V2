@@ -1,0 +1,52 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Breadcrumbs from '../ui/Breadcrumbs.astro';
+import { faqPage } from '../../data/pages';
+import { routes, ui } from '../../data/site';
+import type { Lang } from '../../data/translations';
+
+const { lang } = Astro.props as { lang: Lang };
+const c = faqPage[lang];
+const label = ui[lang].nav.faq;
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: c.items.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+};
+---
+
+<PageLayout
+  lang={lang}
+  title={c.title}
+  description={c.description}
+  paths={{ es: routes.faq.es, en: routes.faq.en }}
+  crumbs={[{ label, href: routes.faq[lang] }]}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
+
+  <header class="wrap page-hero">
+    <Breadcrumbs lang={lang} crumbs={[{ label, href: routes.faq[lang] }]} />
+    <h1 class="display">{c.h1}</h1>
+    <p class="lead">{c.lead}</p>
+  </header>
+
+  <section class="wrap">
+    <div class="faq">
+      {c.items.map((item, i) => (
+        <details open={i === 0}>
+          <summary><h2 class="faq-q">{item.q}</h2></summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</PageLayout>
+
+<style is:global>
+.faq-q { font-size: inherit; font-weight: inherit; }
+</style>

@@ -1,5 +1,9 @@
 ---
-import { skills, skillTypes } from '../../data/skills';
+import { skills, skillTypes, skillTypeLabels } from '../../data/skills';
+import type { Lang } from '../../data/translations';
+
+const { lang = 'es' } = Astro.props as { lang?: Lang };
+const labels = skillTypeLabels[lang];
 ---
 
 <div class="overflow-x-hidden w-screen h-full min-h-[700px]" id="skills-section-container">
@@ -17,8 +21,10 @@ import { skills, skillTypes } from '../../data/skills';
           <li
             class={`btn-secondary-outline${type === 'frontend' ? ' selected' : ''}`}
             data-skill-type={type}
+            role="button"
+            tabindex="0"
           >
-            {type}
+            {labels[type]}
           </li>
         ))}
       </ul>
@@ -211,6 +217,9 @@ import { skills, skillTypes } from '../../data/skills';
   }
 
   categoryBtns.forEach(btn => {
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+    });
     btn.addEventListener('click', () => {
       const type = btn.dataset.skillType!;
 

@@ -1,0 +1,57 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectCard from '../ProjectCard.astro';
+import Breadcrumbs from '../ui/Breadcrumbs.astro';
+import { projects } from '../../data/projects';
+import { absolute, projectPath, routes, ui } from '../../data/site';
+import type { Lang } from '../../data/translations';
+
+const { lang } = Astro.props as { lang: Lang };
+const es = lang === 'es';
+const label = ui[lang].nav.projects;
+const copy = es
+  ? {
+      title: 'Proyectos de Desarrollo Web y Software | Anderson Rueda',
+      description: 'Casos de estudio de sitios web, catálogos con CMS y aplicaciones web que he diseñado y desarrollado para empresas en Colombia y Estados Unidos con Astro, Angular y Node.js.',
+      h1: 'Proyectos',
+      lead: 'Sitios web, catálogos y aplicaciones que he diseñado y desarrollado para empresas en Colombia y Estados Unidos. Cada uno incluye el reto, lo que construí y las tecnologías que usé.',
+    }
+  : {
+      title: 'Web Development & Software Projects | Anderson Rueda',
+      description: 'Case studies of websites, CMS-driven catalogs and web applications I designed and built for companies in Colombia and the United States with Astro, Angular and Node.js.',
+      h1: 'Projects',
+      lead: 'Websites, catalogs and applications I designed and built for companies in Colombia and the United States. Each one covers the challenge, what I built and the technologies I used.',
+    };
+
+const listSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: copy.h1,
+  itemListElement: projects.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: absolute(projectPath(p.slug, lang)),
+    name: p.name,
+  })),
+};
+---
+
+<PageLayout
+  lang={lang}
+  title={copy.title}
+  description={copy.description}
+  paths={{ es: routes.projects.es, en: routes.projects.en }}
+  crumbs={[{ label, href: routes.projects[lang] }]}
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(listSchema)} />
+  <header class="wrap page-hero">
+    <Breadcrumbs lang={lang} crumbs={[{ label, href: routes.projects[lang] }]} />
+    <h1 class="display">{copy.h1}</h1>
+    <p class="lead">{copy.lead}</p>
+  </header>
+  <section class="wrap">
+    <div class="pgrid">
+      {projects.map((p, i) => <ProjectCard project={p} lang={lang} featured={i === 0} headingLevel="h2" />)}
+    </div>
+  </section>
+</PageLayout>

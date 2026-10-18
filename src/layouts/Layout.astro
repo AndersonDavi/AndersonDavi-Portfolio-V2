@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/buttons.css';
+import '../styles/ui.css';
 import { alternateUrls, baseUrl, getSeo } from '../data/seo';
 import type { Lang } from '../data/translations';
 
@@ -11,23 +12,31 @@ interface Props {
   keywords?: string;
   lang?: Lang;
   noindex?: boolean;
+  /** Absolute URLs of this page in each language; defaults to the home pages. */
+  alternates?: { es: string; en: string };
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  /** Only the home page shows the hero background above the fold. */
+  preloadHero?: boolean;
 }
 
-const { lang = 'es', noindex = false } = Astro.props;
+const { lang = 'es', noindex = false, ogType = 'website', preloadHero = false } = Astro.props;
+const alternates = Astro.props.alternates ?? { es: alternateUrls.es, en: alternateUrls.en };
 const seo = getSeo(lang);
 const title = Astro.props.title ?? seo.title;
 const description = Astro.props.description ?? seo.description;
 const canonical = Astro.props.canonical ?? seo.canonical;
 const keywords = Astro.props.keywords ?? seo.keywords;
-const ogImage = `${baseUrl}/backgrounds/og-image.png`;
+const ogImage = Astro.props.ogImage ?? `${baseUrl}/backgrounds/og-image.png`;
 
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': `${baseUrl}/#person`,
   name: 'Anderson Rueda',
   alternateName: 'Anderson David Rueda Consuegra',
   url: `${baseUrl}/`,
-  image: ogImage,
+  image: `${baseUrl}/backgrounds/og-image.png`,
   jobTitle: seo.personJobTitle,
   description: seo.personDescription,
   email: 'contactoandersonrueda@gmail.com',
@@ -46,7 +55,6 @@ const personSchema = {
     'Astro',
     'TypeScript',
     'JavaScript',
-    'Java',
     'Node.js',
     'NestJS',
     'SQL Server',
@@ -57,6 +65,9 @@ const personSchema = {
     'AWS',
     'Google Cloud Platform',
     'Power Platform',
+    'Sanity CMS',
+    'SEO',
+    'AI-assisted development',
     'Tailwind CSS',
     'Bootstrap',
     'Software Development',
@@ -67,6 +78,7 @@ const personSchema = {
     name: 'SENA',
     description: seo.alumniDescription,
   },
+  knowsLanguage: ['es', 'en'],
   sameAs: [
     'https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/',
     'https://github.com/AndersonDavi',
@@ -109,7 +121,7 @@ const websiteSchema = {
     <meta name="google-site-verification" content="ahZS4qCnXiX1NPEs2xwk0r2orlPFeorWpFTa6KkBEok" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -131,9 +143,9 @@ const websiteSchema = {
     {!noindex && (
       <>
         <link rel="canonical" href={canonical} />
-        <link rel="alternate" hreflang="es" href={alternateUrls.es} />
-        <link rel="alternate" hreflang="en" href={alternateUrls.en} />
-        <link rel="alternate" hreflang="x-default" href={alternateUrls.default} />
+        <link rel="alternate" hreflang="es" href={alternates.es} />
+        <link rel="alternate" hreflang="en" href={alternates.en} />
+        <link rel="alternate" hreflang="x-default" href={alternates.es} />
       </>
     )}
 
@@ -150,7 +162,7 @@ const websiteSchema = {
     <!-- Preload critical assets -->
     <link rel="preload" href="/fonts/MARSNEVENEKSK-Regular.otf" as="font" type="font/otf" crossorigin />
     <link rel="preload" href="/simbolo.svg" as="image" fetchpriority="high" />
-    <link rel="preload" href="/backgrounds/bg2.webp" as="image" fetchpriority="high" />
+    {preloadHero && <link rel="preload" href="/backgrounds/bg2.webp" as="image" fetchpriority="high" />}
 
     <!-- JSON-LD: Person -->
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

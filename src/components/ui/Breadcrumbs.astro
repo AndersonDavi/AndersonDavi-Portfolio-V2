@@ -1,0 +1,22 @@
+---
+import type { Lang } from '../../data/translations';
+import { routes, ui } from '../../data/site';
+
+interface Props {
+  lang: Lang;
+  crumbs: { label: string; href: string }[];
+}
+
+const { lang, crumbs } = Astro.props;
+const trail = [{ label: ui[lang].breadcrumbHome, href: routes.home[lang] }, ...crumbs];
+---
+
+<div role="navigation" aria-label={lang === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
+  <ol class="breadcrumbs">
+    {trail.map((c, i) => (
+      <li>
+        {i < trail.length - 1 ? <a href={c.href}>{c.label}</a> : <span aria-current="page">{c.label}</span>}
+      </li>
+    ))}
+  </ol>
+</div>

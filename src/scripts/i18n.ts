@@ -87,12 +87,3 @@ export function initLang(): void {
   const lang = getCurrentLang();
   if (lang !== 'es') applyLang(lang);
 }
-
-export function toggleLang(): Lang {
-  const current = getCurrentLang();
-  const next: Lang = current === 'es' ? 'en' : 'es';
-  localStorage.setItem('selectedLanguage', next);
-  const nextPath = next === 'en' ? '/en/' : '/';
-  window.location.href = `${nextPath}${window.location.hash}`;
-  return next;
-}

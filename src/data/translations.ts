@@ -1,3 +1,5 @@
+import { YEARS } from './site';
+
 export const translations = {
   es: {
     nav: {
@@ -16,7 +18,7 @@ export const translations = {
     about: {
       title: '¡Hola #mundo#!',
       text1:
-        'Soy Anderson Rueda, #desarrollador web# dedicado y apasionado por el diseño, me especializo en convertir tus ideas en herramientas digitales eficientes y con estilo que agilizan tu trabajo',
+        `Soy Anderson Rueda, #desarrollador de software# en Barranquilla con ${YEARS}+ años de experiencia. Me especializo en frontend y full stack: convierto tus ideas en herramientas digitales eficientes y con estilo que agilizan tu trabajo`,
       text2:
         'Me encuentro constantemente #aprendiendo# cosas nuevas y afrontando retos',
     },
@@ -79,125 +81,6 @@ export const translations = {
       },
     },
     projectsTitle: 'PORTA#FOLIO#',
-    projects: {
-      title: 'Proyectos',
-      items: [
-        {
-          id: 4,
-          title: 'COTI#ZADOR#',
-          description:
-            'Generador de cotizaciones y cuentas de cobro para freelancers y agencias: 11 plantillas, PDF vectorial, envío por WhatsApp, respaldo en Google Drive, app instalable que funciona sin conexión y CLI. Sin backend ni registro.',
-          demo_url: 'https://cotizador.andersonrueda.com/',
-          code_url: 'https://github.com/AndersonDavi/Cotizador',
-          logo_img: 'cotizadorLogo.webp',
-          logo_img_noColor: 'cotizadorLogo-noColor.webp',
-          technologies: [
-            { title: 'Astro', img: 'astro.svg' },
-            { title: 'TypeScript', img: 'ts.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'Node.js', img: 'node.svg' },
-          ],
-          colors: ['#f2d22b', '#15181e', '#f4f1e6'],
-          y_images: ['COTIZADOR-Y-1.webp'],
-          x_images: [
-            'COTIZADOR-X-1.webp',
-            'COTIZADOR-X-2.webp',
-            'COTIZADOR-X-3.webp',
-            'COTIZADOR-X-4.webp',
-            'COTIZADOR-X-5.webp',
-            'COTIZADOR-X-6.webp',
-            'COTIZADOR-X-7.webp',
-          ],
-        },
-        {
-          id: 1,
-          title: 'EMPLEO #GRUPOLOGIS#',
-          description:
-            'Colaboración en proyecto ATS para publicación de ofertas de empleo, corrección de estilos y mejoras en diseño',
-          demo_url: 'https://www.empleogrupologis.com/',
-          mockup_url:
-            'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
-          bg_img: 'ATSIMG.webp',
-          logo_img: 'ATSLogo.webp',
-          logo_img_noColor: 'ATSLogo-noColor.webp',
-          technologies: [
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'Angular', img: 'angular.webp' },
-            { title: 'TypeScript', img: 'ts.webp' },
-          ],
-          colors: ['#e45b00', '#ff6e0d', '#f0f0f7'],
-          y_images: ['ATS-Y-1.webp'],
-          x_images: [
-            'ATS-X-1.webp',
-            'ATS-X-2.webp',
-            'ATS-X-3.webp',
-            'ATS-X-4.webp',
-            'ATS-X-5.webp',
-            'ATS-X-7.webp',
-            'ATS-X-6.webp',
-          ],
-        },
-        {
-          id: 2,
-          title: 'EDICIONES #KAZIYADU#',
-          description:
-            'Web para publicar libros gratuitos diseñada para la editorial Ediciones kaziyadu',
-          demo_url: 'https://kaziyadu.vercel.app/',
-          bg_img: 'kaziyaduAppIMG.webp',
-          logo_img: 'kaziyaduAppLogo.webp',
-          technologies: [
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'Angular', img: 'angular.webp' },
-            { title: 'TypeScript', img: 'ts.webp' },
-            { title: 'Tailwind', img: 'tailwind.webp' },
-          ],
-          colors: ['#fed801', '#eb546c', '#84bae7'],
-          y_images: ['KAZIYADU-Y-1.webp'],
-          x_images: [
-            'KAZIYADU-X-1.webp',
-            'KAZIYADU-X-5.webp',
-            'KAZIYADU-X-4.webp',
-            'KAZIYADU-X-2.webp',
-            'KAZIYADU-X-3.webp',
-            'KAZIYADU-X-6.webp',
-            'KAZIYADU-X-7.webp',
-          ],
-        },
-        {
-          id: 3,
-          title: 'GIFS#APP#',
-          description:
-            'Aplicación para buscar y compartir GIFs usando la API de GIPHY',
-          demo_url: 'https://andersondavi.github.io/GIFS-API/',
-          bg_img: 'gifsAppIMG.webp',
-          logo_img: 'gifsAppLogo.webp',
-          technologies: [
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'Angular', img: 'angular.webp' },
-            { title: 'TypeScript', img: 'ts.webp' },
-          ],
-          colors: ['#1f2022', '#212529', '#ffffff'],
-          y_images: ['GIFS-Y-1.webp'],
-          x_images: [
-            'GIFS-X-1.webp',
-            'GIFS-X-2.webp',
-            'GIFS-X-3.webp',
-            'GIFS-X-5.webp',
-            'GIFS-X-4.webp',
-            'GIFS-X-6.webp',
-            'GIFS-X-7.webp',
-          ],
-        },
-      ],
-    },
     contact: {
       title: '¡CONTÁCTAME!',
       text1: 'Hagamos #realidad# tus ideas',
@@ -231,7 +114,7 @@ export const translations = {
     about: {
       title: 'Hello #World!#',
       text1:
-        "I'm Anderson Rueda, a dedicated #web developer# passionate about design. I specialize in turning your ideas into efficient and stylish digital tools that streamline your work.",
+        `I'm Anderson Rueda, a #software developer# from Barranquilla, Colombia, with ${YEARS}+ years of experience. I specialize in frontend and full stack work, turning your ideas into efficient, stylish digital tools that streamline your work.`,
       text2:
         "I'm constantly #learning# new things and tackling new challenges.",
     },
@@ -294,124 +177,6 @@ export const translations = {
       },
     },
     projectsTitle: 'PORT#FOLIO#',
-    projects: {
-      title: 'Projects',
-      items: [
-        {
-          id: 4,
-          title: 'COTI#ZADOR#',
-          description:
-            'Quote and invoice generator for freelancers and agencies: 11 templates, vector PDF export, WhatsApp sharing, Google Drive backup, an installable app that works offline and a CLI. No backend or sign-up.',
-          demo_url: 'https://cotizador.andersonrueda.com/',
-          code_url: 'https://github.com/AndersonDavi/Cotizador',
-          logo_img: 'cotizadorLogo.webp',
-          logo_img_noColor: 'cotizadorLogo-noColor.webp',
-          technologies: [
-            { title: 'Astro', img: 'astro.svg' },
-            { title: 'TypeScript', img: 'ts.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'Node.js', img: 'node.svg' },
-          ],
-          colors: ['#f2d22b', '#15181e', '#f4f1e6'],
-          y_images: ['COTIZADOR-Y-1.webp'],
-          x_images: [
-            'COTIZADOR-X-1.webp',
-            'COTIZADOR-X-2.webp',
-            'COTIZADOR-X-3.webp',
-            'COTIZADOR-X-4.webp',
-            'COTIZADOR-X-5.webp',
-            'COTIZADOR-X-6.webp',
-            'COTIZADOR-X-7.webp',
-          ],
-        },
-        {
-          id: 1,
-          title: 'EMPLEO #GRUPOLOGIS#',
-          description:
-            'Collaboration on ATS project for job posting, style correction and design improvements',
-          demo_url: 'https://www.empleogrupologis.com/',
-          mockup_url:
-            'https://www.figma.com/design/s3O6swXl11T40b6QyVEEIk/ATS?node-id=0-1&t=O7XBCs9gnpOtSysy-1',
-          bg_img: 'ATSIMG.webp',
-          logo_img: 'ATSLogo.webp',
-          technologies: [
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'Angular', img: 'angular.webp' },
-            { title: 'TypeScript', img: 'ts.webp' },
-          ],
-          colors: ['#e45b00', '#ff6e0d', '#f0f0f7'],
-          y_images: ['ATS-Y-1.webp'],
-          x_images: [
-            'ATS-X-1.webp',
-            'ATS-X-2.webp',
-            'ATS-X-3.webp',
-            'ATS-X-4.webp',
-            'ATS-X-5.webp',
-            'ATS-X-7.webp',
-            'ATS-X-6.webp',
-          ],
-        },
-        {
-          id: 2,
-          title: 'EDICIONES #KAZIYADU#',
-          description:
-            'Website to publish free books designed for Ediciones kaziyadu publishing house',
-          demo_url: 'https://kaziyadu.vercel.app/',
-          bg_img: 'kaziyaduAppIMG.webp',
-          logo_img: 'kaziyaduAppLogo.webp',
-          technologies: [
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'Angular', img: 'angular.webp' },
-            { title: 'TypeScript', img: 'ts.webp' },
-            { title: 'Tailwind', img: 'tailwind.webp' },
-          ],
-          colors: ['#fed801', '#eb546c', '#84bae7'],
-          y_images: ['KAZIYADU-Y-1.webp'],
-          x_images: [
-            'KAZIYADU-X-1.webp',
-            'KAZIYADU-X-5.webp',
-            'KAZIYADU-X-4.webp',
-            'KAZIYADU-X-2.webp',
-            'KAZIYADU-X-3.webp',
-            'KAZIYADU-X-6.webp',
-            'KAZIYADU-X-7.webp',
-          ],
-        },
-        {
-          id: 3,
-          title: 'GIFS#APP#',
-          description:
-            'Application to search and share GIFs using the GIPHY API',
-          demo_url: 'https://andersondavi.github.io/GIFS-API/',
-          bg_img: 'gifsAppIMG.webp',
-          logo_img: 'gifsAppLogo.webp',
-          technologies: [
-            { title: 'HTML', img: 'html.webp' },
-            { title: 'CSS', img: 'css.webp' },
-            { title: 'JS', img: 'js.webp' },
-            { title: 'Angular', img: 'angular.webp' },
-            { title: 'TypeScript', img: 'ts.webp' },
-          ],
-          colors: ['#1f2022', '#212529', '#ffffff'],
-          y_images: ['GIFS-Y-1.webp'],
-          x_images: [
-            'GIFS-X-1.webp',
-            'GIFS-X-2.webp',
-            'GIFS-X-3.webp',
-            'GIFS-X-5.webp',
-            'GIFS-X-4.webp',
-            'GIFS-X-6.webp',
-            'GIFS-X-7.webp',
-          ],
-        },
-      ],
-    },
     contact: {
       title: 'CONTACT ME!',
       text1: "Let's bring your ideas to #reality#",

@@ -1,0 +1,70 @@
+---
+import type { Project } from '../data/projects';
+import { projectImage } from '../data/projects';
+import { projectPath } from '../data/site';
+import { skillIcon } from '../data/skills';
+import type { Lang } from '../data/translations';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  featured?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+
+const { project, lang, featured = false, headingLevel = 'h3' } = Astro.props;
+const Heading = headingLevel;
+const cta = lang === 'es' ? 'Ver caso de estudio' : 'View case study';
+---
+
+<a
+  href={projectPath(project.slug, lang)}
+  class={`pcard${featured ? ' pcard-featured' : ''}`}
+  style={`--brand: ${project.color}`}
+>
+  <div class="pcard-visual">
+    <img class="pcard-logo" src={projectImage(project, project.logo)} alt="" loading="lazy" decoding="async" />
+    <div class="pcard-shot browser">
+      <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+      <img
+        src={projectImage(project, 'cover.webp')}
+        alt={lang === 'es' ? `Captura de ${project.name}` : `${project.name} screenshot`}
+        width="1600"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    {project.mobile && (
+      <img
+        class="pcard-phone"
+        src={projectImage(project, 'mobile.webp')}
+        alt=""
+        width="780"
+        height="1688"
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+  </div>
+  <div class="pcard-body">
+    <p class="pcard-meta">{project.category[lang]} · {project.year}</p>
+    <Heading class="pcard-title">{project.name}</Heading>
+    <p class="pcard-summary">{project.summary[lang]}</p>
+    <ul class="chips" aria-label={lang === 'es' ? 'Tecnologías' : 'Technologies'}>
+      {project.stack.map(tech => {
+        const icon = skillIcon(tech);
+        return (
+          <li class="chip">
+            {icon && <img src={icon} alt="" loading="lazy" decoding="async" />}
+            {tech}
+          </li>
+        );
+      })}
+    </ul>
+    <span class="pcard-cta">
+      {cta}
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  </div>
+</a>

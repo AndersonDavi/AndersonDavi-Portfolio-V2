@@ -1,0 +1,153 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ActionLink from '../ui/ActionLink.astro';
+import Breadcrumbs from '../ui/Breadcrumbs.astro';
+import { aboutPage } from '../../data/pages';
+import { absolute, homeSection, routes, ui } from '../../data/site';
+import { skills, skillTypes, skillTypeLabels } from '../../data/skills';
+import { translations, type Lang } from '../../data/translations';
+
+const { lang } = Astro.props as { lang: Lang };
+const c = aboutPage[lang];
+const t = translations[lang];
+const label = ui[lang].nav.about;
+const work = [...t.experience.work.items].reverse();
+const education = [...t.experience.education.items].reverse();
+
+const profileSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: absolute(routes.about[lang]),
+  name: c.title,
+  inLanguage: lang,
+  mainEntity: { '@id': `${absolute('/')}#person` },
+};
+---
+
+<PageLayout
+  lang={lang}
+  title={c.title}
+  description={c.description}
+  paths={{ es: routes.about.es, en: routes.about.en }}
+  crumbs={[{ label, href: routes.about[lang] }]}
+  ogType="profile"
+>
+  <script type="application/ld+json" slot="schema" set:html={JSON.stringify(profileSchema)} />
+
+  <header class="wrap page-hero about-hero">
+    <div>
+      <Breadcrumbs lang={lang} crumbs={[{ label, href: routes.about[lang] }]} />
+      <h1 class="display">{c.h1}</h1>
+      <p class="lead">{c.lead}</p>
+      {c.intro.map(p => <p class="about-intro">{p}</p>)}
+      <div class="actions about-actions">
+        <ActionLink href={homeSection('contact', lang)} icon="mail">{ui[lang].nav.contact}</ActionLink>
+        <ActionLink href={t.resume.url} variant="ghost" icon="external" external>{t.resume.text}</ActionLink>
+      </div>
+    </div>
+    <figure class="about-photo">
+      <img src="/decoration/marco1.webp" alt={`Anderson Rueda, ${c.eyebrow}`} width="1278" height="1230" loading="eager" decoding="async" />
+    </figure>
+  </header>
+
+  <section class="wrap page-section">
+    <div class="stats">
+      {c.stats.map(s => <div class="stat"><strong>{s.value}</strong><span>{s.label}</span></div>)}
+    </div>
+  </section>
+
+  <section class="wrap page-section">
+    <h2 class="section-title">{c.whatTitle}</h2>
+    <div class="tiles about-tiles">
+      {c.what.map(w => <div class="tile"><h3>{w.title}</h3><p>{w.text}</p></div>)}
+    </div>
+  </section>
+
+  <section class="wrap page-section about-cols">
+    <div>
+      <h2 class="section-title">{c.experienceTitle}</h2>
+      <ol class="timeline">
+        {work.map(item => (
+          <li>
+            <time>{item.date_range}</time>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+    <div>
+      <h2 class="section-title">{c.educationTitle}</h2>
+      <ol class="timeline">
+        {education.map(item => (
+          <li>
+            <time>{item.date_range}</time>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap page-section">
+    <h2 class="section-title">{c.stackTitle}</h2>
+    <p class="muted about-sub">{c.stackText}</p>
+    <div class="stack-groups">
+      {skillTypes.map(type => (
+        <div class="stack-group">
+          <h3>{skillTypeLabels[lang][type]}</h3>
+          <ul class="chips">
+            {skills.filter(s => s.type === type).map(s => (
+              <li class="chip"><img src={`/skills/${s.img}`} alt="" loading="lazy" decoding="async" />{s.title}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap page-section about-cols">
+    <div>
+      <h2 class="section-title">{c.aiTitle}</h2>
+      <p class="about-intro">{c.aiText}</p>
+    </div>
+    <div>
+      <h2 class="section-title">{c.availabilityTitle}</h2>
+      <ul class="checklist">
+        {c.availability.map(a => <li>{a}</li>)}
+      </ul>
+    </div>
+  </section>
+</PageLayout>
+
+<style is:global>
+.about-hero {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .about-hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); }
+}
+.about-intro { margin-top: 1rem; line-height: 1.7; color: rgba(255, 255, 255, 0.78); max-width: 46rem; }
+.about-actions { margin-top: 2rem; }
+.about-photo { max-width: 26rem; margin: 0 auto; transform: rotate(4deg); }
+.about-photo img { width: 100%; height: auto; }
+.about-tiles { margin-top: 1.75rem; }
+.about-cols { display: grid; gap: 3rem; }
+@media (min-width: 900px) {
+  .about-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.about-cols .section-title { margin-bottom: 1.75rem; }
+.about-sub { margin: 0.75rem 0 1.75rem; }
+.stack-groups { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.stack-group h3 {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary-500);
+}
+</style>

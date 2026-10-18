@@ -1,21 +1,80 @@
 ---
+import type { Lang } from '../data/translations';
+import { EMAIL, GITHUB, LINKEDIN, routes, homeSection, ui } from '../data/site';
+
+const { lang = 'es' } = Astro.props as { lang?: Lang };
+const t = ui[lang];
+const links = [
+  { href: routes.home[lang], label: t.nav.home },
+  { href: routes.about[lang], label: t.nav.about },
+  { href: routes.services[lang], label: t.nav.services },
+  { href: routes.projects[lang], label: t.nav.projects },
+  { href: routes.faq[lang], label: t.nav.faq },
+  { href: homeSection('contact', lang), label: t.nav.contact },
+];
 ---
 
-<footer>
-  <img loading="lazy" decoding="async" src="/simbolo.svg" alt="Anderson Rueda" class="scale" />
+<footer class="site-footer">
+  <div class="wrap site-footer-grid">
+    <div class="site-footer-brand">
+      <a href={routes.home[lang]} aria-label="Anderson Rueda">
+        <img loading="lazy" decoding="async" src="/simbolo.svg" alt="" width="56" height="56" class="scale" />
+      </a>
+      <p><strong>Anderson Rueda</strong><br />{t.footer.tagline}</p>
+    </div>
+    <div role="navigation" aria-label={t.footer.pages}>
+      <p class="site-footer-title">{t.footer.pages}</p>
+      <ul>
+        {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <p class="site-footer-title">{t.footer.contact}</p>
+      <ul>
+        <li><a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+        <li><a href={LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href={GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li>Barranquilla, Colombia</li>
+      </ul>
+    </div>
+  </div>
+  <p class="site-footer-copy">© {new Date().getFullYear()} Anderson Rueda. {t.footer.rights}</p>
 </footer>
 
 <style is:global>
-footer {
-  height: 10rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem;
+.site-footer {
+  padding: 3.5rem 0 2rem;
   border-top: 1px solid rgba(255, 202, 65, 0.25);
+  background: var(--color-secondary-800);
 }
-footer img {
-  width: 3.5rem;
-  height: 3.5rem;
+.site-footer-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .site-footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+}
+.site-footer-brand { display: flex; gap: 1rem; align-items: flex-start; }
+.site-footer-brand img { width: 3.5rem; height: 3.5rem; flex: none; }
+.site-footer-brand p { color: rgba(255, 255, 255, 0.7); line-height: 1.6; max-width: 26rem; }
+.site-footer-brand strong { color: white; }
+.site-footer-title {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-primary-500);
+}
+.site-footer ul { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+.site-footer li { color: rgba(255, 255, 255, 0.75); }
+.site-footer a { color: rgba(255, 255, 255, 0.75); text-decoration: none; word-break: break-word; }
+.site-footer a:hover { color: var(--color-primary-500); }
+.site-footer-copy {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 </style>
