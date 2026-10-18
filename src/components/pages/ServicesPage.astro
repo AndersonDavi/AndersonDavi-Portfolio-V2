@@ -64,13 +64,15 @@ const serviceSchema = {
           <div class="tile-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={icons[s.icon]} /></div>
           <h2 class="services-tile-title">{s.title}</h2>
           <p>{s.text}</p>
-          <p class="services-related">
+          {s.projects.length > 0 && (
+            <p class="services-related">
             <span>{c.projectsLabel}:</span>
             {s.projects.map((slug, i) => {
               const p = getProject(slug)!;
               return <>{i > 0 && ', '}<a href={projectPath(slug, lang)}>{p.name}</a></>;
             })}
           </p>
+          )}
         </article>
       ))}
     </div>
