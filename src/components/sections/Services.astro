@@ -1,0 +1,49 @@
+---
+import ActionLink from '../ui/ActionLink.astro';
+import { serviceIcons } from '../../data/icons';
+import { servicesPage } from '../../data/pages';
+import { homeSection, routes, ui } from '../../data/site';
+import type { Lang } from '../../data/translations';
+import { buildHoverHtml } from '../../scripts/i18n';
+
+const { lang = 'es' } = Astro.props as { lang?: Lang };
+const c = servicesPage[lang];
+const es = lang === 'es';
+const titleHtml = buildHoverHtml(es ? 'SERVI#CIOS#' : 'SERVI#CES#', '7xl', false);
+const copy = es
+  ? { lead: 'Desarrollo web freelance para empresas y emprendedores, y disponible para unirme a tu equipo como desarrollador.', more: 'Ver todos los servicios' }
+  : { lead: 'Freelance web development for businesses, and available to join your team as a developer.', more: 'See all services' };
+---
+
+<section id="services" class="scroll-mt-[90px]">
+  <div class="wrap">
+    <div class="projects-head">
+      <h2 class="text-5xl sm:text-6xl font-black uppercase relative hover-string-container" set:html={titleHtml} />
+      <p class="lead">{copy.lead}</p>
+    </div>
+    <div class="tiles home-services">
+      {c.services.map(s => (
+        <a href={routes.services[lang]} class="tile home-service">
+          <div class="tile-icon"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={serviceIcons[s.icon]} /></div>
+          <h3>{s.title}</h3>
+          <p>{s.text}</p>
+        </a>
+      ))}
+    </div>
+    <div class="actions home-services-actions">
+      <ActionLink href={routes.services[lang]} icon="arrow">{copy.more}</ActionLink>
+      <ActionLink href={homeSection('contact', lang)} variant="ghost" icon="mail">{ui[lang].cta.contact}</ActionLink>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+#services { padding: 2rem 0 5rem; }
+.home-service {
+  color: white;
+  text-decoration: none;
+  transition: transform 200ms ease, border-color 200ms ease;
+}
+.home-service:hover { transform: translateY(-4px); border-color: rgba(255, 190, 65, 0.45); }
+.home-services-actions { justify-content: center; margin-top: 2.5rem; }
+</style>

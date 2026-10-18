@@ -317,11 +317,11 @@
 
 /* ---------- Content pages ---------- */
 .page-hero {
-  padding: 9rem 0 3.5rem;
+  padding-block: 9rem 3.5rem;
   position: relative;
 }
 .page-hero .display { margin: 1rem 0 1.5rem; }
-.page-section { padding: 3.5rem 0; }
+.page-section { padding-block: 3.5rem; }
 .page-section + .page-section { border-top: 1px dashed rgba(255, 255, 255, 0.12); }
 
 .breadcrumbs {

@@ -1,26 +1,23 @@
 import { translations, type Lang } from '../data/translations';
 
 export function buildHoverHtml(text: string, growSize = '8xl', useMars = false): string {
-  const parts = text.split(/(#.*?#)/g);
   const marsStyle = useMars ? ' style="font-family: var(--font-mars) !important"' : '';
 
-  // Group letters by word so flex-wrap can only break between words.
-  const wordGroups: { word: string; isPrimary: boolean }[] = [];
-  parts.forEach(part => {
-    const isPrimary = part.startsWith('#') && part.endsWith('#');
-    const content = isPrimary ? part.slice(1, -1) : part;
-    content.split(' ').forEach(w => {
-      if (w) wordGroups.push({ word: w, isPrimary });
-    });
-  });
+  // Each real word becomes one non-breaking group (so flex-wrap only breaks between words);
+  // #...# segments inside a word only change the color, e.g. "PORTA#FOLIO#" stays one word.
+  const words: { char: string; isPrimary: boolean }[][] = [[]];
+  let isPrimary = false;
+  for (const char of text) {
+    if (char === '#') isPrimary = !isPrimary;
+    else if (char === ' ') words.push([]);
+    else words[words.length - 1].push({ char, isPrimary });
+  }
 
-  const letters = wordGroups.map(({ word, isPrimary }) => {
-    const color = isPrimary
-      ? 'text-primary-500 hover:text-primary-300'
-      : 'hover:text-primary-500';
-    const chars = word.split('').map(char =>
-      `<span class="cursor-default relative select-none italic hover:transition-transform duration-75 ${color} hover:text-${growSize}"${marsStyle}>${char}</span>`
-    ).join('');
+  const letters = words.filter(w => w.length).map(word => {
+    const chars = word.map(({ char, isPrimary }) => {
+      const color = isPrimary ? 'text-primary-500 hover:text-primary-300' : 'hover:text-primary-500';
+      return `<span class="cursor-default relative select-none italic hover:transition-transform duration-75 ${color} hover:text-${growSize}"${marsStyle}>${char}</span>`;
+    }).join('');
     return `<span class="inline-block whitespace-nowrap">${chars}</span>`;
   }).join(' ');
 

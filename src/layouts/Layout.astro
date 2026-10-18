@@ -27,7 +27,7 @@ const title = Astro.props.title ?? seo.title;
 const description = Astro.props.description ?? seo.description;
 const canonical = Astro.props.canonical ?? seo.canonical;
 const keywords = Astro.props.keywords ?? seo.keywords;
-const ogImage = Astro.props.ogImage ?? `${baseUrl}/backgrounds/og-image.png`;
+const ogImage = Astro.props.ogImage ?? `${baseUrl}/backgrounds/og-image.jpg`;
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -36,7 +36,7 @@ const personSchema = {
   name: 'Anderson Rueda',
   alternateName: 'Anderson David Rueda Consuegra',
   url: `${baseUrl}/`,
-  image: `${baseUrl}/backgrounds/og-image.png`,
+  image: `${baseUrl}/backgrounds/og-image.jpg`,
   jobTitle: seo.personJobTitle,
   description: seo.personDescription,
   email: 'contactoandersonrueda@gmail.com',
@@ -151,7 +151,9 @@ const websiteSchema = {
 
     <!-- PWA -->
     <meta name="theme-color" content="#ffbe41" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/simbolo.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Fonts -->

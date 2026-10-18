@@ -1,7 +1,7 @@
 {
-  "name": "Anderson Rueda — Desarrollador Full Stack",
+  "name": "Anderson Rueda — Desarrollador de Software",
   "short_name": "Anderson Rueda",
-  "description": "Portafolio de Anderson Rueda, desarrollador Angular, Frontend y Full Stack en Barranquilla, Colombia.",
+  "description": "Portafolio de Anderson Rueda, desarrollador de software Frontend y Full Stack en Barranquilla, Colombia.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -12,6 +12,7 @@
   "categories": ["portfolio", "technology"],
   "icons": [
     { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" },
-    { "src": "/simbolo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable any" }
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/simbolo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }
