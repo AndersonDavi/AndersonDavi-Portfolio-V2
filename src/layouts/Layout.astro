@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import '../styles/buttons.css';
-import { alternateUrls, getSeo } from '../data/seo';
+import { alternateUrls, baseUrl, getSeo } from '../data/seo';
 import type { Lang } from '../data/translations';
 
 interface Props {
@@ -10,22 +10,24 @@ interface Props {
   canonical?: string;
   keywords?: string;
   lang?: Lang;
+  noindex?: boolean;
 }
 
-const { lang = 'es' } = Astro.props;
+const { lang = 'es', noindex = false } = Astro.props;
 const seo = getSeo(lang);
 const title = Astro.props.title ?? seo.title;
 const description = Astro.props.description ?? seo.description;
 const canonical = Astro.props.canonical ?? seo.canonical;
 const keywords = Astro.props.keywords ?? seo.keywords;
+const ogImage = `${baseUrl}/backgrounds/og-image.png`;
 
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Anderson Rueda',
   alternateName: 'Anderson David Rueda Consuegra',
-  url: 'https://andersonrueda.com',
-  image: 'https://andersonrueda.com/backgrounds/og-image.png',
+  url: `${baseUrl}/`,
+  image: ogImage,
   jobTitle: seo.personJobTitle,
   description: seo.personDescription,
   email: 'contactoandersonrueda@gmail.com',
@@ -35,16 +37,26 @@ const personSchema = {
     addressRegion: 'Atlantico',
     addressCountry: 'CO',
   },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Activos S.A.S',
+  },
   knowsAbout: [
     'Angular',
+    'Astro',
     'TypeScript',
     'JavaScript',
+    'Java',
     'Node.js',
     'NestJS',
     'SQL Server',
+    'PostgreSQL',
     'MySQL',
+    'Firestore',
     'Docker',
     'AWS',
+    'Google Cloud Platform',
+    'Power Platform',
     'Tailwind CSS',
     'Bootstrap',
     'Software Development',
@@ -57,7 +69,7 @@ const personSchema = {
   },
   sameAs: [
     'https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/',
-    'https://github.com/andersondavi',
+    'https://github.com/AndersonDavi',
   ],
 };
 
@@ -65,7 +77,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: seo.websiteName,
-  url: 'https://andersonrueda.com',
+  url: `${baseUrl}/`,
   description: seo.websiteDescription,
   inLanguage: seo.lang,
   author: { '@type': 'Person', name: 'Anderson Rueda' },
@@ -82,7 +94,7 @@ const websiteSchema = {
     <meta name="author" content="Anderson Rueda" />
 
     <!-- Robots -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'} />
     <meta name="language" content={seo.languageMeta} />
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
@@ -101,7 +113,7 @@ const websiteSchema = {
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://andersonrueda.com/backgrounds/og-image.png" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content={seo.siteName} />
@@ -113,13 +125,17 @@ const websiteSchema = {
     <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://andersonrueda.com/backgrounds/og-image.png" />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Canonical and language alternates -->
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="es" href={alternateUrls.es} />
-    <link rel="alternate" hreflang="en" href={alternateUrls.en} />
-    <link rel="alternate" hreflang="x-default" href={alternateUrls.default} />
+    {!noindex && (
+      <>
+        <link rel="canonical" href={canonical} />
+        <link rel="alternate" hreflang="es" href={alternateUrls.es} />
+        <link rel="alternate" hreflang="en" href={alternateUrls.en} />
+        <link rel="alternate" hreflang="x-default" href={alternateUrls.default} />
+      </>
+    )}
 
     <!-- PWA -->
     <meta name="theme-color" content="#ffbe41" />

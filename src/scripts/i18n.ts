@@ -14,7 +14,7 @@ export function buildHoverHtml(text: string, growSize = '8xl', useMars = false):
     });
   });
 
-  return wordGroups.map(({ word, isPrimary }) => {
+  const letters = wordGroups.map(({ word, isPrimary }) => {
     const color = isPrimary
       ? 'text-primary-500 hover:text-primary-300'
       : 'hover:text-primary-500';
@@ -23,6 +23,10 @@ export function buildHoverHtml(text: string, growSize = '8xl', useMars = false):
     ).join('');
     return `<span class="inline-block whitespace-nowrap">${chars}</span>`;
   }).join(' ');
+
+  // Per-letter spans are decorative; expose the plain text once for crawlers and screen readers.
+  const plainText = text.replace(/#/g, '');
+  return `<span class="sr-only">${plainText}</span><span aria-hidden="true">${letters}</span>`;
 }
 
 export function formatHtml(text: string): string {

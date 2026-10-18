@@ -30,10 +30,10 @@ const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
         ></span>
         <div class="contact-social-icons flex justify-center gap-4">
           <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" rel="noopener noreferrer">
-            <img src="/linkedin.svg" alt="linkedin icon" class="size-12 scale" />
+            <img loading="lazy" decoding="async" src="/linkedin.svg" alt="linkedin icon" class="size-12 scale" />
           </a>
           <a href="https://github.com/andersondavi" target="_blank" rel="noopener noreferrer">
-            <img src="/github.svg" alt="github icon" class="size-12 scale" />
+            <img loading="lazy" decoding="async" src="/github.svg" alt="github icon" class="size-12 scale" />
           </a>
         </div>
       </div>
@@ -64,7 +64,7 @@ const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
           </div>
         </form>
         <a href="mailto:contactoandersonrueda@gmail.com" target="_blank" class="email-link">
-          <img src="/email.svg" alt="email icon" class="my-3 h-[20px] w-[20px] object-contain hover:scale-110 lg:mx-5 mr-1 md:mx-0 active:scale-105" />
+          <img loading="lazy" decoding="async" src="/email.svg" alt="email icon" class="my-3 h-[20px] w-[20px] object-contain hover:scale-110 lg:mx-5 mr-1 md:mx-0 active:scale-105" />
           <p class="text-wrap w-full lg:pr-10 break-words">contactoandersonrueda&#64;gmail.com</p>
         </a>
       </div>
@@ -73,42 +73,42 @@ const web3formsKey = import.meta.env.WEB3FORMS_KEY || '';
     <!-- Success state -->
     <section id="contact-success" class="flex-col md:flex-row justify-evenly items-center size-full hidden">
       <div class="flex flex-col justify-center items-center">
-        <h2 class="text-center text-6xl mb-3 font-semibold my-5">
+        <div class="text-center text-6xl mb-3 font-semibold my-5" role="status">
           <div
             class="hover-string-container"
             data-hover-key="contact.text2"
             data-grow-size="7xl"
             set:html={buildHoverHtml(t.contact.text2, '7xl', false)}
           />
-        </h2>
+        </div>
         <p class="text-gray-300 text-lg" data-i18n="contact.text3">{t.contact.text3}</p>
         <p class="w-[50%] border-b-2 border-primary my-5"></p>
       </div>
-      <img src="/email-submit.svg" alt="email enviado" class="w-auto max-h-96 mt-10" />
+      <img loading="lazy" decoding="async" src="/email-submit.svg" alt="email enviado" class="w-auto max-h-96 mt-10" />
     </section>
 
     <!-- Error state -->
     <section id="contact-error" class="flex-col md:flex-row justify-around items-center size-full hidden">
       <div class="flex flex-col justify-center items-center p-5">
-        <h2 class="text-center text-6xl mb-3 font-semibold my-5">
+        <div class="text-center text-6xl mb-3 font-semibold my-5" role="status">
           <div
             class="hover-string-container"
             data-hover-key="contact.text4"
             data-grow-size="7xl"
             set:html={buildHoverHtml(t.contact.text4, '7xl', false)}
           />
-        </h2>
+        </div>
         <p class="text-gray-300 text-lg text-center max-w-[650px]" data-i18n="contact.text5">{t.contact.text5}</p>
         <div class="w-[130px] flex justify-center gap-3 mt-5">
           <a href="mailto:contactoandersonrueda@gmail.com" class="size-9">
-            <img src="/email.svg" alt="email" class="hover:scale-110 h-full active:scale-105" />
+            <img loading="lazy" decoding="async" src="/email.svg" alt="email" class="hover:scale-110 h-full active:scale-105" />
           </a>
           <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" class="size-9" rel="noopener noreferrer">
-            <img src="/linkedin.svg" alt="linkedin" class="hover:scale-110 h-full active:scale-105" />
+            <img loading="lazy" decoding="async" src="/linkedin.svg" alt="linkedin" class="hover:scale-110 h-full active:scale-105" />
           </a>
         </div>
       </div>
-      <img src="/email-error.svg" alt="error" class="w-1/2 max-h-96 md:mt-10" />
+      <img loading="lazy" decoding="async" src="/email-error.svg" alt="error" class="w-1/2 max-h-96 md:mt-10" />
     </section>
 
   </div>

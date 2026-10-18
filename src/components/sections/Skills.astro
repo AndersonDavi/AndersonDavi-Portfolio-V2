@@ -32,7 +32,7 @@ import { skills, skillTypes } from '../../data/skills';
               style={`animation-delay: ${idx * 0.1}s`}
               data-type={skill.type}
             >
-              <img src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
+              <img loading="lazy" decoding="async" src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
               <span>{skill.title}</span>
             </div>
           ))}
@@ -44,7 +44,7 @@ import { skills, skillTypes } from '../../data/skills';
               style={`animation-delay: ${idx * 0.1}s`}
               data-type={skill.type}
             >
-              <img src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
+              <img loading="lazy" decoding="async" src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
               <span>{skill.title}</span>
             </div>
           ))}
@@ -197,14 +197,14 @@ import { skills, skillTypes } from '../../data/skills';
 
     featuredEl.innerHTML = featured.map((s, i) => `
       <div class="skill-item featured scale" style="animation-delay: ${i * 0.1}s" data-type="${s.type}">
-        <img src="/skills/${s.img}" alt="${s.title} icon" />
+        <img loading="lazy" decoding="async" src="/skills/${s.img}" alt="${s.title} icon" />
         <span>${s.title}</span>
       </div>
     `).join('');
 
     otherEl.innerHTML = other.map((s, i) => `
       <div class="skill-item scale" style="animation-delay: ${i * 0.1}s" data-type="${s.type}">
-        <img src="/skills/${s.img}" alt="${s.title} icon" />
+        <img loading="lazy" decoding="async" src="/skills/${s.img}" alt="${s.title} icon" />
         <span>${s.title}</span>
       </div>
     `).join('');

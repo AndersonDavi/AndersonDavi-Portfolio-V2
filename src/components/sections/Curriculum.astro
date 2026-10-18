@@ -25,7 +25,7 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
     <!-- Work Experience (left, -rotate-3) -->
     <div class="curriculum-card opacity-appearL" id="work-card">
       <h2 class="experience-title-card" style="transform: rotate(-3deg)">
-        <img src="/icon2.webp" alt="" class="absolute -top-5 -left-5 size-16 -rotate-6 floatingY scale" />
+        <img loading="lazy" decoding="async" src="/icon2.webp" alt="" class="absolute -top-5 -left-5 size-16 -rotate-6 floatingY scale" />
         <span class="whitespace-nowrap">
           <span data-i18n="experience.work.title.split.0">{workTitle[0]}</span>
           <br />
@@ -48,7 +48,7 @@ const marqueeItems = Array.from({ length: 16 }, (_, i) =>
     <!-- Education (right, rotate-3) -->
     <div class="curriculum-card opacity-appearR" id="edu-card">
       <h2 class="experience-title-card" style="transform: rotate(3deg)">
-        <img src="/icon1.webp" alt="" class="absolute -top-7 -right-7 size-20 rotate-6 floatingY scale" />
+        <img loading="lazy" decoding="async" src="/icon1.webp" alt="" class="absolute -top-7 -right-7 size-20 rotate-6 floatingY scale" />
         <span class="text-4xl sm:text-5xl" data-i18n="experience.education.title">{eduTitle}</span>
       </h2>
       <ul class="experience-cotent-list edu-list mr-7" style="transform: rotate(3deg)">

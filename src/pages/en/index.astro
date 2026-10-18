@@ -18,7 +18,7 @@ const faqSchema = createFaqSchema(lang);
   <script type="application/ld+json" slot="schema" set:html={JSON.stringify(faqSchema)} />
   <Navbar lang={lang} />
   <main>
-    <Hero />
+    <Hero lang={lang} />
     <About lang={lang} />
     <Curriculum lang={lang} />
     <Skills />

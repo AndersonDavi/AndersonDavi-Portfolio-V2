@@ -1,6 +1,6 @@
 import type { Lang } from './translations';
 
-const baseUrl = 'https://andersonrueda.com';
+export const baseUrl = 'https://www.andersonrueda.com';
 
 export const seoByLang = {
   es: {

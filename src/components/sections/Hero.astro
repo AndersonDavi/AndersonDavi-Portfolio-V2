@@ -1,13 +1,20 @@
 ---
+import type { Lang } from '../../data/translations';
+
+const { lang = 'es' } = Astro.props as { lang?: Lang };
+const subtitle = {
+  es: 'Desarrollador Angular & Full Stack en Barranquilla, Colombia',
+  en: 'Angular & Full Stack Developer in Barranquilla, Colombia',
+}[lang];
 ---
 
 <section id="title">
   <div class="size-full floatingY content-container px-4 relative">
     <h1 class="header-title">
-      <span class="text-primary-500" style="font-family: var(--font-mars) !important;">ANDERSON</span>
+      <span class="text-primary-500" style="font-family: var(--font-mars) !important;">ANDERSON</span>{" "}
       <br />
-      <span style="font-family: var(--font-mars) !important;">RUEDA</span>
-      <span class="sr-only">| Desarrollador Angular & Full Stack | Web Developer</span>
+      <span style="font-family: var(--font-mars) !important;">RUEDA</span>{" "}
+      <span class="sr-only">| {subtitle}</span>
     </h1>
     <div class="text-decoration-1">
       <span class="scale" style="font-family: var(--font-mars) !important;">Web developer</span>

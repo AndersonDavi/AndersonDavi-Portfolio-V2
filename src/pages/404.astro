@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Página no encontrada | Anderson Rueda"
+  description="La página que buscas no existe. Vuelve al portafolio de Anderson Rueda, desarrollador Angular y Full Stack."
+  noindex
+>
+  <main class="not-found">
+    <span class="not-found-code" style="font-family: var(--font-mars) !important;">404</span>
+    <h1 class="text-3xl sm:text-5xl font-black uppercase italic">Página no encontrada</h1>
+    <p class="text-lg sm:text-xl text-gray-300">
+      La página que buscas no existe o fue movida. / This page doesn't exist.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/" class="btn btn-primary">Ir al inicio</a>
+      <a href="/en/" class="btn btn-secondary">Go home</a>
+    </div>
+  </main>
+</Layout>
+
+<style>
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.not-found-code {
+  font-size: clamp(6rem, 25vw, 14rem);
+  line-height: 0.8;
+  color: var(--color-primary-500);
+}
+</style>

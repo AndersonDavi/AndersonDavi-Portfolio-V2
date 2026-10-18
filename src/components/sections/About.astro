@@ -30,17 +30,17 @@ const text2Html = formatHtml(t.about.text2);
       data-i18n-html="about.text2"
       set:html={text2Html}
     ></p>
-    <img
+    <img loading="lazy" decoding="async"
       src="/decoration/arrow1.webp"
-      alt="decoración"
+      alt=""
       class="size-20 object-contain absolute bottom-10 -right-10 -rotate-90 hidden lg:block floatingX scale"
     />
     <div class="flex gap-4">
       <a href="https://github.com/andersondavi" target="_blank" rel="noopener noreferrer">
-        <img src="/github.svg" alt="github icon" class="size-8 sm:size-12 scale cursor-pointer" />
+        <img loading="lazy" decoding="async" src="/github.svg" alt="github icon" class="size-8 sm:size-12 scale cursor-pointer" />
       </a>
       <a href="https://www.linkedin.com/in/anderson-david-rueda-consuegra-16b32821b/" target="_blank" rel="noopener noreferrer">
-        <img src="/linkedin.svg" alt="linkedin icon" class="size-8 sm:size-12 scale cursor-pointer" />
+        <img loading="lazy" decoding="async" src="/linkedin.svg" alt="linkedin icon" class="size-8 sm:size-12 scale cursor-pointer" />
       </a>
       <a
         href={t.resume.url}
@@ -50,14 +50,14 @@ const text2Html = formatHtml(t.about.text2);
         data-i18n-href="resume.url"
         id="resume-link"
       >
-        <img src="/resume-es.svg" alt="resume icon" class="size-8 sm:size-12" />
+        <img loading="lazy" decoding="async" src="/resume-es.svg" alt="resume icon" class="size-8 sm:size-12" />
         <span data-i18n="resume.text">{t.resume.text}</span>
       </a>
     </div>
   </div>
 
   <div class="lg:w-1/2 max-w-[400px] lg:max-w-[600px] rotate-6 w-full flex items-center justify-center opacity-appearR">
-    <img src="/decoration/marco1.webp" alt="marco foto perfil" class="floatingY scale" />
+    <img loading="lazy" decoding="async" src="/decoration/marco1.webp" alt={lang === 'en' ? 'Anderson Rueda, Full Stack Developer' : 'Anderson Rueda, Desarrollador Full Stack'} width="1278" height="1230" class="floatingY scale" />
   </div>
 
   <span class="rasgadura-down"></span>

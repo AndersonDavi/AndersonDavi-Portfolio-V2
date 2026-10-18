@@ -26,7 +26,7 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
             class={`project-tab${idx === 0 ? ' active-tab' : ''}`}
             data-project-id={project.id}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={`/logos/${project.logo_img}`}
               alt={`${project.title.replace(/#/g, '')} logo`}
             />
@@ -50,21 +50,21 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
                 style={`background-color: ${project.colors[0]};`}
               ></div>
 
-              <img
+              <img loading="lazy" decoding="async"
                 src={`/logos/${project.logo_img_noColor || project.logo_img}`}
                 alt={`${project.title.replace(/#/g, '')} logo`}
                 class="project-gallery-logo scale"
               />
 
               <div class="project-gallery-featured">
-                <img
+                <img loading="lazy" decoding="async"
                   src={`/gal-img/${project.x_images[0]}`}
                   alt={`${project.title.replace(/#/g, '')} screenshot`}
                   class="project-gallery-main scale-down"
                 />
                 <div class="project-gallery-side">
-                  <img src={`/gal-img/${project.x_images[1]}`} alt={`${project.title.replace(/#/g, '')} secondary screenshot 1`} class="scale-down" />
-                  <img src={`/gal-img/${project.x_images[2]}`} alt={`${project.title.replace(/#/g, '')} secondary screenshot 2`} class="scale-down" />
+                  <img loading="lazy" decoding="async" src={`/gal-img/${project.x_images[1]}`} alt={`${project.title.replace(/#/g, '')} secondary screenshot 1`} class="scale-down" />
+                  <img loading="lazy" decoding="async" src={`/gal-img/${project.x_images[2]}`} alt={`${project.title.replace(/#/g, '')} secondary screenshot 2`} class="scale-down" />
                 </div>
               </div>
             </div>
@@ -79,7 +79,7 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
 
             <div class="project-gallery-grid">
               {project.x_images.slice(3).map((image, imageIdx) => (
-                <img
+                <img loading="lazy" decoding="async"
                   src={`/gal-img/${image}`}
                   alt={`${project.title.replace(/#/g, '')} screenshot ${imageIdx + 4}`}
                   class="scale-down"
@@ -92,12 +92,12 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
                 class="project-gallery-device-bg"
                 style={`background-color: ${project.colors[0]}`}
               ></div>
-              <img
+              <img loading="lazy" decoding="async"
                 src={`/gal-img/${project.x_images[0]}`}
                 alt={`${project.title.replace(/#/g, '')} desktop`}
                 class="project-gallery-desktop scale"
               />
-              <img
+              <img loading="lazy" decoding="async"
                 src={`/gal-img/${project.y_images[0]}`}
                 alt={`${project.title.replace(/#/g, '')} mobile`}
                 class="project-gallery-mobile scale draggable"
@@ -119,7 +119,7 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
             <ul class="project-info-technologies">
               {project.technologies.map(tech => (
                 <li>
-                  <img src={`/skills/${tech.img}`} alt={`${tech.title} icon`} />
+                  <img loading="lazy" decoding="async" src={`/skills/${tech.img}`} alt={`${tech.title} icon`} />
                   <span>{tech.title}</span>
                 </li>
               ))}
@@ -130,13 +130,13 @@ const titleHtml = buildHoverHtml(t.projectsTitle, '7xl', false);
               )}
               {'code_url' in project && project.code_url && (
                 <a href={(project as any).code_url} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                  <img src="/skills/github.svg" alt="github icon" />CÓDIGO
+                  <img loading="lazy" decoding="async" src="/skills/github.svg" alt="github icon" />CÓDIGO
                 </a>
               )}
               {'mockup_url' in project && project.mockup_url && (
                 <a href={(project as any).mockup_url} target="_blank" rel="noopener noreferrer" class="btn btn-figma">
                   <div>
-                    <img src="/skills/figma.webp" alt="figma icon" /><span>MOCKUP</span>
+                    <img loading="lazy" decoding="async" src="/skills/figma.webp" alt="figma icon" /><span>MOCKUP</span>
                   </div>
                 </a>
               )}
