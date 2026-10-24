@@ -39,7 +39,8 @@ const copy = es
 </section>
 
 <style is:global>
-#services { padding: 2rem 0 5rem; }
+/* The contact section's torn edge rises 4vw into this one, so the gap grows with the viewport. */
+#services { padding: 2rem 0 calc(5rem + 4vw); }
 .home-service {
   color: white;
   text-decoration: none;

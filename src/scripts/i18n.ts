@@ -1,5 +1,8 @@
 import { translations, type Lang } from '../data/translations';
 
+/** Marquee items: two identical halves of 12, so a -50% shift loops seamlessly on screens up to ~3600px. */
+export const MARQUEE_COPIES = 24;
+
 export function buildHoverHtml(text: string, growSize = '8xl', useMars = false): string {
   const marsStyle = useMars ? ' style="font-family: var(--font-mars) !important"' : '';
 
@@ -67,10 +70,7 @@ export function applyLang(lang: Lang): void {
   document.querySelectorAll<HTMLElement>('[data-i18n-marquee]').forEach(el => {
     const value = getNestedValue(t, 'marquee');
     if (value && typeof value === 'string') {
-      const items = Array.from({ length: 16 }, (_, i) =>
-        i === 15 ? value.replace('-', '').trim() : value
-      );
-      el.innerHTML = items.map(txt => `<p>${txt}</p>`).join('');
+      el.innerHTML = Array.from({ length: MARQUEE_COPIES }, () => `<p>${value}</p>`).join('');
     }
   });
 }
