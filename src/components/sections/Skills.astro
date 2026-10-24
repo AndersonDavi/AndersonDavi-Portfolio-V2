@@ -35,7 +35,7 @@ const labels = skillTypeLabels[lang];
           {skills.filter(s => s.type === 'frontend').map((skill, idx) => (
             <div
               class="skill-item featured scale"
-              style={`animation-delay: ${idx * 0.1}s`}
+              style={`animation-delay: ${idx * 0.05}s`}
               data-type={skill.type}
             >
               <img loading="lazy" decoding="async" src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
@@ -47,7 +47,7 @@ const labels = skillTypeLabels[lang];
           {skills.filter(s => s.type !== 'frontend').map((skill, idx) => (
             <div
               class="skill-item scale"
-              style={`animation-delay: ${idx * 0.1}s`}
+              style={`animation-delay: ${Math.min(idx * 0.015, 0.3)}s`}
               data-type={skill.type}
             >
               <img loading="lazy" decoding="async" src={`/skills/${skill.img}`} alt={`${skill.title} icon`} />
@@ -138,7 +138,7 @@ const labels = skillTypeLabels[lang];
   margin-bottom: 3rem;
   width: 100%;
   min-height: 200px;
-  animation: traslateR 0.6s both;
+  animation: traslateR 0.4s both;
 }
 .other-skills {
   display: flex;
@@ -148,7 +148,7 @@ const labels = skillTypeLabels[lang];
   gap: 0.25rem;
   width: 100%;
   opacity: 0.4;
-  animation: traslateL 0.6s both;
+  animation: traslateL 0.4s both;
 }
 .skill-item {
   display: flex;
@@ -156,7 +156,7 @@ const labels = skillTypeLabels[lang];
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
-  animation: skillFadeIn 0.5s both;
+  animation: skillFadeIn 0.35s both;
   animation-delay: 0.8s;
 }
 .skill-item:not(.featured) {
@@ -174,7 +174,7 @@ const labels = skillTypeLabels[lang];
 .skill-item span { font-size: 0.875rem; text-align: center; }
 .skill-item.featured span { font-size: 1.125rem; }
 .skills-gallery.transitioning .featured-skills,
-.skills-gallery.transitioning .other-skills { opacity: 0; transition: opacity 0.3s ease; }
+.skills-gallery.transitioning .other-skills { opacity: 0; transition: opacity 0.15s ease; }
 @keyframes traslateR {
   0% { transform: translateX(25%); }
   100% { transform: translateX(0); }
@@ -202,15 +202,15 @@ const labels = skillTypeLabels[lang];
     const other = skills.filter(s => s.type !== selectedType);
 
     featuredEl.innerHTML = featured.map((s, i) => `
-      <div class="skill-item featured scale" style="animation-delay: ${i * 0.1}s" data-type="${s.type}">
-        <img loading="lazy" decoding="async" src="/skills/${s.img}" alt="${s.title} icon" />
+      <div class="skill-item featured scale" style="animation-delay: ${i * 0.05}s" data-type="${s.type}">
+        <img decoding="async" src="/skills/${s.img}" alt="${s.title} icon" />
         <span>${s.title}</span>
       </div>
     `).join('');
 
     otherEl.innerHTML = other.map((s, i) => `
-      <div class="skill-item scale" style="animation-delay: ${i * 0.1}s" data-type="${s.type}">
-        <img loading="lazy" decoding="async" src="/skills/${s.img}" alt="${s.title} icon" />
+      <div class="skill-item scale" style="animation-delay: ${Math.min(i * 0.015, 0.3)}s" data-type="${s.type}">
+        <img decoding="async" src="/skills/${s.img}" alt="${s.title} icon" />
         <span>${s.title}</span>
       </div>
     `).join('');
@@ -238,7 +238,7 @@ const labels = skillTypeLabels[lang];
         featuredEl.offsetHeight;
         featuredEl.style.animation = '';
         otherEl.style.animation = '';
-      }, 300);
+      }, 150);
     });
   });
 </script>
