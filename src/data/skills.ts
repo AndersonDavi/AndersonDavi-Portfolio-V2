@@ -21,6 +21,7 @@ export const skills: SkillItem[] = [
   { title: 'Node.js', img: 'node.svg', type: 'backend' },
   { title: 'NestJS', img: 'nest.svg', type: 'backend' },
   { title: 'Express', img: 'express.svg', type: 'backend' },
+  { title: 'Java', img: 'java.svg', type: 'backend' },
   { title: 'PostgreSQL', img: 'postgresql.svg', type: 'data' },
   { title: 'SQL Server', img: 'SQLserver.webp', type: 'data' },
   { title: 'Firestore', img: 'firestore.svg', type: 'data' },

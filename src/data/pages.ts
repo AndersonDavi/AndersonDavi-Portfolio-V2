@@ -152,7 +152,7 @@ export const faqPage = {
     items: [
       { q: '¿Quién es Anderson Rueda?', a: `Soy un desarrollador de software Frontend y Full Stack de Barranquilla, Colombia, con ${YEARS}+ años de experiencia. Soy Tecnólogo en Análisis y Desarrollo de Software del SENA, Tecnólogo en Desarrollo de Software y estudio Ingeniería de Sistemas.` },
       { q: '¿Cuántos años de experiencia tienes?', a: `Trabajo como desarrollador desde 2022: más de ${YEARS} años entre Activos S.A.S., Gestión Laboral S.A.S. (Grupo Logis), el SENA y proyectos freelance para clientes en Colombia y Estados Unidos.` },
-      { q: '¿Qué tecnologías manejas?', a: 'En frontend, Angular, Astro, TypeScript, JavaScript, HTML, CSS, Tailwind y Bootstrap. En backend, Node.js, NestJS y Express. En datos, PostgreSQL, SQL Server, Firestore y MySQL. En cloud, AWS, GCP, Docker, Vercel y Cloudflare.' },
+      { q: '¿Qué tecnologías manejas?', a: 'En frontend, Angular, Astro, TypeScript, JavaScript, HTML, CSS, Tailwind y Bootstrap. En backend, Node.js, NestJS, Express y Java. En datos, PostgreSQL, SQL Server, Firestore y MySQL. En cloud, AWS, GCP, Docker, Vercel y Cloudflare.' },
       { q: '¿Trabajas como freelance?', a: 'Sí. Desarrollo páginas web, landing pages, tiendas online, catálogos con pedidos por WhatsApp, sitios bilingües y aplicaciones web a medida para empresas y emprendedores.' },
       { q: '¿Cuánto cuesta una página web?', a: 'Depende del alcance: no cuesta lo mismo una landing page que un catálogo con cientos de productos y CMS. Cuéntame tu proyecto y te envío una propuesta por escrito, sin compromiso.' },
       { q: '¿Cuánto tiempo toma desarrollar un sitio web?', a: 'Como referencia, una landing page toma entre una y tres semanas, y un catálogo con CMS entre tres y seis. Los tiempos exactos quedan en la propuesta.' },
@@ -173,7 +173,7 @@ export const faqPage = {
     items: [
       { q: 'Who is Anderson Rueda?', a: `I’m a Frontend and Full Stack software developer from Barranquilla, Colombia, with ${YEARS}+ years of experience. I hold technologist degrees in Software Analysis and Development (SENA) and Software Development, and I’m studying Systems Engineering.` },
       { q: 'How many years of experience do you have?', a: `I’ve worked as a developer since 2022: ${YEARS}+ years across Activos S.A.S., Gestión Laboral S.A.S. (Grupo Logis), SENA and freelance projects for clients in Colombia and the United States.` },
-      { q: 'What is your tech stack?', a: 'Frontend: Angular, Astro, TypeScript, JavaScript, HTML, CSS, Tailwind and Bootstrap. Backend: Node.js, NestJS and Express. Data: PostgreSQL, SQL Server, Firestore and MySQL. Cloud: AWS, GCP, Docker, Vercel and Cloudflare.' },
+      { q: 'What is your tech stack?', a: 'Frontend: Angular, Astro, TypeScript, JavaScript, HTML, CSS, Tailwind and Bootstrap. Backend: Node.js, NestJS, Express and Java. Data: PostgreSQL, SQL Server, Firestore and MySQL. Cloud: AWS, GCP, Docker, Vercel and Cloudflare.' },
       { q: 'Are you available for remote roles?', a: 'Yes. I’m open to full-time remote Frontend or Full Stack roles with companies in the US, Canada, Europe and Latin America, as an employee or contractor.' },
       { q: 'What time zone do you work in?', a: 'Colombia time (UTC−5, no daylight saving). That gives a full workday overlap with US Eastern and Central time.' },
       { q: 'Have you worked with international clients?', a: 'Yes. I built a bilingual website for Klaystone Business Solutions, an accounting firm in North Carolina, working fully remotely.' },
