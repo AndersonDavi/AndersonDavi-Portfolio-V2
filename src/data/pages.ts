@@ -8,7 +8,7 @@ export const aboutPage = {
     h1: 'Desarrollador de software en Barranquilla, Colombia',
     lead: `Soy Anderson Rueda, desarrollador Frontend y Full Stack con ${YEARS}+ años de experiencia construyendo aplicaciones web, sistemas de información y sitios optimizados para buscadores.`,
     intro: [
-      'Me especializo en el frontend con Angular, Astro y TypeScript, con bases sólidas en diseño de interfaces y experiencia de usuario. En el backend trabajo con Node.js, NestJS y Express, bases de datos SQL y NoSQL, y despliegues en AWS y Google Cloud.',
+      'Me especializo en el frontend con Angular, Astro y TypeScript, con bases sólidas en diseño de interfaces y experiencia de usuario. En el backend trabajo con Java, Node.js, NestJS y Express, bases de datos SQL y NoSQL, y despliegues en AWS y Google Cloud.',
       'Hoy trabajo en Activos S.A.S. desarrollando módulos en Angular y servicios en NestJS, y en paralelo construyo proyectos freelance para empresas de Colombia y Estados Unidos: catálogos con CMS, sitios bilingües y herramientas propias como el Cotizador.',
     ],
     stats: [
@@ -43,7 +43,7 @@ export const aboutPage = {
     h1: 'Full Stack software developer from Colombia, available remotely',
     lead: `I’m Anderson Rueda, a Frontend and Full Stack developer with ${YEARS}+ years of experience building web applications, information systems and search-optimized websites.`,
     intro: [
-      'I specialize in frontend work with Angular, Astro and TypeScript, with a solid grounding in UI design and user experience. On the backend I work with Node.js, NestJS and Express, SQL and NoSQL databases, and deployments on AWS and Google Cloud.',
+      'I specialize in frontend work with Angular, Astro and TypeScript, with a solid grounding in UI design and user experience. On the backend I work with Java, Node.js, NestJS and Express, SQL and NoSQL databases, and deployments on AWS and Google Cloud.',
       'I currently work at Activos S.A.S. building Angular modules and NestJS services, and I also deliver freelance projects for companies in Colombia and the United States: CMS-driven catalogs, bilingual websites and my own tools such as Cotizador.',
     ],
     stats: [

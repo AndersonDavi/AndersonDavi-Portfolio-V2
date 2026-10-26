@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '../styles/buttons.css';
 import '../styles/ui.css';
 import { alternateUrls, baseUrl, getSeo } from '../data/seo';
+import { EMAIL, PHONE, YEARS } from '../data/site';
 import type { Lang } from '../data/translations';
 
 interface Props {
@@ -47,11 +48,34 @@ const personSchema = {
     addressRegion: 'Atlantico',
     addressCountry: 'CO',
   },
+  nationality: { '@type': 'Country', name: 'Colombia' },
+  homeLocation: { '@type': 'Place', name: 'Barranquilla, Colombia' },
   worksFor: {
     '@type': 'Organization',
     name: 'Activos S.A.S',
   },
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: seo.personJobTitle,
+    occupationalCategory: '15-1254.00 Web Developers',
+    occupationLocation: [
+      { '@type': 'Country', name: 'Colombia' },
+      { '@type': 'Place', name: lang === 'es' ? 'Remoto, todo el mundo' : 'Remote, worldwide' },
+    ],
+    skills: 'Angular, Astro, TypeScript, JavaScript, Java, Node.js, NestJS, Express, PostgreSQL, SQL Server, Firestore, MySQL, AWS, Google Cloud, Docker, Tailwind CSS, technical SEO',
+    experienceRequirements: `${YEARS}+ years`,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: lang === 'es' ? 'Proyectos freelance y ofertas de empleo' : 'Freelance projects and job offers',
+    email: EMAIL,
+    telephone: PHONE,
+    availableLanguage: ['Spanish', 'English'],
+    areaServed: 'Worldwide',
+  },
   knowsAbout: [
+    'Full Stack Development',
+    'Frontend Development',
     'Angular',
     'Astro',
     'TypeScript',
@@ -90,11 +114,13 @@ const personSchema = {
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${baseUrl}/#website`,
   name: seo.websiteName,
   url: `${baseUrl}/`,
   description: seo.websiteDescription,
   inLanguage: seo.lang,
-  author: { '@type': 'Person', name: 'Anderson Rueda' },
+  author: { '@id': `${baseUrl}/#person` },
+  publisher: { '@id': `${baseUrl}/#person` },
 };
 ---
 <!doctype html>
@@ -157,6 +183,9 @@ const websiteSchema = {
     <link rel="icon" href="/simbolo.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Plain-text profile for AI assistants (llmstxt.org) -->
+    <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM-friendly profile" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
